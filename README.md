@@ -2,4 +2,4 @@
 
 ### Contribution
 
-Kristina Hristova Beneva & Nadine Chargui 
+[Kristina Hristova Beneva](https://github.com/kbeneva) & [Nadine Chargui](https://github.com/Nchargui) 
