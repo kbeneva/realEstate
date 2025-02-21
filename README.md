@@ -4,7 +4,7 @@
 
 
 ---
-###  :envelope: Décription du projet
+###  :envelope: Déscription du projet
 
 L’application « HomeBreeze » est une plateforme où les utilisateurs peuvent rechercher des propriétés dans une province ou un quartier spécifique.
 Grâce à des filtres personnalisés, ils peuvent raffiner leur recherche pour trouver la propriété idéale.
