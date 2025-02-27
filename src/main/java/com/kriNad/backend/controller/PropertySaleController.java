@@ -1,4 +1,4 @@
 package com.kriNad.backend.controller;
 
-public class PropertyController {
+public class PropertySaleController {
 }

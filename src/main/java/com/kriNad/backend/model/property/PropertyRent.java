@@ -8,27 +8,12 @@ import jakarta.persistence.ManyToOne;
 public class PropertyRent extends Property {
 
     private boolean rent;
-    private int maxOccupant;
+    private Long maxOccupant;
 
     public PropertyRent() {
         this.setTypeProperty("À louer");
     }
 
-    public boolean isRent() {
-        return rent;
-    }
-
-    public void setRent(boolean rent) {
-        this.rent = rent;
-    }
-
-    public int getMaxOccupant() {
-        return maxOccupant;
-    }
-
-    public void setMaxOccupant(int maxOccupant) {
-        this.maxOccupant = maxOccupant;
-    }
 
     @ManyToOne
     private Agent agent;
@@ -37,7 +22,7 @@ public class PropertyRent extends Property {
     private Customer customer;
 
     @ManyToOne
-    private Location locataire;
+    private Location location;
 
 
 }

@@ -13,15 +13,14 @@ public class Property {
     private String description;
     private String typeProperty;
     private String categorie;
-    private double price;
+    private Double price;
     private String address;
-    private int nbChambre;
-    private int nbSalleBain;
-    private int nbstationnement;
-    private int nbGarage;
-    private double superficie;
-    private int anneeConstruction;
-
+    private Long nbChambre;
+    private Long nbSalleBain;
+    private Long nbstationnement;
+    private Long nbGarage;
+    private Double superficie;
+    private Long anneeConstruction;
 
     public Long getIdProperty() {
         return idProperty;
@@ -55,11 +54,11 @@ public class Property {
         this.categorie = categorie;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -71,51 +70,51 @@ public class Property {
         this.address = address;
     }
 
-    public int getNbChambre() {
+    public Long getNbChambre() {
         return nbChambre;
     }
 
-    public void setNbChambre(int nbChambre) {
+    public void setNbChambre(Long nbChambre) {
         this.nbChambre = nbChambre;
     }
 
-    public int getNbSalleBain() {
+    public Long getNbSalleBain() {
         return nbSalleBain;
     }
 
-    public void setNbSalleBain(int nbSalleBain) {
+    public void setNbSalleBain(Long nbSalleBain) {
         this.nbSalleBain = nbSalleBain;
     }
 
-    public int getNbstationnement() {
+    public Long getNbstationnement() {
         return nbstationnement;
     }
 
-    public void setNbstationnement(int nbstationnement) {
+    public void setNbstationnement(Long nbstationnement) {
         this.nbstationnement = nbstationnement;
     }
 
-    public int getNbGarage() {
+    public Long getNbGarage() {
         return nbGarage;
     }
 
-    public void setNbGarage(int nbGarage) {
+    public void setNbGarage(Long nbGarage) {
         this.nbGarage = nbGarage;
     }
 
-    public double getSuperficie() {
+    public Double getSuperficie() {
         return superficie;
     }
 
-    public void setSuperficie(double superficie) {
+    public void setSuperficie(Double superficie) {
         this.superficie = superficie;
     }
 
-    public int getAnneeConstruction() {
+    public Long getAnneeConstruction() {
         return anneeConstruction;
     }
 
-    public void setAnneeConstruction(int anneeConstruction) {
+    public void setAnneeConstruction(Long anneeConstruction) {
         this.anneeConstruction = anneeConstruction;
     }
 }

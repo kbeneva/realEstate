@@ -8,20 +8,10 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class PropertySale extends Property {
 
-    private boolean sold;
+    private Boolean sold;
 
     public PropertySale() {
         this.setTypeProperty("À vendre");
-    }
-
-
-
-    public boolean isSold() {
-        return sold;
-    }
-
-    public void setSold(boolean sold) {
-        this.sold = sold;
     }
 
 
