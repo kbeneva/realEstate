@@ -1,4 +1,15 @@
 package com.kriNad.backend.model;
 
-public class Admin {
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Admin extends Personne {
+
+
+    public Admin() {
+        setAdminAcces(true);
+    }
+
+
 }
