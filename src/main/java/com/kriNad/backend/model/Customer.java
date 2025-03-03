@@ -1,16 +1,16 @@
 package com.kriNad.backend.model;
 
 
-import com.kriNad.backend.model.property.Location;
+import com.kriNad.backend.model.property.Occupant;
 import jakarta.persistence.*;
 
 @Entity
 public class Customer extends User {
 
-    public Customer(Location locataire) {
-        this.setCustomerAcces(true);
+    public Customer() {
+        setCustomerAcces(true);
     }
 
     @ManyToOne
-    private Location locataire;
+    private Occupant locataire;
 }

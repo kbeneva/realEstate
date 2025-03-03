@@ -8,5 +8,9 @@ import jakarta.persistence.Id;
 public class Admin extends User {
 
 
+    public Admin() {
+        setAdminAcces(true);
+    }
+
 
 }

@@ -2,10 +2,13 @@ package com.kriNad.backend.model.property;
 import com.kriNad.backend.model.Agent;
 import com.kriNad.backend.model.Customer;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class PropertyRent extends Property {
+
+
 
     private boolean rent;
     private Long maxOccupant;
@@ -22,7 +25,7 @@ public class PropertyRent extends Property {
     private Customer customer;
 
     @ManyToOne
-    private Location location;
+    private Occupant location;
 
 
 }

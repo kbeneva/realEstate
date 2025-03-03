@@ -1,6 +1,5 @@
 package com.kriNad.backend.model;
 
-import com.kriNad.backend.model.property.Location;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,7 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUser;
     private String fname;
     private String lname;
     private String email;
@@ -23,11 +22,11 @@ public class User {
     private Boolean adminAcces;
 
     public Long getId() {
-        return id;
+        return idUser;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idUser = id;
     }
 
     public String getFname() {
