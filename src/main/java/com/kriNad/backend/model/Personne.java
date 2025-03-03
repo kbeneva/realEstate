@@ -7,7 +7,7 @@ import jakarta.persistence.MappedSuperclass;
 
 
 @MappedSuperclass
-public class User {
+public class Personne {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

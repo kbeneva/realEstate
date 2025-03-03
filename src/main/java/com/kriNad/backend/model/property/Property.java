@@ -15,12 +15,13 @@ public class Property {
     private String categorie;
     private Double price;
     private String address;
-    private Long nbChambre;
-    private Long nbSalleBain;
-    private Long nbstationnement;
-    private Long nbGarage;
-    private Double superficie;
-    private Long anneeConstruction;
+    private Long nbRooms;
+    private Long nbBathrooms;
+    private Long nbParkingSpace;
+    private Long nbGarages;
+    private Double area;
+    private Long ConstructionYear;
+    private String city;
 
     public Long getIdProperty() {
         return idProperty;
@@ -70,51 +71,62 @@ public class Property {
         this.address = address;
     }
 
-    public Long getNbChambre() {
-        return nbChambre;
+    public Long getNbRooms() {
+        return nbRooms;
     }
 
-    public void setNbChambre(Long nbChambre) {
-        this.nbChambre = nbChambre;
+    public void setNbRooms(Long nbChambre) {
+        this.nbRooms = nbChambre;
     }
 
-    public Long getNbSalleBain() {
-        return nbSalleBain;
+    public Long getNbBathrooms() {
+        return nbBathrooms;
     }
 
-    public void setNbSalleBain(Long nbSalleBain) {
-        this.nbSalleBain = nbSalleBain;
+    public void setNbBathrooms(Long nbSalleBain) {
+        this.nbBathrooms = nbSalleBain;
     }
 
-    public Long getNbstationnement() {
-        return nbstationnement;
+    public Long getNbParkingSpace() {
+        return nbParkingSpace;
     }
 
-    public void setNbstationnement(Long nbstationnement) {
-        this.nbstationnement = nbstationnement;
+    public void setNbParkingSpace(Long nbstationnement) {
+        this.nbParkingSpace = nbstationnement;
     }
 
-    public Long getNbGarage() {
-        return nbGarage;
+    public Long getNbGarages() {
+        return nbGarages;
     }
 
-    public void setNbGarage(Long nbGarage) {
-        this.nbGarage = nbGarage;
+    public void setNbGarages(Long nbGarage) {
+        this.nbGarages = nbGarage;
     }
 
-    public Double getSuperficie() {
-        return superficie;
+    public Double getArea() {
+        return area;
     }
 
-    public void setSuperficie(Double superficie) {
-        this.superficie = superficie;
+    public void setArea(Double superficie) {
+        this.area = superficie;
     }
 
-    public Long getAnneeConstruction() {
-        return anneeConstruction;
+    public Long getConstructionYear() {
+        return ConstructionYear;
     }
 
-    public void setAnneeConstruction(Long anneeConstruction) {
-        this.anneeConstruction = anneeConstruction;
+    public void setConstructionYear(Long anneeConstruction) {
+        this.ConstructionYear = anneeConstruction;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }
+
+
+

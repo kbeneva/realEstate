@@ -21,6 +21,13 @@ public class PropertySaleController {
     PropertySaleRepository propertySaleRepository;
 
 
+    @GetMapping("/getAllSaleProperty")
+    public List<PropertySale> getAll() {
+        return propertySaleRepository.findAll();
+    }
+
+
+
 
 
 

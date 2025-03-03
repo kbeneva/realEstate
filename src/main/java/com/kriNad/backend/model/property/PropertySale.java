@@ -11,7 +11,7 @@ public class PropertySale extends Property {
     private Boolean sold;
 
     public PropertySale() {
-        this.setTypeProperty("À vendre");
+        this.setTypeProperty("rent");
     }
 
 

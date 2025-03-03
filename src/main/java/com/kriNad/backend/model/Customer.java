@@ -5,7 +5,7 @@ import com.kriNad.backend.model.property.Occupant;
 import jakarta.persistence.*;
 
 @Entity
-public class Customer extends User {
+public class Customer extends Personne {
 
     public Customer() {
         setCustomerAcces(true);
