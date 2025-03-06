@@ -22,6 +22,9 @@ public class Property {
     private Long ConstructionYear;
     private String city;
 
+    // revoir
+    private String status;
+
     public Long getIdProperty() {
         return idProperty;
     }

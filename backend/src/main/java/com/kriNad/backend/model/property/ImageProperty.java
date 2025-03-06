@@ -3,7 +3,7 @@ package com.kriNad.backend.model.property;
 
 import jakarta.persistence.*;
 
-@Entity
+@MappedSuperclass
 public class ImageProperty {
 
     @Id
@@ -32,9 +32,9 @@ public class ImageProperty {
 
 
 
-    @ManyToOne
-    private PropertyRent propertyRent;
 
-    @ManyToOne
-    private PropertySale propertySale;
+
+
+
+
 }
