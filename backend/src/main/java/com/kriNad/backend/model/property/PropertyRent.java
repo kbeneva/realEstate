@@ -24,7 +24,7 @@ public class PropertyRent extends Property {
     private Customer customer;
 
     @ManyToOne
-    private Occupant location;
+    private Occupant occupant;
 
 
 }

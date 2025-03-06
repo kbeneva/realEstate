@@ -1,16 +1,15 @@
 package com.kriNad.backend.model.property;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
 @MappedSuperclass
 public class Property {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProperty;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
+
     private String typeProperty;
     private String categorie;
     private Double price;

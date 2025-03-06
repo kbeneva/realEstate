@@ -18,7 +18,6 @@ public class Personne {
     private String phone;
     private String password;
     private Boolean agentAcces;
-    private Boolean customerAcces;
     private Boolean adminAcces;
 
     public Long getId() {
@@ -75,14 +74,6 @@ public class Personne {
 
     public void setAgentAcces(Boolean agentAcces) {
         this.agentAcces = agentAcces;
-    }
-
-    public Boolean getCustomerAcces() {
-        return customerAcces;
-    }
-
-    public void setCustomerAcces(Boolean customerAcces) {
-        this.customerAcces = customerAcces;
     }
 
     public Boolean getAdminAcces() {
