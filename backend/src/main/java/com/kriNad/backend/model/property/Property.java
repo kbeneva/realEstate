@@ -1,5 +1,6 @@
 package com.kriNad.backend.model.property;
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 @MappedSuperclass
 public class Property {
@@ -23,6 +24,7 @@ public class Property {
     private String city;
 
     // revoir
+    @ColumnDefault("'en attente'")
     private String status;
 
     public Long getIdProperty() {
