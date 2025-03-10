@@ -1,8 +1,18 @@
 package com.kriNad.backend.model.property;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public class Property {
 
     @Id
@@ -10,8 +20,6 @@ public class Property {
 
     @Column(columnDefinition = "TEXT")
     private String description;
-
-    private String typeProperty;
     private String categorie;
     private Double price;
     private String address;
@@ -23,9 +31,17 @@ public class Property {
     private Long ConstructionYear;
     private String city;
 
-    // revoir
-    @ColumnDefault("'en attente'")
-    private String status;
+    @CreatedDate
+    private Date creationDate;
+
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 
     public Long getIdProperty() {
         return idProperty;
@@ -43,13 +59,6 @@ public class Property {
         this.description = description;
     }
 
-    public String getTypeProperty() {
-        return typeProperty;
-    }
-
-    public void setTypeProperty(String typeProperty) {
-        this.typeProperty = typeProperty;
-    }
 
     public String getCategorie() {
         return categorie;

@@ -8,10 +8,5 @@ import jakarta.persistence.*;
 public class Agent extends Personne {
 
 
-    public Agent() {
-        setAgentAcces(true);
-    }
 
-    @ManyToOne
-    private Occupant locataire;
 }

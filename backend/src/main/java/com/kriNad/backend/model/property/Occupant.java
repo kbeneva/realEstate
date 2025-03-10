@@ -24,4 +24,6 @@ public class Occupant {
     public Long getId() {
         return id;
     }
+
+
 }

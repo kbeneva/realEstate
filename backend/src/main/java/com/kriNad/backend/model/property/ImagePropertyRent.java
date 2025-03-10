@@ -8,6 +8,14 @@ import jakarta.persistence.ManyToOne;
 public class ImagePropertyRent extends ImageProperty{
 
 
+    public PropertyRent getPropertyRent() {
+        return propertyRent;
+    }
+
+    public void setPropertyRent(PropertyRent propertyRent) {
+        this.propertyRent = propertyRent;
+    }
+
     @ManyToOne
     private PropertyRent propertyRent;
 }
