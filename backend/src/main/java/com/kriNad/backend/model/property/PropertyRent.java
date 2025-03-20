@@ -74,4 +74,9 @@ public class PropertyRent extends Property {
     private Occupant occupant;
 
 
+    @ManyToOne
+    private PropertyRent propertyRent;
+
+
+
 }
