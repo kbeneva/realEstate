@@ -1,15 +1,14 @@
-package com.kriNad.backend.model.DemandeSoumission;
+package com.kriNad.backend.model.DemandeSoumission.Soumission;
 
 
-import com.kriNad.backend.model.property.PropertyRent;
-import com.kriNad.backend.model.property.PropertySale;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
-@Entity
+
+@MappedSuperclass
 public class Soumission {
 
     @Id
@@ -57,25 +56,7 @@ public class Soumission {
         this.creationDate = creationDate;
     }
 
-    public PropertySale getPropertySale() {
-        return propertySale;
-    }
 
-    public void setPropertySale(PropertySale propertySale) {
-        this.propertySale = propertySale;
-    }
 
-    public PropertyRent getPropertyRent() {
-        return propertyRent;
-    }
 
-    public void setPropertyRent(PropertyRent propertyRent) {
-        this.propertyRent = propertyRent;
-    }
-
-    @OneToOne
-    private PropertySale propertySale;
-
-    @OneToOne
-    private PropertyRent propertyRent;
 }

@@ -1,4 +1,4 @@
-package com.kriNad.backend.model;
+package com.kriNad.backend.model.personne;
 
 
 import jakarta.persistence.Entity;

@@ -1,6 +1,6 @@
 package com.kriNad.backend.model.property;
-import com.kriNad.backend.model.Agent;
-import com.kriNad.backend.model.Customer;
+import com.kriNad.backend.model.personne.Agent;
+import com.kriNad.backend.model.personne.Customer;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import org.hibernate.annotations.ColumnDefault;
@@ -11,7 +11,7 @@ public class PropertySale extends Property {
 
     private Boolean sold;
 
-    @ColumnDefault("'rent'")
+    @ColumnDefault("'sale'")
     private String typeProperty;
 
 
