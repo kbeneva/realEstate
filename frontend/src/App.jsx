@@ -2,7 +2,7 @@ import {Route, BrowserRouter, Routes} from 'react-router-dom'
 import React from 'react';
 import './App.css'
 import NotFound from './pages/NotFound.jsx'
-import Accueil from './pages/Accueil.jsx'
+import PropertiesRentList from "./components/PropertiesRentList.jsx";
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
             <div>
                 <Routes>
 
-                    < Route path='/' element={<Accueil/>}/>
+                    < Route path='/' element={<PropertiesRentList/>}/>
 
                     < Route path='*' element={<NotFound/>}/>
                 </Routes>

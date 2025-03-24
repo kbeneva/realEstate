@@ -5,10 +5,7 @@ import com.kriNad.backend.model.property.ImagePropertySale;
 import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.repositories.ImagePropertySaleRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,9 +21,16 @@ public class ImagePropertySaleController {
 
 
 
-    @GetMapping("/getAllSaleProperty")
+    @GetMapping("/getAllImageSaleProperty")
     public List<ImagePropertySale> getAll(){
         return imagePropertySaleRepositories.findAll();
+
+
+
+
+    } @GetMapping("/getAllImagesByPropertyId")
+    public List<String> getAllImagesByPropertyId(@RequestParam Long propertySaleIdProperty){
+        return imagePropertySaleRepositories.getImagePropertySaleByPropertySaleId(propertySaleIdProperty);
     }
 
 }
