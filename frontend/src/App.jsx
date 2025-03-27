@@ -4,6 +4,7 @@ import './App.css'
 import NotFound from './pages/NotFound.jsx'
 import PropertiesListCard from "./components/PropertiesListCard.jsx";
 import ImagePropertyList from "./components/ImagePropertyList.jsx";
+import PropertiesSaleListCard from "./components/PropertiesSaleListCard.jsx";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
             <div>
                 <Routes>
 
-                    < Route path='/' element={<PropertiesListCard/>}/>
+                    < Route path='/' element={<PropertiesSaleListCard/>}/>
 
                     < Route path='*' element={<NotFound/>}/>
                 </Routes>

@@ -21,10 +21,12 @@ public class PropertySaleController {
     PropertySaleRepository propertySaleRepository;
 
 
-    @GetMapping("/getAllSaleProperty")
+    @GetMapping("/getAllProperty")
     public List<PropertySale> getAll() {
         return propertySaleRepository.findAll();
     }
+
+
 
 
 

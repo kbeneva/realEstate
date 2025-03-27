@@ -9,19 +9,18 @@ import ImagePropertyList from "./ImagePropertyList.jsx";
 
 
 
-function PropertiesListCard() {
+function PropertiesListCard(props) {
 
     const [tabProperty, setProperty] = useState([]);
 
 
 
     const loadAllProperty = async () => {
-        const result = await axios.get("http://www.localhost:9696/propertyRent/getAllRentProperty");
+        const result = await axios.get(`http://www.localhost:9696/property${props.typePropriete}/getAllProperty`);
         setProperty(result.data);
     };
 
-    // const tabImagesResult = ImagePropertyList(tabProperty[0])  // le lien de l'image aura comme dernier param le id des proprete
-    // console.log(tabProperty.map((data) => data.idProperty));
+
 
 
     useEffect(() => {
@@ -32,19 +31,27 @@ function PropertiesListCard() {
 
     return (
 
+
+
         <div id={"cardProperties"} className="row row-cols-3">
 
             {tabProperty.map((data) => (
 
                     <Card  key={data.idProperty}>
 
-                        <ImagePropertyList idPropriete={data.idProperty}/>
+                        <ImagePropertyList idPropriete={data.idProperty} typeProprety={props.typePropriete}/>
 
                         <Card.Body>
-                            <Card.Title>{data.price}$ / month</Card.Title>
-                            <Card.Text>{data.address} {data.city}</Card.Text>
-                            <Card.Text>{data.nbRooms} {data.nbBathrooms}</Card.Text>
-                            <Card.Text></Card.Text>
+                            <Card.Title>{data.price}{props.priceType}</Card.Title>
+                            <Card.Text>
+                                <div>{data.address}</div>
+                                <div>{data.city}</div>
+                            </Card.Text>
+
+                            <Card.Text>
+                                <div>{data.nbRooms}</div>
+                                <div>{data.nbBathrooms}</div>
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                 ))}

@@ -12,7 +12,7 @@ function ImagePropertyList(props) {
     const [tabImages, setImages] = useState([]);
 
     const loadAllImagesByPropertyId = async () => {
-        const result = await axios.get(`http://localhost:9696/ImagePropertyRent/getAllImagesByPropertyId?propertyRentIdProperty=${props.idPropriete}`);
+        const result = await axios.get(`http://localhost:9696/ImageProperty${props.typeProprety}/getAllImagesByPropertyId?propertyIdProperty=${props.idPropriete}`);
         setImages(result.data);
 
     };

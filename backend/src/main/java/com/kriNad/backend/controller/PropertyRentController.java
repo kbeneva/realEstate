@@ -21,15 +21,10 @@ public class PropertyRentController {
     PropertyRentRepository propertyRentRepository;
 
 
-    @GetMapping("/getAllRentProperty")
+    @GetMapping("/getAllProperty")
     public List<PropertyRent> getAll(){
         return propertyRentRepository.findAll();
     }
 
 
-
-    @GetMapping("/getAllRentPropertyAndImages")
-    public List<String> getPropertyRentAndImages() {
-        return propertyRentRepository.getPropertyRentAndImages();
-    }
 }

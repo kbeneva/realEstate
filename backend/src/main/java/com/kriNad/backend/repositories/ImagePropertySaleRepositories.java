@@ -14,4 +14,6 @@ public interface ImagePropertySaleRepositories extends JpaRepository<ImageProper
     public List<String> getImagePropertySaleByPropertySaleId(Long propertySaleId);
 
 
+
+
 }

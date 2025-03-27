@@ -26,8 +26,8 @@ public class ImagePropertyRentController {
 
 
     @GetMapping("/getAllImagesByPropertyId")
-    public List<String> getAllImagesByPropertyId(@RequestParam Long propertyRentIdProperty){
-        return imagePropertyRentRepositories.getImagePropertyRentByPropertyRentId(propertyRentIdProperty);
+    public List<String> getAllImagesByPropertyId(@RequestParam Long propertyIdProperty){
+        return imagePropertyRentRepositories.getImagePropertyRentByPropertyRentId(propertyIdProperty);
     }
 
 

@@ -10,9 +10,9 @@ import java.util.List;
 public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long> {
 
 
+    List<PropertyRent> findPropertyRentsByCategorie(String categorie);
 
-    @Query("select pr.idProperty, ipr.imageLink from PropertyRent pr left join ImagePropertyRent ipr on ipr.propertyRent =  pr")
-    public List<String>getPropertyRentAndImages();
+    List<PropertyRent> findByPriceBetween(Double priceAfter, Double priceBefore);
 
 
 }
