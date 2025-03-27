@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ImagePropertyRentRepositories extends JpaRepository<ImagePropertyRent, Long> {
 
-    @Query("select im.imageLink from ImagePropertyRent im where im.propertyRent.idProperty=?1")
+    @Query("select im.propertyRent.idProperty, im.imageLink from ImagePropertyRent im where im.propertyRent.idProperty=?1")
     public List<String> getImagePropertyRentByPropertyRentId(Long propertyRentId);
 
 

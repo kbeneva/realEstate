@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css'
 import NotFound from './pages/NotFound.jsx'
 import PropertiesListCard from "./components/PropertiesListCard.jsx";
+import ImagePropertyList from "./components/ImagePropertyList.jsx";
 
 
 function App() {

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ImagePropertySaleRepositories extends JpaRepository<ImagePropertySale, Long> {
 
-     @Query("select im.imageLink from ImagePropertySale im where im.propertySale.idProperty=?1")
+     @Query("select im.propertySale.idProperty,  im.imageLink from ImagePropertySale im where im.propertySale.idProperty=?1")
     public List<String> getImagePropertySaleByPropertySaleId(Long propertySaleId);
 
 

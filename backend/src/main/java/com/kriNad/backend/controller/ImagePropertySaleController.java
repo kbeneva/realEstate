@@ -29,8 +29,9 @@ public class ImagePropertySaleController {
 
 
     } @GetMapping("/getAllImagesByPropertyId")
-    public List<String> getAllImagesByPropertyId(@RequestParam Long propertySaleIdProperty){
+    public List<String> getAllImagesByPropertyId(Long propertySaleIdProperty){
         return imagePropertySaleRepositories.getImagePropertySaleByPropertySaleId(propertySaleIdProperty);
     }
 
 }
+
