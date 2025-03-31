@@ -9,7 +9,7 @@ function PropertiesSaleListCard() {
 
     return (
         <div>
-            <PropertiesListCard typePropriete={"Sale"} priceType={"$"}/>
+            <PropertiesListCard typePropriete={"Sale"} priceType={""}/>
         </div>
     );
 }

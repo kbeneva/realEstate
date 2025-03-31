@@ -25,10 +25,10 @@ function ImagePropertyList(props) {
 
     return(  // data.split(",")[1] get les liens dans la liste de String du repo
     <div>
-        <Carousel >
+        <Carousel interval={null}>
         {tabImages.map((data, i) => (
             <Carousel.Item key={i} >
-                <img src={data.split(",")[1]} />
+                <img src={data.split(",")[1]} className={"carousel-inner"}/>
             </Carousel.Item>
         ))}
         </Carousel>
