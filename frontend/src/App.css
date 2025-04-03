@@ -54,16 +54,36 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  max-height: 450px;
 
 
 }
 
 
-#cardProperties .carousel-inner{
-  border-radius: 30px;
+#cardProperties .card-title{
+  color: #2831e5;
+  font-size: x-large;
+}
+
+#cardProperties .card-text{
+  color: #192175;
+}
+
+#cardProperties .carousel-inner img{
   height: 250px;
-  overflow: hidden;
+  display: flex;
   width: 100%;
+
+}
+
+#cardProperties .carouselHolder{
+  border-radius: 30px;
+  overflow: hidden;
+
+
+
+
+
 }
 
 

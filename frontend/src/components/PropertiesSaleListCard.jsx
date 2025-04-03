@@ -10,6 +10,8 @@ function PropertiesSaleListCard() {
     return (
         <div>
             <PropertiesListCard typePropriete={"Sale"} priceType={""}/>
+            <PropertiesListCard typePropriete={"Rent"} priceType={"/month"} />
+
         </div>
     );
 }
