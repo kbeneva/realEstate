@@ -3,6 +3,7 @@ import "./Accueil.css";
 import SearchBar from "../components/SearchBar.jsx";
 import Filters from "../components/filters/Filters.jsx";
 import Display from "../components/homePageDisplay/Display.jsx";
+import React from "react";
 
 
 function Accueil() {
@@ -12,11 +13,11 @@ function Accueil() {
             <div className={"sloganBackground"}>
                 <h1 className={"sloganText"}>Find your ideal property in Montreal or Laval with HomeBreeze</h1>
                 <div className={"searchContainer"}>
-                    <SearchBar />
-                    <Filters />
+                    <SearchBar/>
+                    <Filters/>
                 </div>
             </div>
-            <Display />
+            <Display/>
 
         </div>
     )

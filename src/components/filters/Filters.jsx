@@ -36,14 +36,17 @@ function Filters() {
 
     return (
         <div>
-            <button className="listFilters" onClick={toggleFilters}>
-                <p>Filters</p><img className="filterImg" src="filter.png" alt="Filter"/>
-            </button>
+            <div className={"filterButtonContainer"}>
+                <button className="listFilters" onClick={toggleFilters}>
+                    <p>Filters</p><img className="filterImg" src="filter.png" alt="Filter"/>
+                </button>
+                <button className={"searchButton"}><img className={"searchIcon"} src={"search.png"}/></button>
+            </div>
             <div className={`listFiltersCollapse ${isCollapsed ? 'collapse' : ''}`}>
                 <div className={"collapseFiltersContainer"}>
                     <div className="filterRow">
                         <div className="filterRowHeader">
-                            <p className={"collapseFilter"}>Price</p>
+                        <p className={"collapseFilter"}>Price</p>
                             <button className={"plusButton"} onClick={() => toggleButton('price')}>
                                 <img className={"plusImg"} src={toggleStates.price ? "minus.png" : "plus.png"}
                                      alt={toggleStates.price ? "Minus icon" : "Plus icon"}/>

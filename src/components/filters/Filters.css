@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .listFiltersCollapse {
@@ -122,6 +123,24 @@
     opacity: 1;
 }
 
+.filterButtonContainer {
+    display: flex;
+}
+
+.searchButton {
+    background-color: #086788;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.searchIcon {
+    width: 30px;
+}
+
 @media (max-width: 1100px) {
     .listFilters {
         margin-left: 70px;
@@ -136,5 +155,9 @@
 
     .collapseFiltersContainer {
         width: 320px;
+    }
+
+    .searchButton {
+        margin-top: 5px;
     }
 }
