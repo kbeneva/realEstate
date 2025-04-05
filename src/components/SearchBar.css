@@ -1,0 +1,31 @@
+.searchBar {
+    background-color: #086788;
+    border-color: #086788;
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px;
+    display: flex;
+    margin-left: 70px;
+    margin-bottom: 70px;
+    color: white;
+    height: 20px;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 15px;
+}
+
+@media (min-width: 1100px) {
+    .searchBar {
+        width: 550px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .searchBar {
+        width: 300px;
+        margin-bottom: 10px;
+    }
+
+}
