@@ -1,9 +1,9 @@
 import React, {useState, useEffect, use} from 'react';
 import axios from 'axios';
 import {data, Link} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from "react-bootstrap/Card";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function ImagePropertyList(props) {

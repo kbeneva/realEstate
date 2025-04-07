@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {data, Link} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
 import Card from 'react-bootstrap/Card';
 import ImagePropertyList from "./ImagePropertyList.jsx";
 import {FaLocationDot} from "react-icons/fa6";
 import {FaBed} from "react-icons/fa";
 import {FaBath} from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
+
 
 
 function PropertiesListCard(props) {
