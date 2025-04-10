@@ -6,10 +6,7 @@ import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.PropertyRentRepository;
 import com.kriNad.backend.service.PropertyRentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,10 @@ public class PropertyRentController {
         return propertyRentService.getAll();
     }
 
+
+    @GetMapping("/filtre")
+    public List <PropertyRent> findPropertyFilters(@RequestParam(required = false) String categorie, @RequestParam(required = false) Long nb, @RequestParam(required = false)String typeProperty){
+        return propertyRentService.findByFilters(categorie, nb, typeProperty);
+    }
 
 }

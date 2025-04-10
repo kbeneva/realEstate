@@ -28,4 +28,11 @@ public class PropertyRentService {
     }
 
 
+    /// Filtres //////////////////////////////////////////////////////////////////////
+
+    public List<PropertyRent> findByFilters(String categorie, Long nb, String typeProperty) {
+        return propertyRentRepository.findPropertyFilters(categorie,nb, typeProperty);
+    };
+
+
 }
