@@ -1,11 +1,10 @@
-package com.kriNad.backend.controller;
+package com.kriNad.backend.service;
 
 
 import com.kriNad.backend.model.property.PropertyRent;
-import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.PropertyRentRepository;
-import com.kriNad.backend.service.PropertyRentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,20 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/propertyRent")
-@CrossOrigin
-public class PropertyRentController {
-
-    @Autowired
-    PropertyRentService PropertyRentService;
-    @Autowired
-    private PropertyRentService propertyRentService;
+@Service
+public class PropertyRentService {
 
 
-    @GetMapping("/getAllProperty")
+
+    private final PropertyRentRepository propertyRentRepository;
+
+    public PropertyRentService(PropertyRentRepository propertyRentRepository) {
+        this.propertyRentRepository = propertyRentRepository;
+    }
+
     public List<PropertyRent> getAll(){
-        return propertyRentService.getAll();
+        return propertyRentRepository.findAll();
     }
 
 

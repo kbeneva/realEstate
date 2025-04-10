@@ -5,21 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8567985-3a7b-4e9b-930a-867f92342e95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/propertiesDisplay.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/service/ImagePropertyRentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/service/ImagePropertySaleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/service/PropertyRentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/service/PropertySaleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ImagePropertyList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/ImagePropertyList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/PropertiesListCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/PropertiesListCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/PropertiesRentListCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/PropertiesRentListCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/PropertiesSaleListCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/PropertiesSaleListCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/ImagePropertyRentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/ImagePropertyRentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/ImagePropertySaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/ImagePropertySaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/PropertyRentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/PropertyRentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/PropertySaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/PropertySaleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +53,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.BackendApplication.executor": "Run",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "filtersNadine",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Nadine/OneDrive/Bureau/fullstackWebApp",
     "node.js.detected.package.eslint": "true",
@@ -78,6 +84,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nadine\OneDrive\Bureau\joa\realEstate\frontend\src\components\propertiesDisplay" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kriNad.backend.service" />
     </key>
   </component>
   <component name="RunManager">
@@ -116,7 +125,7 @@
       <workItem from="1743559524806" duration="5156000" />
       <workItem from="1743642259996" duration="597000" />
       <workItem from="1743976910775" duration="10074000" />
-      <workItem from="1744232543324" duration="9836000" />
+      <workItem from="1744232543324" duration="14891000" />
     </task>
     <servers />
   </component>

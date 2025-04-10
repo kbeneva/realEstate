@@ -1,10 +1,7 @@
 package com.kriNad.backend.controller;
 
-
 import com.kriNad.backend.model.property.ImagePropertyRent;
-import com.kriNad.backend.model.property.PropertyRent;
-import com.kriNad.backend.repositories.ImagePropertyRentRepositories;
-import com.kriNad.backend.repositories.ImagePropertySaleRepositories;
+import com.kriNad.backend.service.ImagePropertyRentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,17 +14,17 @@ public class ImagePropertyRentController {
 
 
     @Autowired
-    ImagePropertyRentRepositories imagePropertyRentRepositories;
+    ImagePropertyRentService imagePropertyRentService;
 
     @GetMapping("/getAllImageRent")
     public List<ImagePropertyRent> getAll(){
-        return imagePropertyRentRepositories.findAll();
+        return imagePropertyRentService.getAll();
     }
 
 
     @GetMapping("/getAllImagesByPropertyId")
     public List<String> getAllImagesByPropertyId(@RequestParam Long propertyIdProperty){
-        return imagePropertyRentRepositories.getImagePropertyRentByPropertyRentId(propertyIdProperty);
+        return imagePropertyRentService.getAllImagesByPropertyId(propertyIdProperty);
     }
 
 
