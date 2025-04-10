@@ -41,7 +41,7 @@ function PropertiesListCard(props) {
 
                     </div>
 
-                    <Card.Body>
+                    <Card.Body style={{paddingLeft:"10px"}}>
                         <div>
                             <Card.Title style={{display: "inline-flex"}}>{data.price.toLocaleString("fr-ca", {
                                 style: "currency",
@@ -59,13 +59,13 @@ function PropertiesListCard(props) {
 
                         </div>
 
-                        <Card.Text style={{paddingTop: "10px",}}>
+                        <Card.Text as={"div"} style={{paddingTop: "10px",}}>
                             <div><FaLocationDot/> {data.address},</div>
                             <div style={{paddingLeft: "3px"}}> {data.city}</div>
 
                         </Card.Text>
                         <div>
-                            <Card.Text style={{display: "inline-flex"}}>
+                            <Card.Text as={"div"} style={{display: "inline-flex", paddingTop:"20px"}}>
                                 <div><FaBed size={23} style={{marginRight: "0.5rem"}}/>{data.nbRooms}</div>
                                 <div style={{paddingInlineStart: "1rem"}}><FaBath size={22} style={{marginRight: "0.5rem"}}/>{data.nbBathrooms}
                                 </div>

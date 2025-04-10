@@ -3,7 +3,7 @@ import './App.css'
 import Accueil from "./pages/Accueil.jsx";
 import FormVendre from "./pages/FormVendre.jsx";
 import Connexion from "./pages/Connexion.jsx";
-import PropertiesRentListCard from "./components/PropertiesRentListCard.jsx";
+import PropertiesRentListCard from "./components/propertiesDisplay/PropertiesRentListCard.jsx";
 
 
 function FormeLouer() {
