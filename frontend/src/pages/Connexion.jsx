@@ -41,7 +41,7 @@ function Connexion() {
     const handleRegister = async (e) => {
         e.preventDefault();
         const fname = e.target[0].value;
-        const lname = ""; // Still placeholder if you don’t collect it
+        const lname = "";
         const email = e.target[1].value;
         const phone = e.target[2].value;
         const password = e.target[3].value;
