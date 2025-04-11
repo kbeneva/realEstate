@@ -1,7 +1,9 @@
+import Navbar from "../components/navbar/Navbar.jsx";
+
 function FormLouer() {
     return (
         <div>
-            <h1>FormLouer</h1>
+            <Navbar/>
         </div>
     )
 }
