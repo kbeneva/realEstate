@@ -30,8 +30,10 @@ public class PropertyRentService {
 
     /// Filtres //////////////////////////////////////////////////////////////////////
 
-    public List<PropertyRent> findByFilters(String categorie, Long nb, String typeProperty) {
-        return propertyRentRepository.findPropertyFilters(categorie,nb, typeProperty);
+    public List<PropertyRent> findByFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear,Long maxYear, String city) {
+
+        return propertyRentRepository.findPropertyFilters(categorie, minPrice, maxPrice, nbRooms, nbBathrooms, nbParking, nbGarages, minArea, maxArea, minYear, maxYear, city);
+
     };
 
 

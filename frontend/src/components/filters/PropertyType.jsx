@@ -1,33 +1,30 @@
 import React from 'react';
 import './Category.css';
+import {useFormContext} from "react-hook-form";
 
 function PropertyType() {
-    return (
-        <div>
-            <div className={"categoryContainer"}>
-                <label className={"categoryLabel"}>
-                    <input className={"categoryCheckbox"} type={"checkbox"}/>
-                    House
-                </label>
-                <label className={"categoryLabel"}>
-                    <input className={"categoryCheckbox"} type={"checkbox"}/>
-                    Condo
-                </label>
-            </div>
-            <div className={"categoryContainer"}>
-                <label className={"categoryLabel"}>
-                    <input className={"categoryCheckbox"} type={"checkbox"}/>
-                    Farm / Chalet
-                </label>
-                <label className={"categoryLabel"}>
-                    <input className={"categoryCheckbox"} type={"checkbox"}/>
-                    Terrain
-                </label>
-            </div>
-        </div>
 
-    )
-        ;
+    const { register } = useFormContext();
+    return (
+
+
+
+
+
+
+        <div className={"categoryContainer"}>
+            <label className={"categoryLabel"}>
+                <input type="radio" id="field-sale"  value="Sale"
+                       className={"categoryCheckbox"}  {...register("propertyType")}/>
+                To buy
+            </label>
+            <label className={"categoryLabel"}>
+                <input type="radio" id="field-rent"  value="Rent"
+                       className={"categoryCheckbox"}  {...register("propertyType")}/>
+                To rent
+            </label>
+        </div>
+    );
 }
 
 export default PropertyType;

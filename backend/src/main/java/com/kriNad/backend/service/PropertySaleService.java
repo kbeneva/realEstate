@@ -1,6 +1,7 @@
 package com.kriNad.backend.service;
 
 
+import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.PropertySaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,13 @@ public class PropertySaleService {
     }
 
 
+    // filtres ////////////////////////////////////////////////////////////
+
+    public List<PropertySale> findByFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city) {
+
+        return propertySaleRepository.findPropertyFilters(categorie, minPrice, maxPrice, nbRooms, nbBathrooms, nbParking, nbGarages, minArea, maxArea, minYear, maxYear, city);
+
+    };
 
 
 

@@ -28,8 +28,20 @@ public class PropertyRentController {
 
 
     @GetMapping("/filtre")
-    public List <PropertyRent> findPropertyFilters(@RequestParam(required = false) String categorie, @RequestParam(required = false) Long nb, @RequestParam(required = false)String typeProperty){
-        return propertyRentService.findByFilters(categorie, nb, typeProperty);
+    public List <PropertyRent> findPropertyFilters(
+            @RequestParam(required = false) String categorie,
+            @RequestParam(required = false)Long minPrice,
+            @RequestParam(required = false)Long maxPrice,
+            @RequestParam(required = false)Long nbRooms,
+            @RequestParam(required = false)Long nbBathrooms,
+            @RequestParam(required = false)Long nbParking,
+            @RequestParam(required = false)Long nbGarages,
+            @RequestParam(required = false)Long minArea,
+            @RequestParam(required = false)Long maxArea,
+            @RequestParam(required = false)Long minYear,
+            @RequestParam(required = false)Long maxYear,
+            @RequestParam(required = false)String city){
+        return propertyRentService.findByFilters(categorie, minPrice, maxPrice, nbRooms, nbBathrooms, nbParking, nbGarages, minArea, maxArea, minYear, maxYear, city);
     }
 
 }

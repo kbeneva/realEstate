@@ -33,17 +33,15 @@ function ImagePropertyList(props) {
     return (  // data.split(",")[1] get juste les liens dans la liste de String du repo
 
 
-        <Swiper   //swiperjs
+        <Swiper className={"swiperImage"}   //swiperjs
             modules={[Navigation, Scrollbar, A11y]}
             navigation
             loop={true}
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-
         >
-
             {tabImages.map((data, i) => (
-                <SwiperSlide key={i}>
+                <SwiperSlide className={"swiperSlideImage"}  key={i}>
                     <img src={data.split(",")[1]}/>
                 </SwiperSlide>
             ))}

@@ -5,7 +5,7 @@ import PropertiesListCard from "./PropertiesListCard.jsx";
 function PropertiesRentListCard() {
     return (
         <div>
-            <PropertiesListCard typePropriete={"Rent"} priceType={"/month"}/>
+            <PropertiesListCard typePropriete={"Rent"} priceType={"/month"}  />
         </div>
     );
 }

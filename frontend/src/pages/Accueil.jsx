@@ -13,7 +13,6 @@ function Accueil() {
             <div className={"sloganBackground"}>
                 <h1 className={"sloganText"}>Find your ideal property in Montreal or Laval with HomeBreeze</h1>
                 <div className={"searchContainer"}>
-                    <SearchBar/>
                     <Filters/>
                 </div>
             </div>

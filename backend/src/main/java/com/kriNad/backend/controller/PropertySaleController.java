@@ -1,6 +1,7 @@
 package com.kriNad.backend.controller;
 
 
+import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.PropertySaleRepository;
 import com.kriNad.backend.service.PropertySaleService;
@@ -31,8 +32,22 @@ public class PropertySaleController {
 
 
 
+    @GetMapping("/filtre")
+    public List <PropertySale> findPropertyFilters(
+            @RequestParam(required = false) String categorie,
+            @RequestParam(required = false)Long minPrice,
+            @RequestParam(required = false)Long maxPrice,
+            @RequestParam(required = false)Long nbRooms,
+            @RequestParam(required = false)Long nbBathrooms,
+            @RequestParam(required = false)Long nbParking,
+            @RequestParam(required = false)Long nbGarages,
+            @RequestParam(required = false)Long minArea,
+            @RequestParam(required = false)Long maxArea,
+            @RequestParam(required = false)Long minYear,
+            @RequestParam(required = false)Long maxYear,
+            @RequestParam(required = false)String city) {
+        return propertySaleService.findByFilters(categorie, minPrice, maxPrice, nbRooms, nbBathrooms, nbParking, nbGarages, minArea, maxArea, minYear, maxYear, city);
 
 
-
-
+    }
 }
