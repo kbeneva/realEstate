@@ -7,7 +7,7 @@ import Features from "./Features";
 import Building from "./Building";
 import {useForm, FormProvider, useFormContext} from "react-hook-form"
 import SearchBar from "../SearchBar.jsx";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function Filters() {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -40,7 +40,7 @@ function Filters() {
     const [filters, setFilters] = useState()
     ///////////////////////////////filters form/////////////////////////////////////////
 
-    const methods = useForm({defaultValues:{propertyType:"Rent", categorie:""}});
+    const methods = useForm({defaultValues: {propertyType: "Rent", categorie: ""}});
     const onSubmit = (data) => {
         console.log(data);
         setFilters(data)
@@ -56,6 +56,7 @@ function Filters() {
 
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit(onSubmit)}>
+
                     <SearchBar/>
                     <div className={"filterButtonContainer"}>
                         <button className="listFilters" onClick={toggleFilters}>
@@ -73,7 +74,8 @@ function Filters() {
                                 <div className="filterRowHeader">
                                     <p className={"collapseFilter"}>Price</p>
                                     <button className={"plusButton"} onClick={() => toggleButton('price')}>
-                                        <img className={"plusImg"} src={toggleStates.price ? "minus.png" : "plus.png"}
+                                        <img className={"plusImg"}
+                                             src={toggleStates.price ? "minus.png" : "plus.png"}
                                              alt={toggleStates.price ? "Minus icon" : "Plus icon"}/>
                                     </button>
                                 </div>
@@ -113,7 +115,8 @@ function Filters() {
                                              alt={toggleStates.features ? "Minus icon" : "Plus icon"}/>
                                     </button>
                                 </div>
-                                <div className={`component ${toggleStates.features ? 'show' : ''}`}><Features/></div>
+                                <div className={`component ${toggleStates.features ? 'show' : ''}`}><Features/>
+                                </div>
                             </div>
                             <div className="filterRow">
                                 <div className="filterRowHeader">
@@ -124,12 +127,14 @@ function Filters() {
                                              alt={toggleStates.building ? "Minus icon" : "Plus icon"}/>
                                     </button>
                                 </div>
-                                <div className={`component ${toggleStates.building ? 'show' : ''}`}><Building/></div>
+                                <div className={`component ${toggleStates.building ? 'show' : ''}`}><Building/>
+                                </div>
                             </div>
                             <button className={"filterButton"}>Reset</button>
                             <button className={"filterButton"} onClick={toggleFilters}>Close</button>
                         </div>
                     </div>
+
                 </form>
             </FormProvider>
         </div>

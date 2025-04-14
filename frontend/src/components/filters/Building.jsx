@@ -8,7 +8,7 @@ function Building() {
     const { register } = useFormContext();
 
     return (
-        <div>
+        <div className={"buildingFilters"}>
             <p className={"buildingText"}>Living area</p>
             <div className={"buildingContainer"}>
                 <input className={"inputBuilding"} type={"text"} placeholder={"Min"} {...register("minArea")}/>
