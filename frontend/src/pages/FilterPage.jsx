@@ -9,8 +9,7 @@ import "./filterPage.css"
 
 function FilterPage() {
 
-
-
+    const [filters, setFilters] = useState({})
 
     return (
 
@@ -18,20 +17,15 @@ function FilterPage() {
 
             <div className={"bodyContainer"}>
                 <div className={"filterPropertyContainer"}>
-
-
                     <div className={"containerCardSwiper"}>
-
                         <div className={"searchContainer"}>
-                            <Filters/>
+                            <Filters setFilters={setFilters}/>
                         </div>
-
                         <div className={"title"}>
                             <h2> Available properties</h2>
                             <hr/>
                         </div>
-
-                        <PropertiesListCard priceType={"/month"} />
+                        <PropertiesListCard {...filters} priceType={"/month"} />
                     </div>
 
                 </div>

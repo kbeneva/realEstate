@@ -29,6 +29,9 @@ public class PropertySaleController {
     }
 
 
+    @GetMapping("/getById")
+    public PropertySale getPropertyById(Long id) {return propertySaleService.getById(id)}
+
 
 
 

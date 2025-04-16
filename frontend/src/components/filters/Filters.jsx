@@ -7,9 +7,10 @@ import Features from "./Features";
 import Building from "./Building";
 import {useForm, FormProvider, useFormContext} from "react-hook-form"
 import SearchBar from "../SearchBar.jsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
-function Filters() {
+// eslint-disable-next-line react/prop-types
+function Filters( {setFilters}) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [toggleStates, setToggleStates] = useState({
         price: false,
@@ -37,15 +38,17 @@ function Filters() {
         });
     };
 
-    const [filters, setFilters] = useState()
+    const navigate = useNavigate();
+
     ///////////////////////////////filters form/////////////////////////////////////////
 
     const methods = useForm({defaultValues: {propertyType: "Rent", categorie: ""}});
     const onSubmit = (data) => {
-        console.log(data);
         setFilters(data)
-    };
+        console.log(data);
+        navigate("/search")
 
+    };
 
     ///////////////////////////////
 
@@ -59,21 +62,21 @@ function Filters() {
 
                     <SearchBar/>
                     <div className={"filterButtonContainer"}>
-                        <button className="listFilters" onClick={toggleFilters}>
+                        <button className="listFilters" onClick={toggleFilters} type={"button"}>
                             <p>Filters</p><img className="filterImg" src="filter.png" alt="Filter"/>
                         </button>
 
-                        <Link to="/search">
+
                             <button type={"submit"} className={"searchButton"}><img className={"searchIcon"}
                                                                                     src={"search.png"}/></button>
-                        </Link>
+
                     </div>
                     <div className={`listFiltersCollapse ${isCollapsed ? 'collapse' : ''}`}>
                         <div className={"collapseFiltersContainer"}>
                             <div className="filterRow">
                                 <div className="filterRowHeader">
                                     <p className={"collapseFilter"}>Price</p>
-                                    <button className={"plusButton"} onClick={() => toggleButton('price')}>
+                                    <button className={"plusButton"} type={"button"} onClick={() => toggleButton('price')}>
                                         <img className={"plusImg"}
                                              src={toggleStates.price ? "minus.png" : "plus.png"}
                                              alt={toggleStates.price ? "Minus icon" : "Plus icon"}/>
@@ -85,7 +88,7 @@ function Filters() {
                             <div className="filterRow">
                                 <div className="filterRowHeader">
                                     <p className={"collapseFilter"}>Property Type</p>
-                                    <button className={"plusButton"} onClick={() => toggleButton('category')}>
+                                    <button className={"plusButton"}  type={"button"} onClick={() => toggleButton('category')}>
                                         <img className={"plusImg"}
                                              src={toggleStates.category ? "minus.png" : "plus.png"}
                                              alt={toggleStates.category ? "Minus icon" : "Plus icon"}/>
@@ -97,7 +100,7 @@ function Filters() {
                             <div className="filterRow">
                                 <div className="filterRowHeader">
                                     <p className={"collapseFilter"}>Category</p>
-                                    <button className={"plusButton"} onClick={() => toggleButton('propertyType')}>
+                                    <button className={"plusButton"}  type={"button"} onClick={() => toggleButton('propertyType')}>
                                         <img className={"plusImg"}
                                              src={toggleStates.propertyType ? "minus.png" : "plus.png"}
                                              alt={toggleStates.propertyType ? "Minus icon" : "Plus icon"}/>
@@ -109,7 +112,7 @@ function Filters() {
                             <div className="filterRow">
                                 <div className="filterRowHeader">
                                     <p className={"collapseFilter"}>Features</p>
-                                    <button className={"plusButton"} onClick={() => toggleButton('features')}>
+                                    <button className={"plusButton"}  type={"button"}onClick={() => toggleButton('features')}>
                                         <img className={"plusImg"}
                                              src={toggleStates.features ? "minus.png" : "plus.png"}
                                              alt={toggleStates.features ? "Minus icon" : "Plus icon"}/>
@@ -121,7 +124,7 @@ function Filters() {
                             <div className="filterRow">
                                 <div className="filterRowHeader">
                                     <p className={"collapseFilter"}>Building</p>
-                                    <button className={"plusButton"} onClick={() => toggleButton('building')}>
+                                    <button className={"plusButton"}  type={"button"}onClick={() => toggleButton('building')}>
                                         <img className={"plusImg"}
                                              src={toggleStates.building ? "minus.png" : "plus.png"}
                                              alt={toggleStates.building ? "Minus icon" : "Plus icon"}/>
@@ -130,8 +133,8 @@ function Filters() {
                                 <div className={`component ${toggleStates.building ? 'show' : ''}`}><Building/>
                                 </div>
                             </div>
-                            <button className={"filterButton"}>Reset</button>
-                            <button className={"filterButton"} onClick={toggleFilters}>Close</button>
+                            <button className={"filterButton"} type={"button"}>Reset</button>
+                            <button className={"filterButton"} onClick={toggleFilters} type={"button"}>Close</button>
                         </div>
                     </div>
 

@@ -10,13 +10,9 @@ import {FaBath} from "react-icons/fa";
 
 
 
-function PropertiesListCard(
-    // eslint-disable-next-line react/prop-types
-     {minPrice = '0',maxPrice = '3000000', nbRooms = '', nbBathrooms = '', nbParking = '', nbGarages = '', minArea = '', maxArea = '', minYear = '', maxYear = '', categorie = '', city = '', priceType = '', typePropriete = 'Rent'
-    }
-) { // par défaut, les filtres seront null, (sauf le prix et la categorie)
+function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix et la categorie)
 
-
+    const  {minPrice = '0',maxPrice = '3000000', nbRooms = '', nbBathrooms = '', nbParking = '', nbGarages = '', minArea = '', maxArea = '', minYear = '', maxYear = '', categorie = '', city = '', priceType = '', typePropriete = 'Rent'} = propsFilters;
     const [tabProperty, setProperty] = useState([]);
 
 
@@ -27,15 +23,12 @@ function PropertiesListCard(
     };
 
 
-    useEffect(() => {
+    useEffect(() => {   ///load à chaque fois que les filtres changes
         loadAllProperty();
-    }, []);
+    }, [propsFilters]);
 
 
     return (
-
-
-
 
         <div id={"cardProperties"}>
 

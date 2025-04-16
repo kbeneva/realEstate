@@ -29,6 +29,10 @@ public class PropertySaleService {
         return propertySaleRepository.findAll();
     }
 
+    public PropertySale getById(Long id) {
+        return propertySaleRepository.findPropertySaleById(id);
+    }
+
 
     // filtres ////////////////////////////////////////////////////////////
 

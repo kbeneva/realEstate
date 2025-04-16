@@ -28,6 +28,12 @@
         width: 800px;
     }
 
+    .searchContainer form {
+        display: flex;
+        flex-direction: row;
+
+    }
+
 
 
 
@@ -38,8 +44,5 @@
         width: 350px;
     }
 
-    .filterPropertyContainer form {
 
-        background: #287d33;
-    }
 }

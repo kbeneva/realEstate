@@ -15,12 +15,12 @@ function PropertyType() {
         <div className={"categoryContainer"}>
             <label className={"categoryLabel"}>
                 <input type="radio" id="field-sale"  value="Sale"
-                       className={"categoryCheckbox"}  {...register("propertyType")}/>
+                       className={"categoryCheckbox"}  {...register("typePropriete")}/>
                 To buy
             </label>
             <label className={"categoryLabel"}>
                 <input type="radio" id="field-rent"  value="Rent"
-                       className={"categoryCheckbox"}  {...register("propertyType")}/>
+                       className={"categoryCheckbox"}  {...register("typePropriete")}/>
                 To rent
             </label>
         </div>

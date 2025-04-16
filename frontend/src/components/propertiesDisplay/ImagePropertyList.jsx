@@ -1,6 +1,6 @@
 import React, {useState, useEffect, use} from 'react';
 import axios from 'axios';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -35,6 +35,7 @@ function ImagePropertyList(props) {
 
         <Swiper className={"swiperImage"}   //swiperjs
             modules={[Navigation, Scrollbar, A11y]}
+
             navigation
             loop={true}
             pagination={{ clickable: true }}
