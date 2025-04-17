@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {useParams} from "react-router-dom";
-import ImagePropertyList from "./ImagePropertyList.jsx";
-import Navbar from "../navbar/Navbar.jsx";
+import {Link, useParams} from "react-router-dom";
+import ImagePropertyList from "../../components/propertiesDisplay/ImagePropertyList.jsx";
+import Navbar from "../../components/navbar/Navbar.jsx";
 import "./propertyView.css"
 import {FaBath, FaBed} from "react-icons/fa";
 import {FaLocationDot} from "react-icons/fa6";
@@ -32,7 +32,6 @@ function PropertyView() {
     useEffect(() => {
         loadProperty();
     }, []);
-
 
 
     if (!property.price) {  /// méthode toLocaleString est appelé avant les données
@@ -78,13 +77,13 @@ function PropertyView() {
                     <p><FaBath/>{property.nbBathrooms} bathroom(s)</p>
                     <p><LuCircleParking/>{property.nbParkingSpace} parking space(s)</p>
                     <p><BiSolidCarGarage/>{property.nbGarages} garage(s)</p>
-                    <div >
+                    <div>
                         <p className={"area"}>area</p>
                         <p>{property.area} pc</p>
                     </div>
-                    <div >
+                    <div>
                         <p className={"year"}>Construction year</p>
-                        <p >{property.constructionYear}</p>
+                        <p>{property.constructionYear}</p>
                     </div>
 
 
@@ -107,7 +106,10 @@ function PropertyView() {
 
                             <p> {property.agent.email}</p>
                             <p> {property.agent.phone}</p>
-                            <button style={{background: "#2831e5"}}>contact</button>
+                            <Link to={`/contact/${property.agent.id}/${property.idProperty}`}>
+                                <button style={{background: "#2831e5"}}>contact</button>
+
+                            </Link>
                         </div>
 
                     </div>

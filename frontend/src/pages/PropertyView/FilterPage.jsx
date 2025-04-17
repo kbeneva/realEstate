@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from "../components/navbar/Navbar.jsx";
-import PropertiesListCard from "../components/propertiesDisplay/PropertiesListCard.jsx";
+import Navbar from "../../components/navbar/Navbar.jsx";
+import PropertiesListCard from "../../components/propertiesDisplay/PropertiesListCard.jsx";
 import  {useState} from 'react'
-import SearchBar from "../components/SearchBar.jsx";
-import Filters from "../components/filters/Filters.jsx";
+import SearchBar from "../../components/searchBar/SearchBar.jsx";
+import Filters from "../../components/filters/Filters.jsx";
 import "./filterPage.css"
 
 
