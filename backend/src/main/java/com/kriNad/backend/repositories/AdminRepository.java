@@ -2,6 +2,8 @@ package com.kriNad.backend.repositories;
 
 import com.kriNad.backend.model.personne.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
-public interface AdminRepositories  extends JpaRepository<Admin, Long> {
+public interface AdminRepository extends JpaRepository<Admin, Long> {
+    Optional<Admin> findByEmail(String email);
 }

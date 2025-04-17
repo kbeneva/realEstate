@@ -3,8 +3,6 @@ import axios from 'axios';
 import {data, Link} from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 import Card from "react-bootstrap/Card";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function ImagePropertyList(props) {
 

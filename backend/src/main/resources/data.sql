@@ -1,23 +1,19 @@
 insert into admin (id_user, fname, lname, email, phone, password, admin_acces)
-values (1, 'Kenny', 'Carrick', 'kcarrick0@epa.gov', '490-922-3063', 'lU9,AqAM', true),
-       (2, 'Barbie', 'Cona', 'bcona1@com.com', '796-794-8956', 'mS9*+eAL*0RoH', true),
-       (3, 'Marla', 'Mumford', 'mmumford2@blinklist.com', '130-628-4773', 'xV0%qjYa0n4Tbm', true),
-       (4, 'Federico', 'Comizzoli', 'fcomizzoli3@hc360.com', '606-762-1085', 'yO4,twZ?', true),
-       (5, 'Marnia', 'Kleisel', 'mkleisel4@people.com.cn', '750-469-7451', 'xH3=Ss>$xSW', true);
+values (1, 'Kenny', 'Carrick', 'kcarrick0@epa.gov', '490-922-3063', '$2y$10$1p7M.lCfhQ2I.dAq79Cf1eawJ6vEMpv8SZTY.BNS0FPUIAbQK3Ace', true);
 
 insert into agent (id_user, fname, lname, email, phone, password, agent_acces)
-values (6, 'Braden', 'Casacchia', 'bcasacchia5@weebly.com', '298-794-7801', 'oK8>"Iepbr', true),
-       (7, 'Petra', 'Farrow', 'pfarrow6@t.co', '683-358-0318', 'mH5>,>Ev''''{%FD', true),
-       (8, 'Dominica', 'Livock', 'dlivock7@time.com', '509-417-9750', 'uP1<G1|=IBN7?rVI', true),
-       (9, 'Jenifer', 'Mattschas', 'jmattschas8@meetup.com', '561-626-0046', 'fM8|u.!@ls', true),
-       (10, 'Joycelin', 'Ness', 'jness9@rakuten.co.jp', '586-897-1411', 'bS4}zlOM8nv"', true);
+values (6, 'Braden', 'Casacchia', 'bcasacchia5@weebly.com', '298-794-7801', '$2y$10$VSpglemdXZ6B9sMG9425G.usd8xfKmiAwp5FDWLezVZp3Fo8BXJda', true),
+       (7, 'Petra', 'Farrow', 'pfarrow6@t.co', '683-358-0318', '$2y$10$V.o23htDskF4diwG9ZENd.JXrS3ieipthBjoHEvGnG0ln9nL5uYg.', true),
+       (8, 'Dominica', 'Livock', 'dlivock7@time.com', '509-417-9750', '$2y$10$TanMwrAHdws6Ql7lHLPNOOFVmX0aTV3oFVY2WKW53zU.5N/urwIkS', true),
+       (9, 'Jenifer', 'Mattschas', 'jmattschas8@meetup.com', '561-626-0046', '$2y$10$cCWHKaDLocH23HqKiNj4e.JIg/VX2HKKQJf9RtTP9xWcH7jjDT86.', true),
+       (10, 'Joycelin', 'Ness', 'jness9@rakuten.co.jp', '586-897-1411', '$2y$10$KcxW9Lk40agCggqRjGzYie4WZ5Pc6Fat6ZuXJGpOlSi9T7A7otzjm', true);
 
 insert into customer (id_user, fname, lname, email, phone, password)
-values (11, 'Yehudi', 'Vittery', 'yvitterya@nsw.gov.au', '969-600-0719', 'rO7#G/f?a}KS' ),
-       (12, 'Hilly', 'Aldis', 'haldisb@so-net.ne.jp', '122-539-1680', 'xM7(#bC<l'),
-       (13, 'Yale', 'Sansome', 'ysansomec@e-recht24.de', '493-559-0493', 'mM7%#wnCsNjO=kjY'),
-       (14, 'Gilbertine', 'Collopy', 'gcollopyd@ebay.com', '446-319-2807', 'fS1+?Bp,wPPpB'),
-       (15, 'Carmella', 'le Keux', 'clekeuxe@twitpic.com', '752-880-7347', 'aC1&NVk_0V{@m');
+values (11, 'Yehudi', 'Vittery', 'yvitterya@nsw.gov.au', '969-600-0719', '$2y$10$DZI6SaQ0vwC8Nu7q1AYeQeBEF2Fdn08GlKgM/cSfU/jFsKV7dYA5K' ),
+       (12, 'Hilly', 'Aldis', 'haldisb@so-net.ne.jp', '122-539-1680', '$2y$10$FBynf9JK4HsOJ/zF78kgne3W7vgAKIYSGHVcGQbJzGLJaHr7zPmia'),
+       (13, 'Yale', 'Sansome', 'ysansomec@e-recht24.de', '493-559-0493', '$2y$10$HsIKLMpksjdna18LwEG.KueAAMAReggYg12gWv97QvND30tlLSmra'),
+       (14, 'Gilbertine', 'Collopy', 'gcollopyd@ebay.com', '446-319-2807', '$2y$10$IehgBU9dU0I5VjcypTue6ue7FkWtNhtrERO3LsBVw3pGM/qA4JCBC'),
+       (15, 'Carmella', 'le Keux', 'clekeuxe@twitpic.com', '752-880-7347', '$2y$10$7cjgKmhcGnUBmtIda9yAj.TeG1kpokld9fDYmrCeWVYaNhkssltQq');
 
 insert into occupant (id)
 values (1),

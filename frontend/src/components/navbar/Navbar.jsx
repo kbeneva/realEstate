@@ -11,8 +11,12 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-            <img className="logo" src="homeBreeze.png" alt="Logo" />
+            <Link to={"/"}>
+                <img className="logo" src="homeBreeze.png" alt="Logo"/>
+            </Link>
+            <Link to={"/"}>
             <p className="homeBreeze">HomeBreeze</p>
+            </Link>
             <div className={`navbarCollapse ${isCollapsed ? 'collapse' : ''}`}>
                 <div className={"collapseLinkContainer"}>
                     <Link to="/sell">

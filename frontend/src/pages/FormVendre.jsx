@@ -1,7 +1,9 @@
+import Navbar from "../components/navbar/Navbar.jsx";
+
 function FormVendre() {
     return (
         <div>
-            <h1>FormVendre</h1>
+            <Navbar/>
         </div>
     )
 }
