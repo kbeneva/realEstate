@@ -25,7 +25,7 @@ public class PropertySaleController {
         return propertySaleService.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("")
     public PropertySale getById(@PathVariable Long id) {
         return propertySaleService.getById(id).orElseThrow(() -> new PropertySaleNotFoundException(id));
     }

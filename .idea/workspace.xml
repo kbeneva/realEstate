@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8567985-3a7b-4e9b-930a-867f92342e95" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/PropertiesListCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/PropertiesListCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/propertyView.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/propertiesDisplay/propertyView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/PropertySaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/kriNad/backend/controller/PropertySaleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +128,7 @@
       <workItem from="1744827515815" duration="29839000" />
       <workItem from="1744888946103" duration="601000" />
       <workItem from="1744893149376" duration="3101000" />
+      <workItem from="1744911928868" duration="638000" />
     </task>
     <servers />
   </component>
