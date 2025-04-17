@@ -22,7 +22,7 @@ function App() {
                     <Route path="/rent" element={<FormeLouer/>}/>
                     <Route path="/login" element={<Connexion/>}/>
                     <Route path="/search" element={<FilterPage/>}/>
-                    <Route path="/property" element={<PropertyView/>}/>
+                    <Route path="/property/:typeProperty/:id" element={<PropertyView/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

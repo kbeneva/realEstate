@@ -13,13 +13,13 @@ import {BiSolidCarGarage} from "react-icons/bi";
 function PropertyView() {
 
 
-    // const {id} = useParams()
+    const {id, typeProperty} = useParams()
     const [property, setProperty] = useState({});
 
 
     const loadProperty = async () => {
         try {
-            const result = await axios.get(`http://localhost:9696/propertySale/9981310`);
+            const result = await axios.get(`http://localhost:9696/property${typeProperty}/${id}`);
             setProperty(result.data);
 
 
@@ -32,6 +32,7 @@ function PropertyView() {
     useEffect(() => {
         loadProperty();
     }, []);
+
 
 
     if (!property.price) {  /// méthode toLocaleString est appelé avant les données
@@ -67,7 +68,7 @@ function PropertyView() {
 
                 </div>
                 <div className={"carouselProperty"}>
-                    <ImagePropertyList idPropriete={"9981310"} typeProprety={"Sale"}/>
+                    <ImagePropertyList idPropriete={property.idProperty} typeProprety={typeProperty}/>
                 </div>
 
                 <h3 style={{color: " #2831e5", fontSize: "20px"}}>Features </h3>
@@ -98,7 +99,7 @@ function PropertyView() {
 
                     <div className={"agentContainer"}>
                         <div className={"pfp"}>
-                            <img src={"pfp.jpg"}/>
+                            <img src={"/pfp.jpg"} alt={"agent pfp"}/>
                         </div>
                         <div className={"agentDetails"}>
                             <div className={"nameAgent"}><p> {property.agent.fname}</p>

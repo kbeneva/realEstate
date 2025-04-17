@@ -11,7 +11,7 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-            <img className="logo" src="homeBreeze.png" alt="Logo" />
+            <img className="logo" src="/homeBreeze.png" alt="Logo" />
             <p className="homeBreeze">HomeBreeze</p>
             <div className={`navbarCollapse ${isCollapsed ? 'collapse' : ''}`}>
                 <div className={"collapseLinkContainer"}>
@@ -38,7 +38,7 @@ function Navbar() {
                 </Link>
             </div>
             <button className="sideMenu" onClick={toggleNavbar}>
-                <img className="sideMenuImg" src="sideMenu.png" alt="Menu" />
+                <img className="sideMenuImg" src="/sideMenu.png" alt="Menu" />
             </button>
         </nav>
     );

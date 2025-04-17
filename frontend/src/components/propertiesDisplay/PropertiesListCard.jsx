@@ -28,7 +28,10 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     }, [propsFilters]);
 
 
+    const CapitalizedText = (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1)
 
+    };
 
     return (
 
@@ -36,6 +39,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
 
                 {tabProperty.map((data) => (
                         <Card key={data.idProperty}>
+                            <Link to={`/property/${CapitalizedText(data.typeProperty)}/${data.idProperty}`}>
                             <div className={"carouselHolder"}>
                                 <ImagePropertyList idPropriete={data.idProperty} typeProprety={typePropriete}/>
                             </div>
@@ -64,6 +68,8 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
                                 </div>
 
                             </Card.Body>
+                            </Link>
+
                         </Card>
 
                 ))}

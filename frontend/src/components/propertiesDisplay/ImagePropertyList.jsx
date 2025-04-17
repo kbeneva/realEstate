@@ -37,7 +37,6 @@ function ImagePropertyList(props) {
             modules={[Navigation, Scrollbar, A11y]}
 
             navigation
-            loop={true}
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
         >

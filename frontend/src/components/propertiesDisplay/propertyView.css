@@ -11,13 +11,16 @@ body {
 .containerProperty p, .containerProperty h1 {
     color: #192175;
 }
-.containerProperty h1 {font-size: 40px}
 
-.containerPrice{
+.containerProperty h1 {
+    font-size: 40px
+}
+
+.containerPrice {
     padding-left: 20px;
 }
 
-.containerProperty{
+.containerProperty {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -30,30 +33,30 @@ body {
     font-size: 30px;
 }
 
-.containerPrice{
+.containerPrice {
     display: inline-flex;
     align-items: flex-end;
 
 
 }
-.containerPrice h1{
+
+.containerPrice h1 {
     font-size: 35px;
 
 
 }
 
 
-.priceAddress{
+.priceAddress {
     display: flex;
     padding: 10px 0px 0px 0px;
     justify-content: space-between;
     gap: 1rem;
 
 
-
 }
 
-.carouselProperty {
+.containerProperty .carouselProperty {
 
     overflow: hidden;
     align-items: center;
@@ -62,74 +65,74 @@ body {
 }
 
 
-.swiperSlideImage img{
+.containerProperty .swiperSlideImage img {
     width: 100%;
     height: 100%;
     border-radius: 30px;
     object-fit: cover;
 }
 
-.swiperSlideImage {
+.containerProperty .swiperSlideImage {
     width: 500px;
     height: 700px;
     object-fit: cover;
 }
 
-.agentContainer img{
+.agentContainer img {
     border-radius: 50%;
     height: 150px;
 
 
 }
 
-.agentContainer{
+.agentContainer {
     background: #aed5e1;
     display: inline-flex;
     padding: 20px;
     gap: 3rem;
-    border-radius: 10% 20% 0 20% ;
+    border-radius: 10% 20% 0 20%;
 
 
 }
 
-.agentDetails{
+.agentDetails {
     text-align: start;
 }
 
-.nameAgent{
+.nameAgent {
     display: inline-flex;
 
-  }
-.nameAgent p{
-   padding: 2px;
+}
+
+.nameAgent p {
+    padding: 2px;
     font-weight: 500;
 
-  }
+}
 
-.containerDetails{
+.containerDetails {
     display: grid;
     font-size: 20px;
     justify-content: space-between;
 
 
-
 }
+
 .containerDetails p {
     gap: 1rem;
 
 }
 
-.descAgent{
+.descAgent {
     display: inline-flex;
     padding-top: 50px;
     gap: 7rem;
 
 }
 
-.descAgent .agentContainer{
+.descAgent .agentContainer {
     padding-top: 20px;
 }
-
 
 
 @media (max-width: 900px) {
@@ -145,19 +148,19 @@ body {
 
     }
 
-    .containerPrice{
+    .containerPrice {
         display: inline-flex;
         font-size: 20px;
     }
 
-    .priceAddress{
-        display:block;
+    .priceAddress {
+        display: block;
         padding: 10px 0px 0px 0px;
 
 
     }
 
-    .descAgent{
+    .descAgent {
         display: block;
     }
 
@@ -165,22 +168,31 @@ body {
 }
 
 @media (min-width: 600px) {
-    .containerDetails grid-template-columns: repeat(2, 1fr); }
+    .containerDetails {
+        grid-template-columns:
 
+repeat(2, 1fr);
+    }
+}
 
 
 @media (min-width: 900px) {
-    .containerDetails { grid-template-columns: repeat(4, 1fr); }
+    .containerDetails {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 @media (min-width: 1200px) {
-    .containerDetails { grid-template-columns: repeat(4, 1fr); }
+    .containerDetails {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 
-.year, .area{
+.year, .area {
     font-weight: 500;
 }
+
 
 
 
