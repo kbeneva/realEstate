@@ -26,8 +26,8 @@ HomeBreeze offre la possibilité de gérer des offres immobilières, aussi bien 
 ---
 ### :sparkler: Fonctionnalités
 
-- [ ] Consulter des propriétés
-- [ ] Filtrer les recherches
+- [x] Consulter des propriétés
+- [x] Filtrer les recherches
 - [ ] Ajouter des propriétés dans ses favoris
 - [ ] Consulter son profil
 - [ ] Consulter ses soumissions [status]
