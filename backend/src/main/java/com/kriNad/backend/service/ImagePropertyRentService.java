@@ -19,14 +19,12 @@ public class ImagePropertyRentService {
     }
 
 
-
-
     public List<ImagePropertyRent> getAll(){
         return imagePropertyRentRepositories.findAll();
     }
 
 
-    public List<String> getAllImagesByPropertyId(@RequestParam Long propertyIdProperty){
+    public List<String> getAllImagesByPropertyId(Long propertyIdProperty){
         return imagePropertyRentRepositories.getImagePropertyRentByPropertyRentId(propertyIdProperty);
     }
 

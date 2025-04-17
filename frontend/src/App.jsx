@@ -3,8 +3,8 @@ import './App.css'
 import Accueil from "./pages/Accueil.jsx";
 import FormVendre from "./pages/FormVendre.jsx";
 import Connexion from "./pages/Connexion.jsx";
-import PropertiesRentListCard from "./components/propertiesDisplay/PropertiesRentListCard.jsx";
 import FilterPage from "./pages/FilterPage.jsx";
+import PropertyView from "./components/propertiesDisplay/PropertyView.jsx";
 
 
 function FormeLouer() {
@@ -22,7 +22,7 @@ function App() {
                     <Route path="/rent" element={<FormeLouer/>}/>
                     <Route path="/login" element={<Connexion/>}/>
                     <Route path="/search" element={<FilterPage/>}/>
-                    <Route path="/property" element={<FilterPage/>}/>
+                    <Route path="/property" element={<PropertyView/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

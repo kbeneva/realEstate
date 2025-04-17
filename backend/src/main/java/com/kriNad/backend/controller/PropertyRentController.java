@@ -1,6 +1,7 @@
 package com.kriNad.backend.controller;
 
 
+import com.kriNad.backend.exception.PropertyRentNotFoundException;
 import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.PropertyRentRepository;
@@ -16,14 +17,19 @@ import java.util.List;
 public class PropertyRentController {
 
     @Autowired
-    PropertyRentService PropertyRentService;
-    @Autowired
     private PropertyRentService propertyRentService;
 
 
     @GetMapping("/getAllProperty")
     public List<PropertyRent> getAll(){
         return propertyRentService.getAll();
+    }
+
+
+
+    @GetMapping("/{id}")
+    public PropertyRent getById(@PathVariable Long id){
+        return propertyRentService.getById(id).orElseThrow(() -> new PropertyRentNotFoundException(id));
     }
 
 

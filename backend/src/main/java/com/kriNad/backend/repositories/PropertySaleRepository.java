@@ -23,5 +23,4 @@ public interface PropertySaleRepository extends JpaRepository<PropertySale, Long
     List<PropertySale> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city);
 
 
-    PropertySale findPropertySaleById(Long id);
 }

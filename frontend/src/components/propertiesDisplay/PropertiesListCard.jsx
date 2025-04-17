@@ -28,11 +28,11 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     }, [propsFilters]);
 
 
+
+
     return (
 
         <div id={"cardProperties"}>
-
-            
 
                 {tabProperty.map((data) => (
                         <Card key={data.idProperty}>

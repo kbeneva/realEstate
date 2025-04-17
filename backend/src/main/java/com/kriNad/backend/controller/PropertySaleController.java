@@ -1,9 +1,6 @@
 package com.kriNad.backend.controller;
-
-
-import com.kriNad.backend.model.property.PropertyRent;
+import com.kriNad.backend.exception.PropertySaleNotFoundException;
 import com.kriNad.backend.model.property.PropertySale;
-import com.kriNad.backend.repositories.PropertySaleRepository;
 import com.kriNad.backend.service.PropertySaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,10 +25,10 @@ public class PropertySaleController {
         return propertySaleService.getAll();
     }
 
-
-    @GetMapping("/getById")
-    public PropertySale getPropertyById(Long id) {return propertySaleService.getById(id)}
-
+    @GetMapping("/{id}")
+    public PropertySale getById(@PathVariable Long id) {
+        return propertySaleService.getById(id).orElseThrow(() -> new PropertySaleNotFoundException(id));
+    }
 
 
 

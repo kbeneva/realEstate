@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PropertyRentService {
@@ -23,8 +24,14 @@ public class PropertyRentService {
         this.propertyRentRepository = propertyRentRepository;
     }
 
+    ////////////////////////
+
     public List<PropertyRent> getAll(){
         return propertyRentRepository.findAll();
+    }
+
+    public Optional<PropertyRent> getById(Long id){
+        return propertyRentRepository.findById(id);
     }
 
 
