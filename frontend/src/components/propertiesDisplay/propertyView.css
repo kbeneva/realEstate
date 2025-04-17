@@ -4,9 +4,7 @@ body {
 
 }
 
-.containerProperty hr {
 
-}
 
 .containerProperty p, .containerProperty h1 {
     color: #192175;
@@ -90,7 +88,9 @@ body {
     display: inline-flex;
     padding: 20px;
     gap: 3rem;
-    border-radius: 10% 20% 0 20%;
+    align-content: flex-end;
+
+
 
 
 }
@@ -136,24 +136,24 @@ body {
 
 
 @media (max-width: 900px) {
-    .swiperSlideImage {
+    .containerProperty .swiperSlideImage {
         height: 400px;
         object-fit: cover;
     }
 
-    .containerAddress h1 {
+    .containerProperty .containerAddress h1 {
         display: inline-flex;
         font-weight: lighter;
         padding: 5px;
 
     }
 
-    .containerPrice {
+    .containerProperty .containerPrice {
         display: inline-flex;
         font-size: 20px;
     }
 
-    .priceAddress {
+    .containerProperty .priceAddress {
         display: block;
         padding: 10px 0px 0px 0px;
 
@@ -168,7 +168,7 @@ body {
 }
 
 @media (min-width: 600px) {
-    .containerDetails {
+    .containerProperty .containerDetails {
         grid-template-columns:
 
 repeat(2, 1fr);
@@ -177,13 +177,13 @@ repeat(2, 1fr);
 
 
 @media (min-width: 900px) {
-    .containerDetails {
+    .containerProperty .containerDetails {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (min-width: 1200px) {
-    .containerDetails {
+    .containerProperty .containerDetails {
         grid-template-columns: repeat(4, 1fr);
     }
 }

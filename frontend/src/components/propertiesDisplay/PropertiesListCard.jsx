@@ -12,13 +12,14 @@ import {FaBath} from "react-icons/fa";
 
 function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix et la categorie)
 
-    const  {minPrice = '0',maxPrice = '3000000', nbRooms = '', nbBathrooms = '', nbParking = '', nbGarages = '', minArea = '', maxArea = '', minYear = '', maxYear = '', categorie = '', city = '', priceType = '', typePropriete = 'Rent'} = propsFilters;
+    const  {minPrice = '0',maxPrice = '3000000', nbRooms = '', nbBathrooms = '', nbParking = '', nbGarages = '', minArea = '', maxArea = '', minYear = '', maxYear = '', categorie = '', city = '', typePropriete = 'Rent'} = propsFilters;
     const [tabProperty, setProperty] = useState([]);
 
 
     const loadAllProperty = async () => {
         const result = await axios.get(`http://localhost:9696/property${typePropriete}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
         setProperty(result.data);
+
 
     };
 
@@ -28,6 +29,8 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     }, [propsFilters]);
 
 
+
+    //
     const CapitalizedText = (text) => {
         return text.charAt(0).toUpperCase() + text.slice(1)
 
@@ -51,7 +54,6 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
                                         currency: "CAD"
                                     })}
                                         <div style={{fontSize: "15px", alignContent: "end"}}>
-                                            {priceType}
                                         </div>
                                     </Card.Title>
                                 </div>
