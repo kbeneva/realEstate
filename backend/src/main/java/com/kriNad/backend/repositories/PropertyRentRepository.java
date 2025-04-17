@@ -10,9 +10,22 @@ import java.util.List;
 public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long> {
 
 
-    List<PropertyRent> findPropertyRentsByCategorie(String categorie);
+    ///  URL devrait être : http://localhost:9696/propertyRent/filtre?categorie=&minPrice=&maxPrice=&nbRooms=&nbBathrooms=&nbParking=&nbGarages=&minArea=&maxArea=&minYear=&maxYear=&city=
+    /// http://localhost:9696/propertyRent/filtre?minPrice=&maxPrice=&nbRooms=&nbBathrooms=&nbParking=&nbGarages=&minArea=&maxArea=&minYear=&maxYear=&categorie=
 
-    List<PropertyRent> findByPriceBetween(Double priceAfter, Double priceBefore);
+    @Query("select pr from PropertyRent pr" +
+            " where (?1 is null or ?1 = '' or pr.categorie =?1)" +
+            "and ((?2 is null or ?3 is null) or pr.price between ?2 and ?3)" +
+            "and (?4 is null or pr.nbRooms >= ?4)" +
+            "and (?5 is null or pr.nbBathrooms >= ?5)" +
+            "and (?6 is null or pr.nbParkingSpace >= ?6)" +
+            "and (?7 is null or pr.nbGarages >= ?7)" +
+            "and ((?8 is null or ?9 is null) or pr.area between ?8 and ?9)" +
+            "and ((?10 is null  or ?11 is null) or pr.ConstructionYear between ?10 and ?11)" +
+            "and (?12 is null or ?12 = '' or pr.city = ?12)")
+    List<PropertyRent> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear,Long maxYear, String city);
 
 
 }
+
+

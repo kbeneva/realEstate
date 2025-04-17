@@ -158,6 +158,41 @@
     }
 
     .searchButton {
-        margin-top: 5px;
+        margin-top: 6px;
     }
 }
+
+@media (min-width: 1100px) {
+
+    .listFiltersCollapse {
+        left: -275px;
+        top:50px;
+    }
+
+    .collapseFiltersContainer {
+        width: 320px;
+    }
+
+    .searchButton {
+        margin-top: 1px;
+    }
+
+    .buildingFilters{
+        margin-left: 174px;
+    }
+
+    .FeaturesFilters{
+        margin-left: 170px;
+    }
+
+
+}
+
+.filterButton{
+   margin-left: 50px;
+}
+
+
+
+
+

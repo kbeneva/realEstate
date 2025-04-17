@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
@@ -12,10 +12,10 @@ function Navbar() {
     return (
         <nav className="navbar">
             <Link to={"/"}>
-                <img className="logo" src="homeBreeze.png" alt="Logo"/>
+                <img className="logo" src="/homeBreeze.png" alt="Logo"/>
             </Link>
             <Link to={"/"}>
-            <p className="homeBreeze">HomeBreeze</p>
+                <p className="homeBreeze">HomeBreeze</p>
             </Link>
             <div className={`navbarCollapse ${isCollapsed ? 'collapse' : ''}`}>
                 <div className={"collapseLinkContainer"}>
@@ -42,7 +42,7 @@ function Navbar() {
                 </Link>
             </div>
             <button className="sideMenu" onClick={toggleNavbar}>
-                <img className="sideMenuImg" src="sideMenu.png" alt="Menu" />
+                <img className="sideMenuImg" src="/sideMenu.png" alt="Menu"/>
             </button>
         </nav>
     );

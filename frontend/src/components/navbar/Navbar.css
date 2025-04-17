@@ -1,6 +1,7 @@
 .navbar {
     background-color: #7CACBB;
     display: flex;
+    flex-direction: row;
     flex-grow: 1;
     width: 100%;
     position: sticky;

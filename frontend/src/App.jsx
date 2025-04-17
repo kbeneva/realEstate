@@ -5,10 +5,10 @@ import FormVendre from "./pages/FormVendre.jsx";
 import FormLouer from "./pages/FormLouer.jsx";
 import Connexion from "./pages/Connexion.jsx";
 import ProfilClientFavoris from "./pages/profilClient/ProfilClientFavoris.jsx";
-import PropertiesRentListCard from "./components/PropertiesRentListCard.jsx";
 import ProfilAdmin from "./pages/profilAdmin/ProfilAdmin.jsx";
 import ProfilAgentPropriete from "./pages/profilAgent/ProfilAgentPropriete.jsx";
-
+import FilterPage from "./pages/FilterPage.jsx";
+import PropertyView from "./components/propertiesDisplay/PropertyView.jsx";
 
 
 function App() {
@@ -24,7 +24,9 @@ function App() {
                     <Route path="/customerProfile" element={<ProfilClientFavoris/>}/>
                     <Route path="/agentProfile" element={<ProfilAgentPropriete/>}/>
                     <Route path="/adminProfile" element={<ProfilAdmin/>}/>
-                    <Route path="/search" element={<PropertiesRentListCard/>}/>
+                    <Route path="/search" element={<FilterPage/>}/>
+                    <Route path="/property/:typeProperty/:id" element={<PropertyView/>}/>
+
                 </Routes>
             </BrowserRouter>
         </div>
