@@ -40,6 +40,11 @@ function PropertyView() {
 
     const priceType = property?.typeProperty === "rent" ? "/month" : "";
 
+    const CapitalizedText = (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1)
+
+    };
+
     return (
         <div>
 
@@ -106,7 +111,7 @@ function PropertyView() {
 
                             <p> {property.agent.email}</p>
                             <p> {property.agent.phone}</p>
-                            <Link to={`/contact/${property.agent.id}/${property.idProperty}`}>
+                            <Link to={`/contact/${CapitalizedText(property.typeProperty)}/${property.agent.id}/${property.idProperty}`}>
                                 <button style={{background: "#2831e5"}}>contact</button>
 
                             </Link>

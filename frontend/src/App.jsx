@@ -9,7 +9,8 @@ import ProfilAdmin from "./pages/profilAdmin/ProfilAdmin.jsx";
 import ProfilAgentPropriete from "./pages/profilAgent/ProfilAgentPropriete.jsx";
 import FilterPage from "./pages/PropertyView/FilterPage.jsx";
 import PropertyView from "./pages/PropertyView/PropertyView.jsx";
-import ContactAgentForm from "./pages/forms/ContactAgentForm.jsx";
+import ContactAgentForm from "./components/forms/ContactAgentForm.jsx";
+import ContactAgentPage from "./pages/forms/contactAgentPage.jsx";
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
                     <Route path="/adminProfile" element={<ProfilAdmin/>}/>
                     <Route path="/search" element={<FilterPage/>}/>
                     <Route path="/property/:typeProperty/:id" element={<PropertyView/>}/>
-                    <Route path="/contact/:idAgent/:idProperty" element={<ContactAgentForm/>}/>
+                    <Route path="/contact/:typeProperty/:idAgent/:id" element={<ContactAgentPage/>}/>
 
                 </Routes>
             </BrowserRouter>

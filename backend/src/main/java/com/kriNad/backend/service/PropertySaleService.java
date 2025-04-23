@@ -28,6 +28,11 @@ public class PropertySaleService {
         return propertySaleRepository.findById(id);
     }
 
+    public List<PropertySale> getPropertyByAgent(long idUser){
+        return propertySaleRepository.getPropertyByAgent(idUser);
+    }
+
+
     // filtres ////////////////////////////////////////////////////////////
 
     public List<PropertySale> findByFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city) {

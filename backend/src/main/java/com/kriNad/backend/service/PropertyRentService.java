@@ -34,6 +34,10 @@ public class PropertyRentService {
         return propertyRentRepository.findById(id);
     }
 
+    public List<PropertyRent> getPropertyByAgent(long idUser){
+        return propertyRentRepository.getPropertyByAgent(idUser);
+    }
+
 
     /// Filtres //////////////////////////////////////////////////////////////////////
 

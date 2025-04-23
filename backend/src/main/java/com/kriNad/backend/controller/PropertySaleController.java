@@ -1,5 +1,6 @@
 package com.kriNad.backend.controller;
 import com.kriNad.backend.exception.PropertySaleNotFoundException;
+import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.service.PropertySaleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,10 @@ public class PropertySaleController {
         return propertySaleService.getById(id).orElseThrow(() -> new PropertySaleNotFoundException(id));
     }
 
+    @GetMapping("/agent/{id}")
+    public List<PropertySale> getPropertyByAgent(@PathVariable Long id){
+        return propertySaleService.getPropertyByAgent(id);
+    }
 
 
     @GetMapping("/filtre")

@@ -32,6 +32,13 @@ public class PropertyRentController {
         return propertyRentService.getById(id).orElseThrow(() -> new PropertyRentNotFoundException(id));
     }
 
+    @GetMapping("/agent/{id}")
+    public List<PropertyRent> getPropertyByAgent(@PathVariable Long id){
+        return propertyRentService.getPropertyByAgent(id);
+    }
+
+
+
 
     @GetMapping("/filtre")
     public List <PropertyRent> findPropertyFilters(

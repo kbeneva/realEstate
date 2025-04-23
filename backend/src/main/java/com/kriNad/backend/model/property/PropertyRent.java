@@ -78,5 +78,4 @@ public class PropertyRent extends Property {
     private PropertyRent propertyRent;
 
 
-
 }

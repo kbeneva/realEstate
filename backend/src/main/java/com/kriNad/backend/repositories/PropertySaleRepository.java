@@ -1,5 +1,6 @@
 package com.kriNad.backend.repositories;
 
+import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.model.property.PropertySale;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,6 +22,11 @@ public interface PropertySaleRepository extends JpaRepository<PropertySale, Long
             "and ((?10 is null  or ?11 is null) or ps.ConstructionYear between ?10 and ?11)" +
             "and (?12 is null or ?12 = '' or ps.city = ?12)")
     List<PropertySale> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city);
+
+
+
+    @Query("select ps from PropertySale ps where ps.agent.idUser =?1")
+    List<PropertySale> getPropertyByAgent(Long idUser);
 
 
 }

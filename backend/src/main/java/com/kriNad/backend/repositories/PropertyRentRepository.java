@@ -11,7 +11,7 @@ public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long
 
 
     ///  URL devrait être : http://localhost:9696/propertyRent/filtre?categorie=&minPrice=&maxPrice=&nbRooms=&nbBathrooms=&nbParking=&nbGarages=&minArea=&maxArea=&minYear=&maxYear=&city=
-    /// http://localhost:9696/propertyRent/filtre?minPrice=&maxPrice=&nbRooms=&nbBathrooms=&nbParking=&nbGarages=&minArea=&maxArea=&minYear=&maxYear=&categorie=
+
 
     @Query("select pr from PropertyRent pr" +
             " where (?1 is null or ?1 = '' or pr.categorie =?1)" +
@@ -24,6 +24,12 @@ public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long
             "and ((?10 is null  or ?11 is null) or pr.ConstructionYear between ?10 and ?11)" +
             "and (?12 is null or ?12 = '' or pr.city = ?12)")
     List<PropertyRent> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear,Long maxYear, String city);
+
+    @Query("select pr from PropertyRent pr where pr.agent.idUser =?1")
+    List<PropertyRent> getPropertyByAgent(Long idUser);
+
+
+
 
 
 }

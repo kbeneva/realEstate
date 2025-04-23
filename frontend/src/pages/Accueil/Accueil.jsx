@@ -4,6 +4,7 @@ import SearchBar from "../../components/searchBar/SearchBar.jsx";
 import Filters from "../../components/filters/Filters.jsx";
 import Display from "../../components/homePageDisplay/Display.jsx";
 import React, {useState} from "react";
+import PropertiesListCard from "../../components/propertiesDisplay/PropertiesListCard.jsx";
 
 
 function Accueil() {
