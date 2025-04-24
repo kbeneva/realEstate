@@ -1,0 +1,25 @@
+.tabContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: -3px;
+}
+
+.tabItem {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+    margin: 0;
+}
+
+.tabItem.activeTab {
+    border-bottom: 4px solid #086788;
+    font-weight: bold;
+    color: #086788;
+}

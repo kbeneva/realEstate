@@ -7,6 +7,11 @@ import Connexion from "./pages/connexion/Connexion.jsx";
 import ProfilClientFavoris from "./pages/profilClient/ProfilClientFavoris.jsx";
 import ProfilAdmin from "./pages/profilAdmin/ProfilAdmin.jsx";
 import ProfilAgentPropriete from "./pages/profilAgent/ProfilAgentPropriete.jsx";
+import FilterPage from "./pages/FilterPage.jsx";
+import PropertyView from "./components/propertiesDisplay/PropertyView.jsx";
+import ProfilClientDemande from "./pages/profilClient/ProfiClientDemande.jsx";
+import ProfilClientSoumission from "./pages/profilClient/ProfilClientSoumission.jsx";
+import ProfilAgentDemande from "./pages/profilAgent/ProfilAgentDemande.jsx";
 import FilterPage from "./pages/PropertyView/FilterPage.jsx";
 import PropertyView from "./pages/PropertyView/PropertyView.jsx";
 import ContactAgentForm from "./components/forms/ContactAgentForm.jsx";
@@ -23,8 +28,11 @@ function App() {
                     <Route path="/sell" element={<FormVendre/>}/>
                     <Route path="/rent" element={<FormLouer/>}/>
                     <Route path="/login" element={<Connexion/>}/>
-                    <Route path="/customerProfile" element={<ProfilClientFavoris/>}/>
-                    <Route path="/agentProfile" element={<ProfilAgentPropriete/>}/>
+                    <Route path="/customerProfileFavorites" element={<ProfilClientFavoris/>}/>
+                    <Route path="/customerProfileRequests" element={<ProfilClientDemande/>}/>
+                    <Route path="/customerProfileSubmissions" element={<ProfilClientSoumission/>}/>
+                    <Route path="/agentProfileCustomerRequests" element={<ProfilAgentDemande/>}/>
+                    <Route path="/agentProfileProperties" element={<ProfilAgentPropriete/>}/>
                     <Route path="/adminProfile" element={<ProfilAdmin/>}/>
                     <Route path="/search" element={<FilterPage/>}/>
                     <Route path="/property/:typeProperty/:id" element={<PropertyView/>}/>
