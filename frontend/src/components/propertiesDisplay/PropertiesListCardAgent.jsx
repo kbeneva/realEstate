@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import axios, {all} from 'axios';
 import {Link, useParams} from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import ImagePropertyList from "./ImagePropertyList.jsx";
@@ -34,7 +33,6 @@ function PropertiesListCardAgent() {
     };
 
 
-    console.log(tabProperty)
 
     useEffect(() => {
         loadAllProperty();

@@ -11,7 +11,7 @@ import java.util.Date;
 
 
 @MappedSuperclass
-public class Demande {
+public class Request {
 
 
     @Id

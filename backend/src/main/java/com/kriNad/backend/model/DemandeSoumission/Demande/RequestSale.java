@@ -6,7 +6,7 @@ import jakarta.persistence.OneToOne;
 
 @Entity
 
-public class DemandeSale extends Demande{
+public class RequestSale extends Request {
 
 
     @OneToOne
