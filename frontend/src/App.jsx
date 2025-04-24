@@ -7,14 +7,11 @@ import Connexion from "./pages/connexion/Connexion.jsx";
 import ProfilClientFavoris from "./pages/profilClient/ProfilClientFavoris.jsx";
 import ProfilAdmin from "./pages/profilAdmin/ProfilAdmin.jsx";
 import ProfilAgentPropriete from "./pages/profilAgent/ProfilAgentPropriete.jsx";
-import FilterPage from "./pages/FilterPage.jsx";
-import PropertyView from "./components/propertiesDisplay/PropertyView.jsx";
 import ProfilClientDemande from "./pages/profilClient/ProfiClientDemande.jsx";
 import ProfilClientSoumission from "./pages/profilClient/ProfilClientSoumission.jsx";
 import ProfilAgentDemande from "./pages/profilAgent/ProfilAgentDemande.jsx";
 import FilterPage from "./pages/PropertyView/FilterPage.jsx";
 import PropertyView from "./pages/PropertyView/PropertyView.jsx";
-import ContactAgentForm from "./components/forms/ContactAgentForm.jsx";
 import ContactAgentPage from "./pages/forms/contactAgentPage.jsx";
 
 

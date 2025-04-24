@@ -72,7 +72,7 @@
     justify-content: start;
 }
 
-.section1, .section2{
+formAgent .section1, .section2{
     display: flex;
     justify-content: center;
 }
@@ -80,7 +80,7 @@
 
 @media (min-width: 600px) {
 
-    .desc{
+    formAgent .desc{
         width: 300px;
     }
 
