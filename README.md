@@ -29,7 +29,7 @@ HomeBreeze offre la possibilité de gérer des offres immobilières, aussi bien 
 - [x] Consulter des propriétés
 - [x] Filtrer les recherches
 - [ ] Ajouter des propriétés dans ses favoris
-- [ ] Consulter son profil
+- [x] Consulter son profil
 - [ ] Consulter ses soumissions [status]
 - [ ] Consulter ses demandes [status]
 - [ ] Soumettre des propriétés
