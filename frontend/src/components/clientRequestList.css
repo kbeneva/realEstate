@@ -1,32 +1,77 @@
-.cardRequests{
+.cardRequests {
     display: grid;
     margin: 0 auto;
     grid-gap: 1rem;
-    max-width: 1500px;
+    max-width: 1000px;
+
 }
 
 
-
-.requestContent{
-    display: inline-flex;
+.requestContent {
+    display: flex;
     background: #aed5e1;
+    justify-items: end;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+.requestContent.card-body {
+
+}
+
+.statusSection {
+    background: #f1f150;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px 10px;
+
+}
+
+.statusTime {
+    padding-top: 100px;
 
 }
 
 
-
-.requestContent .carouselHolder{
-    height: 200px;
-    width: 300px;
-    border-radius: 20%;
+.descRequest {
+    padding: 10px 10px 10px 10px;
+    border-radius: 20px;
     overflow: hidden;
+    justify-items: flex-start;
+    background: transparent;
+    border: solid 1px #086788;
+
+
 }
 
-.requestContent .swiperSlideImage img{
-    border-radius: 20%;
-}
 
-.requestContent .swiperSlideImage {
+@media (max-width: 610px) {
 
+
+    .requestContent {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .descRequest {
+
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .profileCardButtonContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
 
 }

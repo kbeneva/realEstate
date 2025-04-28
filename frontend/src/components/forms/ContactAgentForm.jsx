@@ -119,7 +119,7 @@ function ContactAgentForm() {
                         <div className={"section3"}>
                             <div>
                                 <label htmlFor={"Description"}>Description</label>
-                                <textarea className={"desc"} name={"description"}
+                                <textarea className={"desc"}  maxLength={255} name={"description"}
                                           placeholder="Write more details for the agent.."
                                           value={formRequest.description} onChange={handleChange} required></textarea>
                             </div>

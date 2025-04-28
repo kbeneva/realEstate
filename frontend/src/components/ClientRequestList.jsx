@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import {v4 as uuidv4} from 'uuid';
-import ImagePropertyList from "./propertiesDisplay/ImagePropertyList.jsx";
 import "./clientRequestList.css"
 
 
@@ -64,19 +63,19 @@ function ClientRequestList() {
                             </div>
 
                             <div>
-                                <div> {data.description}</div>
-                                <div> {data.creationDate}</div>
-                                <div> {data.statusDemande}</div>
 
-                            </div>
 
-                            <div className={"carouselHolder"}>
-                                <ImagePropertyList idPropriete={data[`property${data.typeDemande}`]?.idProperty}
-                                                   typeProprety={data.typeDemande}/>
+                                <div className={"statusTime"}>
+                                    <div> {data.creationDate}</div>
+                                    <div className={"statusSection"}> {data.statusDemande}</div>
+                                </div>
+
+
                             </div>
 
 
                         </Card.Body>
+                        <div className={"descRequest"}> {data.description}</div>
 
 
                     </Card>
