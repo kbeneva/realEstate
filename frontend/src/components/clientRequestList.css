@@ -1,0 +1,32 @@
+.cardRequests{
+    display: grid;
+    margin: 0 auto;
+    grid-gap: 1rem;
+    max-width: 1500px;
+}
+
+
+
+.requestContent{
+    display: inline-flex;
+    background: #aed5e1;
+
+}
+
+
+
+.requestContent .carouselHolder{
+    height: 200px;
+    width: 300px;
+    border-radius: 20%;
+    overflow: hidden;
+}
+
+.requestContent .swiperSlideImage img{
+    border-radius: 20%;
+}
+
+.requestContent .swiperSlideImage {
+
+
+}

@@ -6,6 +6,7 @@ import {FaLocationDot} from "react-icons/fa6";
 import {FaBed} from "react-icons/fa";
 import {FaBath} from "react-icons/fa";
 import "./propertiesDisplay.css"
+import axios from "axios";
 
 
 function PropertiesListCardAgent() {

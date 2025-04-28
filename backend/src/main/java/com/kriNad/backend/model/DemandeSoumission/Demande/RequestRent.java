@@ -2,12 +2,13 @@ package com.kriNad.backend.model.DemandeSoumission.Demande;
 
 import com.kriNad.backend.model.property.PropertyRent;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 @Entity
 public class RequestRent extends Request {
 
 
-    @OneToOne
+    @ManyToOne
     private PropertyRent propertyRent;
 
     public PropertyRent getPropertyRent() {

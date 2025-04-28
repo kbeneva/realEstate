@@ -6,6 +6,8 @@ import com.kriNad.backend.service.RequestRentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/RequestRent")
@@ -20,5 +22,22 @@ public class RequestRentController {
     @PostMapping("/createRequest")
     public RequestRent createRequest(@RequestBody RequestRent requestRent){
         return requestRentService.createRequest(requestRent);
+    }
+
+
+    @GetMapping("/agent/{id}")
+    public List<RequestRent> getAllRequestsByAgentId(@PathVariable Long id){
+        return requestRentService.getAllRequestByAgentId(id);
+    }
+
+    @GetMapping("/customer/{id}")
+    public List<RequestRent> getAllRequestsByCustomerId(@PathVariable Long id){
+        return requestRentService.getAllRequestByCustomerId(id);
+    }
+
+    @GetMapping("verifyRequest/{customerId}/{propertyRentId}")
+    public boolean verifyRequest(@PathVariable Long customerId,@PathVariable  Long propertyRentId){
+        return requestRentService.isApplied(customerId,propertyRentId);
+
     }
 }

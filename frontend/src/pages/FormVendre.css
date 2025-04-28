@@ -45,6 +45,8 @@
     justify-content: center;
     align-items: center;
     color: black;
+    z-index: 9999;
+
 }
 
 .popupContent {
@@ -52,6 +54,7 @@
     padding: 30px;
     text-align: center;
     border-radius: 10px;
+    z-index: 10000;
 }
 
 .popupButton1 {

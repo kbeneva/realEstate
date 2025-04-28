@@ -1,6 +1,7 @@
 package com.kriNad.backend.model.DemandeSoumission.Demande;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kriNad.backend.model.personne.Agent;
 import com.kriNad.backend.model.personne.Customer;
 import jakarta.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Date;
 
 
 @MappedSuperclass
+
 public class Request {
 
 
@@ -20,10 +22,11 @@ public class Request {
     private String typeDemande;
     private String description;
 
-    @ColumnDefault("'en attente'")
+    @ColumnDefault("'pending'")
     private String statusDemande;
 
     @CreationTimestamp
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date creationDate;
 
 
