@@ -5,11 +5,13 @@ import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 
 
+
 function ContactAgentForm() {
     const {id, typeProperty, idAgent} = useParams()
     const [property, setProperty] = useState({});
     const [applied, setApplied] = useState({});
     const user = JSON.parse(localStorage.getItem("user"));
+
     const navigate = useNavigate();
 
     ///////////////////////////////////////////////////////////////////////////////////////////

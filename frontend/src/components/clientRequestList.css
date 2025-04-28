@@ -46,6 +46,11 @@
 
 }
 
+.deleteRequest{
+    background: transparent;
+    align-items: end;
+}
+
 
 @media (max-width: 610px) {
 

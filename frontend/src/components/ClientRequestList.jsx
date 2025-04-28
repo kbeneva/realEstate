@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "react-bootstrap/Card";
 import {v4 as uuidv4} from 'uuid';
 import "./clientRequestList.css"
+import { MdDelete } from "react-icons/md";
 
 
 function ClientRequestList() {
@@ -65,7 +66,13 @@ function ClientRequestList() {
                             <div>
 
 
+                                <button className={"deleteRequest"}>
+                                    <MdDelete size={25}/>
+                                </button>
+
+
                                 <div className={"statusTime"}>
+
                                     <div> {data.creationDate}</div>
                                     <div className={"statusSection"}> {data.statusDemande}</div>
                                 </div>
