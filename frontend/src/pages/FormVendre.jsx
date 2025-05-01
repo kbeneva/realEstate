@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar.jsx";
-import "./FormVendre.css";
+import "./Form.css";
 
 function FormVendre() {
     const [started, setStarted] = useState(false);
@@ -18,14 +18,15 @@ function FormVendre() {
         nbGarages: "",
         area: "",
         constructionYear: "",
-        city: ""
+        city: "",
+        images: [""],
+        customerId: localStorage.getItem("userId") ? parseInt(localStorage.getItem("userId")) : null
     });
 
     const navigate = useNavigate();
 
     const handleStart = () => {
         const user = JSON.parse(localStorage.getItem("user"));
-
         if (!user) {
             setShowLoginPopup(true);
         } else if (user.role === "customer") {
@@ -43,29 +44,54 @@ function FormVendre() {
         navigate("/");
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e, index) => {
         const { name, value } = e.target;
+        if (name === "images") {
+            const updatedImages = [...formData.images];
+            updatedImages[index] = value;
+            setFormData(prev => ({
+                ...prev,
+                images: updatedImages
+            }));
+        } else {
+            setFormData(prev => ({
+                ...prev,
+                [name]: value
+            }));
+        }
+    };
+
+    const handleAddImageInput = () => {
         setFormData(prev => ({
             ...prev,
-            [name]: value
+            images: [...prev.images, ""]
+        }));
+    };
+
+    const handleRemoveImageInput = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            images: prev.images.filter((_, i) => i !== index)
         }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Submitting:", formData);
+
+        const updatedFormData = {
+            ...formData,
+            customer: {
+                idUser: parseInt(localStorage.getItem("userId")),
+            }
+        };
 
         try {
-            const user = JSON.parse(localStorage.getItem("user"));
-            const res = await fetch("http://localhost:9696/api/propertySale", {
+            const res = await fetch("http://localhost:9696/propertySale", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    ...formData,
-                    customerId: user.idUser
-                })
+                body: JSON.stringify(updatedFormData),
             });
 
             if (res.ok) {
@@ -80,62 +106,237 @@ function FormVendre() {
         }
     };
 
+
+
     return (
         <div>
             <Navbar />
-
             {!started && (
                 <div className="startPage">
-                    <h1>Sell your home with HomeBreeze</h1>
+                    <h1>Sell your property with HomeBreeze</h1>
                     <button className="startButton" onClick={handleStart}>Start</button>
                 </div>
             )}
-
             {showLoginPopup && (
                 <div className="popup">
                     <div className="popupContent">
-                        <p>You must be logged in to sell a house.</p>
-                        <button className={"popupButton1"} onClick={handleLoginRedirect}>Login</button>
-                        <button className={"popupButton2"} onClick={handleCancel}>Cancel</button>
+                        <p>You must be logged in to sell a property.</p>
+                        <button className="popupButton1" onClick={handleLoginRedirect}>Login</button>
+                        <button className="popupButton2" onClick={handleCancel}>Cancel</button>
                     </div>
                 </div>
             )}
-
             {showErrorPopup && (
                 <div className="popup">
                     <div className="popupContent">
-                        <p>Only customers can sell a house.</p>
-                        <button className={"popupButton1"} onClick={handleCancel}>Return to Home</button>
+                        <p>Only customers can sell a property.</p>
+                        <button className="popupButton1" onClick={handleCancel}>Return to Home</button>
                     </div>
                 </div>
             )}
-
             {started && (
                 <form className="propertyForm" onSubmit={handleSubmit}>
-                    <h2>Property Details</h2>
-                    <input name="categorie" type="text" placeholder="Category (house, condo...)"
-                           value={formData.categorie} onChange={handleChange} required/>
-                    <input name="address" type="text" placeholder="Address" value={formData.address}
-                           onChange={handleChange} required/>
-                    <input name="city" type="text" placeholder="City" value={formData.city} onChange={handleChange}
-                           required/>
-                    <input name="price" type="number" placeholder="Price" value={formData.price} onChange={handleChange}
-                           required/>
-                    <input name="description" type="text" placeholder="Description" value={formData.description}
-                           onChange={handleChange} required/>
-                    <input name="nbRooms" type="number" placeholder="Number of Rooms" value={formData.nbRooms}
-                           onChange={handleChange} required/>
-                    <input name="nbBathrooms" type="number" placeholder="Number of Bathrooms"
-                           value={formData.nbBathrooms} onChange={handleChange} required/>
-                    <input name="nbParkingSpace" type="number" placeholder="Number of Parking Spaces"
-                           value={formData.nbParkingSpace} onChange={handleChange} required/>
-                    <input name="nbGarages" type="number" placeholder="Number of Garages" value={formData.nbGarages}
-                           onChange={handleChange} required/>
-                    <input name="area" type="number" placeholder="Area (sqft)" value={formData.area}
-                           onChange={handleChange} required/>
-                    <input name="constructionYear" type="number" placeholder="Construction Year"
-                           value={formData.constructionYear} onChange={handleChange} required/>
-
+                    <h1 className="propertyDetails">Property Details</h1>
+                    <h3>Address</h3>
+                    <input
+                        name="address"
+                        type="text"
+                        className="inputColor"
+                        placeholder="Address"
+                        value={formData.address}
+                        onChange={handleChange}
+                        required
+                    />
+                    <div className="sideBySide">
+                        <div>
+                            <h3>City</h3>
+                            <div className="radioContainer">
+                                <label className="radioText">
+                                    <input
+                                        name="city"
+                                        type="radio"
+                                        className="radio"
+                                        value="Montreal"
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    Montreal
+                                </label>
+                                <label className="radioText">
+                                    <input
+                                        name="city"
+                                        type="radio"
+                                        className="radio"
+                                        value="Laval"
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    Laval
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Price</h3>
+                            <input
+                                name="price"
+                                type="text"
+                                className="inputColor"
+                                placeholder="Price"
+                                value={formData.price}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <h3>Category</h3>
+                    <div className="radioContainer">
+                        <label className="radioText">
+                            <input
+                                name="categorie"
+                                type="radio"
+                                className="radio"
+                                value="House"
+                                onChange={handleChange}
+                                required
+                            />
+                            House
+                        </label>
+                        <label className="radioText">
+                            <input
+                                name="categorie"
+                                type="radio"
+                                className="radio"
+                                value="Condo"
+                                onChange={handleChange}
+                                required
+                            />
+                            Condo
+                        </label>
+                        <label className="radioText">
+                            <input
+                                name="categorie"
+                                type="radio"
+                                className="radio"
+                                value="Terrain"
+                                onChange={handleChange}
+                                required
+                            />
+                            Terrain
+                        </label>
+                        <label className="radioText">
+                            <input
+                                name="categorie"
+                                type="radio"
+                                className="radio"
+                                value="Farm / Chalet"
+                                onChange={handleChange}
+                                required
+                            />
+                            Farm / Chalet
+                        </label>
+                    </div>
+                    <h3>Description</h3>
+                    <textarea
+                        name="description"
+                        className="inputColor descriptionTextarea"
+                        placeholder="Description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        required
+                    />
+                    <h3>Features</h3>
+                    <div>
+                        <input
+                            name="nbRooms"
+                            type="number"
+                            className="featuresInput inputColor"
+                            placeholder="Number of Rooms"
+                            value={formData.nbRooms}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            name="nbBathrooms"
+                            type="number"
+                            className="featuresInput inputColor"
+                            placeholder="Number of Bathrooms"
+                            value={formData.nbBathrooms}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            name="nbParkingSpace"
+                            type="number"
+                            className="featuresInput inputColor"
+                            placeholder="Number of Parking"
+                            value={formData.nbParkingSpace}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            name="nbGarages"
+                            type="number"
+                            className="featuresInput inputColor"
+                            placeholder="Number of Garages"
+                            value={formData.nbGarages}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="sideBySide">
+                        <div>
+                            <h3>Area</h3>
+                            <input
+                                name="area"
+                                type="text"
+                                className="inputColor"
+                                placeholder="Area (sqft)"
+                                value={formData.area}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <h3>Construction Year</h3>
+                            <input
+                                name="constructionYear"
+                                type="text"
+                                className="inputColor"
+                                placeholder="Construction Year"
+                                value={formData.constructionYear}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="imagesSection">
+                        <h3>Images</h3>
+                        {formData.images.map((image, index) => (
+                            <div key={index} className="imageInputContainer">
+                                <input
+                                    name="images"
+                                    type="text"
+                                    className="inputColor"
+                                    placeholder="Image URL"
+                                    value={image}
+                                    onChange={(e) => handleChange(e, index)}
+                                    required
+                                />
+                                {index > 0 && (
+                                    <button
+                                        type="button"
+                                        className="removeImageButton"
+                                        onClick={() => handleRemoveImageInput(index)}
+                                    >
+                                        Remove
+                                    </button>
+                                )}
+                            </div>
+                        ))}
+                        <button className="addImageButton" type="button" onClick={handleAddImageInput}>
+                            Add Image
+                        </button>
+                    </div>
                     <button type="submit" className="submitButton">Submit</button>
                 </form>
             )}

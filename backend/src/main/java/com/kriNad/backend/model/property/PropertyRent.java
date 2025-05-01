@@ -1,12 +1,15 @@
 package com.kriNad.backend.model.property;
 import com.kriNad.backend.model.personne.Agent;
 import com.kriNad.backend.model.personne.Customer;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 public class PropertyRent extends Property {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idProperty;
 
     private boolean rent;
     private Long maxOccupants;
@@ -15,6 +18,13 @@ public class PropertyRent extends Property {
     @ColumnDefault("'rent'")
     private String typeProperty;
 
+    public Long getIdProperty() {
+        return idProperty;
+    }
+
+    public void setIdProperty(Long idProperty) {
+        this.idProperty = idProperty;
+    }
 
     public boolean isRent() {
         return rent;
@@ -73,9 +83,6 @@ public class PropertyRent extends Property {
     @ManyToOne
     private Occupant occupant;
 
-
-    @ManyToOne
-    private PropertyRent propertyRent;
 
 
 
