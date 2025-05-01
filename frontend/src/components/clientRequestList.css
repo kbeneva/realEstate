@@ -1,4 +1,4 @@
-.cardRequests {
+.cardContainer {
     display: grid;
     margin: 0 auto;
     grid-gap: 1rem;
@@ -55,28 +55,6 @@
 @media (max-width: 610px) {
 
 
-    .requestContent {
-        margin-bottom: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
 
-    .descRequest {
-
-        margin-bottom: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .profileCardButtonContainer {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        margin-top: 20px;
-        width: 100%;
-        justify-content: center;
-    }
 
 }

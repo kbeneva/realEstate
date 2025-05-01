@@ -38,17 +38,18 @@ function ClientRequestList() {
     return (
         <div>
 
-            <div className={"cardRequests"}>
+            <div className={"cardContainer"}>
 
                 {tabRequests.map((data) => (
 
-                    <Card key={uuidv4()}>
+                    <Card className={"cardRequests"} key={uuidv4()}>
 
                         <Card.Body className={"requestContent"}>
 
                             <div className={"agentRequestHolder"}>
                                 <div className={"agentContainer"}>
                                     <div className={"pfp"}>
+                                        <MdDelete size={25}/>
                                         <img src={"/pfp.jpg"} alt={"agent pfp"}/>
                                     </div>
 
@@ -67,7 +68,7 @@ function ClientRequestList() {
 
 
                                 <button className={"deleteRequest"}>
-                                    <MdDelete size={25}/>
+
                                 </button>
 
 
