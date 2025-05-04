@@ -1,15 +1,9 @@
-package com.kriNad.backend.model.property;
-import jakarta.persistence.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import java.util.Date;
+package com.kriNad.backend.DTO;
 
+import java.util.List;
 
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
-public class Property {
-
-    @Column(columnDefinition = "TEXT")
+public class PropertyRentRequest {
+    private Long customerId;
     private String description;
     private String categorie;
     private Double price;
@@ -19,20 +13,17 @@ public class Property {
     private Long nbParkingSpace;
     private Long nbGarages;
     private Double area;
-    private Long ConstructionYear;
+    private Long constructionYear;
     private String city;
-    private Boolean isAccepted;
+    private Long maxOccupants;
+    private List<String> images;
 
-    @CreatedDate
-    private Date creationDate;
-
-
-    public Date getCreationDate() {
-        return creationDate;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public String getDescription() {
@@ -42,7 +33,6 @@ public class Property {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public String getCategorie() {
         return categorie;
@@ -72,48 +62,48 @@ public class Property {
         return nbRooms;
     }
 
-    public void setNbRooms(Long nbChambre) {
-        this.nbRooms = nbChambre;
+    public void setNbRooms(Long nbRooms) {
+        this.nbRooms = nbRooms;
     }
 
     public Long getNbBathrooms() {
         return nbBathrooms;
     }
 
-    public void setNbBathrooms(Long nbSalleBain) {
-        this.nbBathrooms = nbSalleBain;
+    public void setNbBathrooms(Long nbBathrooms) {
+        this.nbBathrooms = nbBathrooms;
     }
 
     public Long getNbParkingSpace() {
         return nbParkingSpace;
     }
 
-    public void setNbParkingSpace(Long nbstationnement) {
-        this.nbParkingSpace = nbstationnement;
+    public void setNbParkingSpace(Long nbParkingSpace) {
+        this.nbParkingSpace = nbParkingSpace;
     }
 
     public Long getNbGarages() {
         return nbGarages;
     }
 
-    public void setNbGarages(Long nbGarage) {
-        this.nbGarages = nbGarage;
+    public void setNbGarages(Long nbGarages) {
+        this.nbGarages = nbGarages;
     }
 
     public Double getArea() {
         return area;
     }
 
-    public void setArea(Double superficie) {
-        this.area = superficie;
+    public void setArea(Double area) {
+        this.area = area;
     }
 
     public Long getConstructionYear() {
-        return ConstructionYear;
+        return constructionYear;
     }
 
-    public void setConstructionYear(Long anneeConstruction) {
-        this.ConstructionYear = anneeConstruction;
+    public void setConstructionYear(Long constructionYear) {
+        this.constructionYear = constructionYear;
     }
 
     public String getCity() {
@@ -124,13 +114,19 @@ public class Property {
         this.city = city;
     }
 
-    public Boolean getIsAccepted() {
-        return isAccepted;
+    public Long getMaxOccupants() {
+        return maxOccupants;
     }
-    public void setIsAccepted(Boolean isAccepted) {
-        this.isAccepted = isAccepted;
+
+    public void setMaxOccupants(Long maxOccupants) {
+        this.maxOccupants = maxOccupants;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 }
-
-
-

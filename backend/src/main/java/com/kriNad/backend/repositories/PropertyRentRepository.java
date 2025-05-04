@@ -1,7 +1,6 @@
 package com.kriNad.backend.repositories;
 
 import com.kriNad.backend.model.property.PropertyRent;
-import com.kriNad.backend.model.property.PropertySale;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -23,9 +22,16 @@ public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long
             "and ((?8 is null or ?9 is null) or pr.area between ?8 and ?9)" +
             "and ((?10 is null  or ?11 is null) or pr.ConstructionYear between ?10 and ?11)" +
             "and (?12 is null or ?12 = '' or pr.city = ?12)")
-    List<PropertyRent> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear,Long maxYear, String city);
+    List<PropertyRent> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city);
+
+
+    @Query("select pr from PropertyRent pr where pr.agent.idUser =?1")
+    List<PropertyRent> getPropertyByAgent(Long idUser);
+
+
+    @Query("select pr from PropertyRent pr where pr.customer.idUser = ?1 and pr.isAccepted = false")
+    List<PropertyRent> getPropertyByCustomer(Long customerId);
 
 
 }
-
 
