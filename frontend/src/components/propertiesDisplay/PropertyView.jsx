@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import ImagePropertyList from "./ImagePropertyList.jsx";
@@ -21,6 +21,7 @@ function PropertyView() {
         try {
             const result = await axios.get(`http://localhost:9696/property${typeProperty}/${id}`);
             setProperty(result.data);
+
 
 
         } catch (error) {

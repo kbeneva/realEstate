@@ -28,6 +28,8 @@ public class PropertyRentController {
     @Autowired
     private ImagePropertyRentRepositories imageRentRepo;
 
+
+
     @Autowired
     private PropertyRentRepository propertyRentRepository;
 
@@ -41,13 +43,10 @@ public class PropertyRentController {
         return propertyRentService.getById(id).orElseThrow(() -> new PropertyRentNotFoundException(id));
     }
 
-<<<<<<< HEAD
-=======
     @GetMapping("/agent/{id}")
     public List<PropertyRent> getPropertyByAgent(@PathVariable Long id) {
-        return propertyRentService.getPropertyByAgent(id);
-    }
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
+        return propertyRentService.getPropertyByAgent(id);}
+
 
     @GetMapping("/filtre")
     public List<PropertyRent> findPropertyFilters(

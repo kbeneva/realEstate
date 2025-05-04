@@ -1,26 +1,19 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import ImagePropertyList from "./ImagePropertyList.jsx";
-<<<<<<< HEAD
 import {FaLocationDot} from "react-icons/fa6";
 import {FaBed} from "react-icons/fa";
 import {FaBath} from "react-icons/fa";
-
+import './PropertiesListCard.css';
+import "./propertyView.css"
+import '../../components/profile/ProfileCard.css';
 
 
 
 function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix et la categorie)
 
-    const  {minPrice = '0',maxPrice = '3000000', nbRooms = '', nbBathrooms = '', nbParking = '', nbGarages = '', minArea = '', maxArea = '', minYear = '', maxYear = '', categorie = '', city = '', priceType = '', typePropriete = 'Rent'} = propsFilters;
-    const [tabProperty, setProperty] = useState([]);
-=======
-import { FaLocationDot } from "react-icons/fa6";
-import { FaBed, FaBath } from "react-icons/fa";
-import './PropertiesListCard.css';
-
-function PropertiesListCard(propsFilters) {
     const {
         minPrice = '0',
         maxPrice = '3000000',
@@ -34,10 +27,8 @@ function PropertiesListCard(propsFilters) {
         maxYear = '',
         categorie = '',
         city = '',
-        priceType = '',
         propertyType = 'Rent'
     } = propsFilters;
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
 
     const [tabProperty, setProperty] = useState([]);
     const [heartStates, setHeartStates] = useState({});
@@ -48,19 +39,19 @@ function PropertiesListCard(propsFilters) {
     const user = JSON.parse(localStorage.getItem("user"));
 
     const loadAllProperty = async () => {
-<<<<<<< HEAD
-        const result = await axios.get(`http://localhost:9696/property${typePropriete}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
-        setProperty(result.data);
-
-=======
         try {
             const result = await axios.get(`http://localhost:9696/property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
-            setProperty(result.data);
+                result.data.forEach(property => {
+                    if (property.isAccepted){
+                        setProperty(result.data)
+                    }
+                });
+
         } catch (error) {
             console.error("Error fetching properties:", error);
         }
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
     };
+
 
     const loadFavorites = async () => {
         if (!user) return;
@@ -130,7 +121,8 @@ function PropertiesListCard(propsFilters) {
     };
 
     const CapitalizedText = (text) => {
-        return text.charAt(0).toUpperCase() + text.slice(1);
+        return text.charAt(0).toUpperCase() + text.slice(1)
+
     };
 
     const handleLoginRedirect = () => {
@@ -142,47 +134,7 @@ function PropertiesListCard(propsFilters) {
     };
 
     return (
-<<<<<<< HEAD
 
-        <div id={"cardProperties"}>
-
-                {tabProperty.map((data) => (
-                        <Card key={data.idProperty}>
-                            <Link to={`/property/${CapitalizedText(data.typeProperty)}/${data.idProperty}`}>
-                            <div className={"carouselHolder"}>
-                                <ImagePropertyList idPropriete={data.idProperty} typeProprety={typePropriete}/>
-                            </div>
-
-                            <Card.Body style={{paddingLeft: "10px"}}>
-                                <div>
-                                    <Card.Title style={{display: "inline-flex"}}>{data.price.toLocaleString("fr-ca", {
-                                        style: "currency",
-                                        currency: "CAD"
-                                    })}
-                                        <div style={{fontSize: "15px", alignContent: "end"}}>
-                                            {priceType}
-                                        </div>
-                                    </Card.Title>
-                                </div>
-                                <Card.Text as={"div"} style={{paddingTop: "10px",}}>
-                                    <div><FaLocationDot/> {data.address},</div>
-                                    <div style={{paddingLeft: "3px"}}> {data.city}</div>
-                                </Card.Text>
-                                <div>
-                                    <Card.Text as={"div"} style={{display: "inline-flex", paddingTop: "20px"}}>
-                                        <div><FaBed size={23} style={{marginRight: "0.5rem"}}/>{data.nbRooms}</div>
-                                        <div style={{paddingInlineStart: "1rem"}}><FaBath size={22} style={{marginRight: "0.5rem"}}/>{data.nbBathrooms}
-                                        </div>
-                                    </Card.Text>
-                                </div>
-
-                            </Card.Body>
-                            </Link>
-
-                        </Card>
-
-                ))}
-=======
         <div id="cardProperties">
             {tabProperty.map((data) => (
                 <Card key={data.idProperty}>
@@ -190,13 +142,14 @@ function PropertiesListCard(propsFilters) {
                         <div className="carouselHolder">
                             <ImagePropertyList idPropriete={data.idProperty} typeProprety={propertyType} />
                         </div>
-                        <Card.Body className="cardBody">
-                            <div className="cardHeader">
-                                <div className="cardPrice">
-                                    <Card.Title className="priceText">
+                        <Card.Body className="cardBody" style={{ paddingLeft: "10px" }}>
+                            <div className="cardHeader" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <div className="cardPrice" style={{ display: "flex", alignItems: "flex-end" }}>
+                                    <Card.Title className="priceText" style={{ marginRight: "5px" }}>
                                         {data.price.toLocaleString("fr-ca", { style: "currency", currency: "CAD" })}
                                     </Card.Title>
-                                    <span className="priceUnit">
+                                    <span className="priceUnit"  style={{ fontSize: "15px", color: "#555" }}>
+
                                         {propertyType === "Rent" ? "/month" : ""}
                                     </span>
                                 </div>
@@ -204,25 +157,26 @@ function PropertiesListCard(propsFilters) {
                                     src={heartStates[data.idProperty] ? "fullHeart.png" : "emptyHeart.png"}
                                     alt="Heart Icon"
                                     className="heartIcon"
+                                    style={{ width: "30px", height: "30px", cursor: "pointer" }}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         toggleHeart(data.idProperty);
                                     }}
                                 />
                             </div>
-                            <Card.Text as="div" className="cardLocation">
+                            <Card.Text as="div" className="cardLocation"  style={{ paddingTop: "10px" }}>
                                 <div><FaLocationDot /> {data.address},</div>
-                                <div>{data.city}</div>
+                                <div style={{ paddingLeft: "3px" }}>{data.city}</div>
                             </Card.Text>
-                            <Card.Text as="div" className="cardFeatures">
-                                <div><FaBed size={23} />{data.nbRooms}</div>
-                                <div><FaBath size={22} />{data.nbBathrooms}</div>
+                            <Card.Text as="div" className="cardFeatures" style={{ display: "inline-flex", paddingTop: "20px" }}>
+                                <div><FaBed size={23} style={{ marginRight: "0.5rem" }}  />{data.nbRooms}</div>
+                                <div style={{ paddingInlineStart: "1rem" }}><FaBath size={22} style={{ marginRight: "0.5rem" }}/>{data.nbBathrooms}</div>
                             </Card.Text>
                         </Card.Body>
                     </Link>
                 </Card>
             ))}
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
+
 
             {showLoginPopup && (
                 <div className="popup">
@@ -243,11 +197,10 @@ function PropertiesListCard(propsFilters) {
                 </div>
             )}
         </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
     );
+
 }
+
 
 export default PropertiesListCard;

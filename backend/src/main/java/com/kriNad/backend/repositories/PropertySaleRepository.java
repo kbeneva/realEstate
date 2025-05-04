@@ -1,9 +1,4 @@
 package com.kriNad.backend.repositories;
-
-<<<<<<< HEAD
-import com.kriNad.backend.model.property.PropertySale;
-=======
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
 import com.kriNad.backend.model.property.PropertySale;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,13 +20,11 @@ public interface PropertySaleRepository extends JpaRepository<PropertySale, Long
             " and (?12 is null or ?12 = '' or ps.city = ?12)")
     List<PropertySale> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city);
 
-<<<<<<< HEAD
 
-=======
     @Query("select ps from PropertySale ps where ps.agent.idUser =?1")
     List<PropertySale> getPropertyByAgent(Long idUser);
 
     @Query("select ps from PropertySale ps where ps.customer.idUser = ?1 and ps.isAccepted = false")
     List<PropertySale> getPropertyByCustomer(Long customerId);
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
+
 }

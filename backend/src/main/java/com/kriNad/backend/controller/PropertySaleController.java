@@ -1,12 +1,8 @@
 package com.kriNad.backend.controller;
-<<<<<<< HEAD
 import com.kriNad.backend.exception.PropertySaleNotFoundException;
-=======
-
 import com.kriNad.backend.DTO.PropertySaleRequest;
 import com.kriNad.backend.model.personne.Customer;
 import com.kriNad.backend.model.property.ImagePropertySale;
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
 import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.CustomerRepository;
 import com.kriNad.backend.repositories.ImagePropertySaleRepositories;
@@ -49,13 +45,12 @@ public class PropertySaleController {
         return propertySaleRepository.getPropertyByCustomer(customerId);
     }
 
-<<<<<<< HEAD
-=======
+
     @GetMapping("/agent/{id}")
     public List<PropertySale> getPropertyByAgent(@PathVariable Long id) {
         return propertySaleService.getPropertyByAgent(id);
     }
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
+
 
     @GetMapping("/filtre")
     public List<PropertySale> findPropertyFilters(

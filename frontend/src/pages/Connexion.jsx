@@ -1,13 +1,9 @@
 import './Connexion.css';
-<<<<<<< HEAD:frontend/src/pages/Connexion.jsx
 import Navbar from "../components/navbar/Navbar.jsx";
-import {useState} from 'react';
-import {useNavigate} from "react-router-dom";
-=======
-import Navbar from "../../components/navbar/Navbar.jsx";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites):frontend/src/pages/connexion/Connexion.jsx
+
+
 
 function Connexion() {
     const [isActive, setIsActive] = useState(false);

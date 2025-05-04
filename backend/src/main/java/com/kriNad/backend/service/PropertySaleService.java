@@ -24,13 +24,13 @@ public class PropertySaleService {
         return propertySaleRepository.findById(id);
     }
 
-<<<<<<< HEAD
+
     // filtres ////////////////////////////////////////////////////////////
-=======
+
     public List<PropertySale> getPropertyByAgent(long idUser) {
         return propertySaleRepository.getPropertyByAgent(idUser);
     }
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
+
 
     public List<PropertySale> findByFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city) {
         return propertySaleRepository.findPropertyFilters(categorie, minPrice, maxPrice, nbRooms, nbBathrooms, nbParking, nbGarages, minArea, maxArea, minYear, maxYear, city);

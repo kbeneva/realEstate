@@ -36,14 +36,10 @@ body {
 .containerPrice {
     display: inline-flex;
     align-items: flex-end;
-
-
 }
 
 .containerPrice h1 {
     font-size: 35px;
-
-
 }
 
 
@@ -52,7 +48,6 @@ body {
     padding: 10px 0px 0px 0px;
     justify-content: space-between;
     gap: 1rem;
-
 
 }
 

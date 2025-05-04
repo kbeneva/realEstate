@@ -81,6 +81,7 @@ insert into property_sale (id_property, city, description, categorie, price, add
                            nb_parking_space, nb_garages, area, construction_year, sold, agent_id_user, customer_id_user,
                            is_accepted)
 
+
 VALUES (9028802, 'Laval',
         'This semi-detached house renovated in 2022-2023 offers 4 bedrooms, a modern kitchen, a finished basement, a large fenced garden, and is ideally located in a family neighborhood in Fabreville.',
         'House', 600000, '779 Rue Grégoire', 4, 2, 0, 2, 2000, 1980, false, 6, 11, true),
@@ -117,22 +118,13 @@ VALUES (9028802, 'Laval',
         'Modern apartments with balconies, large windows, and maximum insulation, located near schools, shops, and easily accessible highways.',
         'House', 1200000, '13652 Rue du Gamay', 5, 3, 0, 2, 1800, 2023, false, 7, 12, true),
        (11044938, 'Laval',
-<<<<<<< HEAD
         'Grange de deux étages et garage chauffé, idéal pour bricoleurs et petits animaux, avec espace de travail et plancher en béton.',
         'Farm', 450000, '4305 Rang du Haut-Saint-François', 3, 3, 1, 10, 3000, 1980, false, 7,
-        12),
+        12, true),
        (11201518, 'Montreal', 'Condo à vendre.', 'Condo', 350000, '570 Rue Pierre-Tétreault', 2, 1, 0, 0, 1000, 1990,
-        false, 8, 13),
-       (11429279, 'Montreal', 'Condo à vendre.', 'Condo', 550000, '8144 Rue Foucher', 3, 2, 0, 1, 1200, 1990, false, 8,
-        13),
-=======
-        'Two-story barn with heated garage, ideal for DIY enthusiasts and small animals, with workspace and concrete flooring.',
-        'Chalet', 450000, '4305 Rang du Haut-Saint-François', 3, 3, 1, 10, 3000, 1980, false, 7, 12, true),
-       (11201518, 'Montreal', 'Condo for sale.', 'Condo', 350000, '570 Rue Pierre-Tétreault', 2, 1, 0, 0, 1000, 1990,
         false, 8, 13, true),
-       (11429279, 'Montreal', 'Condo for sale.', 'Condo', 550000, '8144 Rue Foucher', 3, 2, 0, 1, 1200, 1990, false, 8,
+       (11429279, 'Montreal', 'Condo à vendre.', 'Condo', 550000, '8144 Rue Foucher', 3, 2, 0, 1, 1200, 1990, false, 8,
         13, true),
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
        (11456768, 'Montreal',
         'Renovated penthouse with modern kitchen, three bedrooms, two bathrooms, two private balconies, and access to pool, sauna, and gym, near amenities and schools.',
         'Condo', 400000, '1509 Sherbrooke St W', 2, 2, 0, 0, 1100, 2010, false, 8, 13, true),
@@ -167,6 +159,8 @@ VALUES (9028802, 'Laval',
        (14198745, 'Laval',
         'Intergenerational house on Île Verte in Laval, with 4 bedrooms and waterfront view, near REM.', 'House',
         700000, '1604 Rue Boisvert', 5, 4, 0, 3, 2300, 2005, false, 10, 15, true);
+
+
 
 insert into image_property_rent (property_rent_id_property, image_link)
 

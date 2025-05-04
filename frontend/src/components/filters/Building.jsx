@@ -1,4 +1,3 @@
-import React from 'react';
 import './Building.css';
 import {useFormContext} from 'react-hook-form';
 

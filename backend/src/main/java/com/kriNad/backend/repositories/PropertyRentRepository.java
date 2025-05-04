@@ -22,10 +22,9 @@ public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long
             "and ((?8 is null or ?9 is null) or pr.area between ?8 and ?9)" +
             "and ((?10 is null  or ?11 is null) or pr.ConstructionYear between ?10 and ?11)" +
             "and (?12 is null or ?12 = '' or pr.city = ?12)")
-    List<PropertyRent> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear,Long maxYear, String city);
+    List<PropertyRent> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city);
 
-<<<<<<< HEAD
-=======
+
     @Query("select pr from PropertyRent pr where pr.agent.idUser =?1")
     List<PropertyRent> getPropertyByAgent(Long idUser);
 
@@ -34,8 +33,5 @@ public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long
     List<PropertyRent> getPropertyByCustomer(Long customerId);
 
 
->>>>>>> 47a1617 (Frontend + backend des soumissions et favorites)
-
 }
-
 
