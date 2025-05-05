@@ -14,6 +14,7 @@ public class PropertySale extends Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProperty;
+
     private Boolean sold;
 
     @ColumnDefault("'sale'")

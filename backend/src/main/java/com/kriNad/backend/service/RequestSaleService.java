@@ -1,6 +1,5 @@
 package com.kriNad.backend.service;
 
-import com.kriNad.backend.exception.RequestAppliedRentException;
 import com.kriNad.backend.exception.RequestAppliedSaleException;
 import com.kriNad.backend.model.DemandeSoumission.Demande.RequestSale;
 import com.kriNad.backend.repositories.RequestSaleRepository;
@@ -34,11 +33,31 @@ public class RequestSaleService {
     }
 
 
-
-    public RequestSale createRequest(RequestSale requestSale){
-        if (isApplied(requestSale.getCustomer().getId(), requestSale.getPropertySale().getIdProperty())){
+    public RequestSale createRequest(RequestSale requestSale) {
+        if (isApplied(requestSale.getCustomer().getId(), requestSale.getPropertySale().getIdProperty())) {
             throw new RequestAppliedSaleException(requestSale);
         }
         return requestSaleRepository.save(requestSale);
     }
+
+
+    public RequestSale findRequestByIdProperty(Long idProperty) {
+
+        return requestSaleRepository.getRequestSaleByPropertySale(idProperty);
+
+
+    }
+
+//    public void deleteRequestWithIdProperty(Long idProperty) {
+//
+//
+//
+//        if (requestSale.getStatusDemande().equals("accepted")) {
+//            throw new RuntimeException("Cannot delete a request that has been accepted");
+//        } else {
+//            requestSaleRepository.deleteRequestSaleByPropertySale_IdProperty(idProperty);
+//        }
+//
+//    }
+
 }

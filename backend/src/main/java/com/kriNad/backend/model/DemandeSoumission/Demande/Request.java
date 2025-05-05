@@ -37,7 +37,7 @@ public class Request {
     private Customer customer;
 
 
-    public long getIdDemande() {
+    public Long getIdDemande() {
         return IdDemande;
     }
 

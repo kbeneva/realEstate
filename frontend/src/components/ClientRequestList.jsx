@@ -6,6 +6,7 @@ import "./clientRequestList.css"
 import {MdDelete} from "react-icons/md";
 import ImagePropertyList from "./propertiesDisplay/ImagePropertyList.jsx";
 import {Link} from "react-router-dom";
+import {forEach} from "react-bootstrap/ElementChildren";
 
 
 function ClientRequestList() {
@@ -17,6 +18,10 @@ function ClientRequestList() {
         `http://localhost:9696/RequestRent/customer/${user.idUser}`,
         `http://localhost:9696/RequestSale/customer/${user.idUser}`,
     ];
+
+
+
+
 
     const loadRequests = async () => {
         try {
@@ -33,6 +38,29 @@ function ClientRequestList() {
     useEffect(() => {
         loadRequests();
     }, []);
+
+
+
+    const deleteRequest = async (id) => {
+        await axios.delete(`http://localhost:9696/RequestSale/deleteRequest/${id}`);
+        loadRequests();
+    };
+
+    const handleDelete = (id) => {
+
+
+        if (tabRequests.statusDemande === "pending"){
+            deleteRequest(id)
+        }else if (tabRequests.statusDemande === 'accepted'){
+            alert("Cannot delete accepted request")
+        }else {
+            alert("There was a problem with your request")
+        }
+
+
+    };
+
+
 
     const CapitalizedText = (text) => {
         return text.charAt(0).toUpperCase() + text.slice(1)
@@ -53,7 +81,7 @@ function ClientRequestList() {
                         <Card.Body className={"requestContent"}>
 
                             <div className={"statusRequest"}>
-                                <button className={"deleteRequest"}>
+                                <button className={"deleteRequest"}  onClick={() => handleDelete(data.idDemande)}>
                                     <MdDelete size={25}/>
                                 </button>
 

@@ -69,12 +69,10 @@ function ContactAgentForm() {
 
 
     useEffect(() => {
+        loadProperty();
         getAlreadyApplied();
     }, []);
 
-    useEffect(() => {
-        loadProperty();
-    }, []);
 
 
     if (!property.agent) {  /// méthode toLocaleString est appelé avant les données

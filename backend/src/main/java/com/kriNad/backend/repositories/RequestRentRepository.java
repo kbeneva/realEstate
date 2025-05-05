@@ -2,6 +2,7 @@ package com.kriNad.backend.repositories;
 
 import com.kriNad.backend.model.DemandeSoumission.Demande.RequestRent;
 import com.kriNad.backend.model.personne.Customer;
+import com.kriNad.backend.model.property.PropertyRent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

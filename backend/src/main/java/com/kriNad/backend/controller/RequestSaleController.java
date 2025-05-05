@@ -39,4 +39,14 @@ public class RequestSaleController {
         return requestSaleService.isApplied(customerId,propertySaleId);
 
     }
+
+    @GetMapping("/deleteRequest/{idProperty}")
+    public void deleteRequest(@PathVariable Long idProperty){
+        requestSaleService.findRequestByIdProperty(idProperty);
+    }
+
+//    @DeleteMapping("/deleteRequest/{idProperty}")
+//    public void deleteRequest(@PathVariable Long idProperty){
+//        requestSaleService.deleteRequestWithIdProperty(idProperty);
+//    }
 }
