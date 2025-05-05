@@ -1,9 +1,10 @@
-import Navbar from "../components/navbar/Navbar.jsx";
+import Navbar from "../../components/navbar/Navbar.jsx";
 import "./Accueil.css";
-import SearchBar from "../components/SearchBar.jsx";
-import Filters from "../components/filters/Filters.jsx";
-import Display from "../components/homePageDisplay/Display.jsx";
+import SearchBar from "../../components/searchBar/SearchBar.jsx";
+import Filters from "../../components/filters/Filters.jsx";
+import Display from "../../components/homePageDisplay/Display.jsx";
 import React, {useState} from "react";
+import PropertiesListCard from "../../components/propertiesDisplay/PropertiesListCard.jsx";
 
 
 function Accueil() {

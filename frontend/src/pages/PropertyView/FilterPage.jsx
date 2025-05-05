@@ -1,8 +1,8 @@
-import Navbar from "../components/navbar/Navbar.jsx";
+import Navbar from "../../components/navbar/Navbar.jsx";
+import PropertiesListCard from "../../components/propertiesDisplay/PropertiesListCard.jsx";
 import  {useState} from 'react'
-import Filters from "../components/filters/Filters.jsx";
+import Filters from "../../components/filters/Filters.jsx";
 import "./filterPage.css"
-import PropertiesListCard from "../components/propertiesDisplay/PropertiesListCard.jsx";
 
 
 function FilterPage() {

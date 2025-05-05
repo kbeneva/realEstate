@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kriNad.backend.model.personne.Agent;
 import com.kriNad.backend.model.personne.Customer;
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
+
 import java.util.List;
 
 @Entity
@@ -12,16 +14,18 @@ public class PropertySale extends Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProperty;
-
     private Boolean sold;
 
+    @ColumnDefault("'sale'")
+    private String typeProperty;
+
     @ManyToOne
-    @JsonIgnore
     private Customer customer;
 
     @ManyToOne
-    @JsonIgnore
     private Agent agent;
+
+
 
     @OneToMany(mappedBy = "propertySale", cascade = CascadeType.ALL)
     private List<ImagePropertySale> images;
@@ -64,5 +68,13 @@ public class PropertySale extends Property {
 
     public void setImages(List<ImagePropertySale> images) {
         this.images = images;
+    }
+
+    public String getTypeProperty() {
+        return typeProperty;
+    }
+
+    public void setTypeProperty(String typeProperty) {
+        this.typeProperty = typeProperty;
     }
 }

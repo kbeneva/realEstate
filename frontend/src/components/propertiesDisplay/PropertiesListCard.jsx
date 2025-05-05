@@ -7,8 +7,8 @@ import {FaLocationDot} from "react-icons/fa6";
 import {FaBed} from "react-icons/fa";
 import {FaBath} from "react-icons/fa";
 import './PropertiesListCard.css';
-import "./propertyView.css"
-import '../../components/profile/ProfileCard.css';
+
+
 
 
 
@@ -41,11 +41,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     const loadAllProperty = async () => {
         try {
             const result = await axios.get(`http://localhost:9696/property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
-                result.data.forEach(property => {
-                    if (property.isAccepted){
-                        setProperty(result.data)
-                    }
-                });
+                setProperty(result.data)
 
         } catch (error) {
             console.error("Error fetching properties:", error);
@@ -138,7 +134,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
         <div id="cardProperties">
             {tabProperty.map((data) => (
                 <Card key={data.idProperty}>
-                    <Link to={`/property/${CapitalizedText(data.typeProperty)}/${data.idProperty}`}>
+                    <Link to={`/property/${CapitalizedText(propertyType)}/${data.idProperty}`}>
                         <div className="carouselHolder">
                             <ImagePropertyList idPropriete={data.idProperty} typeProprety={propertyType} />
                         </div>

@@ -1,0 +1,108 @@
+.cardContainer {
+    margin: 0 auto;
+    max-width: 1000px;
+
+
+
+}
+
+
+.requestContent {
+    margin: 10px;
+    padding: 20px;
+    border: #BDE3FF solid 2px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.requestContent div{
+  color: #3134C8;
+
+}
+
+.statusRequest{
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}
+
+.statusTime{
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+    margin-top: auto;
+}
+
+
+
+
+.statusSection {
+    background: #FFB02E;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    width: 65px;
+    margin-bottom: 0;
+    border-radius: 10px;
+
+}
+
+
+
+.deleteRequest{
+    background: #3f46ce;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+    width: 65px;
+    margin-bottom: 0;
+    border-radius: 10px;
+
+}
+
+
+.requestContent .carouselRequest {
+    overflow: hidden;
+    width: 400px;
+    border-radius: 30px;
+
+}
+
+
+.requestContent .swiperSlideImage img {
+    width: 400px;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.requestContent .swiperSlideImage {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+}
+
+
+@media (max-width: 600px) {
+    .requestContent .carouselRequest {
+        width: 250px;
+
+    }
+
+
+    .requestContent .swiperSlideImage img {
+        width: 250px;
+    }
+
+    .requestContent .swiperSlideImage {
+        width: 250px;
+    }
+}
+
+
+
+
+
+
+

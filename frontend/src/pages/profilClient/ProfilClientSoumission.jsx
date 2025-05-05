@@ -11,21 +11,26 @@ function ProfilClientLocation() {
     const [submissions, setSubmissions] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+
+    const data = [
+        `http://localhost:9696/propertyRent/customer/${storedUser.idUser}`,
+        `http://localhost:9696/propertySale/customer/${storedUser.idUser}`,
+    ];
 
     useEffect(() => {
         const fetchSubmissions = async () => {
-            const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+
             if (!storedUser?.idUser) {
                 setLoading(false);
                 return;
             }
             try {
-                const response = await axios.get(`http://localhost:9696/propertyRent/customer/${storedUser.idUser}`);
-                if (Array.isArray(response.data)) {
-                    setSubmissions(response.data);
-                } else {
-                    setSubmissions([]);
-                }
+                const response = await Promise.all(data.map(url => axios.get(url)));
+                const allRequests = [...response[1].data, ...response[0].data]
+                setSubmissions(allRequests);
+
+
             } catch (error) {
                 console.error("Error fetching rental submissions:", error);
                 setSubmissions([]);
@@ -47,6 +52,8 @@ function ProfilClientLocation() {
             navigate("/customerProfileSubmissionsRent");
         }
     };
+
+    console.log(submissions)
 
     return (
         <div>

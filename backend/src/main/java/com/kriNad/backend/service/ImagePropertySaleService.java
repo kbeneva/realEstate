@@ -26,9 +26,9 @@ public class ImagePropertySaleService {
 
     public List<ImagePropertySale> getAll(){
         return imagePropertySaleRepositories.findAll();
-
-
     }
+
+
     public List<String> getAllImagesByPropertyId(Long propertyIdProperty){
         return imagePropertySaleRepositories.getImagePropertySaleByPropertySaleId(propertyIdProperty);
     }

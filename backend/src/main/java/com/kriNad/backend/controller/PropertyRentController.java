@@ -1,5 +1,4 @@
 package com.kriNad.backend.controller;
-
 import com.kriNad.backend.DTO.PropertyRentRequest;
 import com.kriNad.backend.exception.PropertyRentNotFoundException;
 import com.kriNad.backend.model.personne.Customer;
@@ -38,14 +37,19 @@ public class PropertyRentController {
         return propertyRentService.getAll();
     }
 
+
+
     @GetMapping("/{id}")
     public PropertyRent getById(@PathVariable Long id) {
         return propertyRentService.getById(id).orElseThrow(() -> new PropertyRentNotFoundException(id));
     }
 
     @GetMapping("/agent/{id}")
-    public List<PropertyRent> getPropertyByAgent(@PathVariable Long id) {
-        return propertyRentService.getPropertyByAgent(id);}
+    public List<PropertyRent> getPropertyByAgent(@PathVariable Long id){
+        return propertyRentService.getPropertyByAgent(id);
+    }
+
+
 
 
     @GetMapping("/filtre")

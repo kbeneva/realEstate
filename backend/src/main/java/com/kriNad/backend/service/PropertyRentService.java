@@ -4,12 +4,17 @@ package com.kriNad.backend.service;
 import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.repositories.PropertyRentRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PropertyRentService {
+
 
 
     private final PropertyRentRepository propertyRentRepository;
@@ -30,14 +35,16 @@ public class PropertyRentService {
         return propertyRentRepository.findById(id);
     }
 
-    public List<PropertyRent> getPropertyByAgent(long idUser){
-        return propertyRentRepository.getPropertyByAgent(idUser);
-    }
+
     public List<PropertyRent> getPropertyByCustomer(long idUser) {
         return propertyRentRepository.getPropertyByCustomer(idUser);
     }
 
     /////////////////////Post////////////////////////////
+    public List<PropertyRent> getPropertyByAgent(long idUser){
+        return propertyRentRepository.getPropertyByAgent(idUser);
+    }
+
 
     public PropertyRent save(PropertyRent rent) {
         return propertyRentRepository.save(rent);

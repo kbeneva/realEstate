@@ -1,0 +1,22 @@
+package com.kriNad.backend.repositories;
+
+import com.kriNad.backend.model.DemandeSoumission.Demande.RequestRent;
+import com.kriNad.backend.model.personne.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+
+public interface RequestRentRepository extends JpaRepository<RequestRent, Long> {
+
+
+    public boolean existsByCustomer_IdAndPropertyRent_IdProperty(Long customerId, Long propertyRentId);
+
+
+    public List<RequestRent> getRequestRentByAgent_Id(Long agentId);
+
+    public List<RequestRent> getRequestRentByCustomer_Id(Long customerId);
+
+
+}

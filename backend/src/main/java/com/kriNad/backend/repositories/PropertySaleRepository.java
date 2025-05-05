@@ -1,4 +1,6 @@
 package com.kriNad.backend.repositories;
+
+import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.model.property.PropertySale;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -6,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PropertySaleRepository extends JpaRepository<PropertySale, Long> {
+
 
     @Query("select ps from PropertySale ps" +
             " where ps.isAccepted = true" +

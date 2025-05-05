@@ -4,6 +4,7 @@ import ProfileCard from "../../components/profile/ProfileCard.jsx";
 import '../../components/profile/ProfileCard.css';
 import '../profilAdmin/ProfilAdmin.css';
 import './CustomerProfile.css';
+import ClientRequestList from "../../components/ClientRequestList.jsx";
 
 function ProfilClientDemande() {
     const [activeTab, setActiveTab] = useState("requests");
@@ -32,6 +33,7 @@ function ProfilClientDemande() {
                     className={`tabItem ${activeTab === "requests" ? "activeTab" : ""}`}
                 >
                     My requests
+
                 </p>
                 <p
                     className={`tabItem ${activeTab === "submissions" ? "activeTab" : ""}`}
@@ -40,7 +42,11 @@ function ProfilClientDemande() {
                     My submissions
                 </p>
             </div>
-            <div className={"profileBodyBorder"}></div>
+            <div className={"profileBodyBorder"}>
+
+                <ClientRequestList/>
+
+            </div>
         </div>
     );
 }

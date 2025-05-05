@@ -1,15 +1,14 @@
 package com.kriNad.backend.model.DemandeSoumission.Demande;
 
 import com.kriNad.backend.model.property.PropertySale;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 
-public class DemandeSale extends Demande{
+public class RequestSale extends Request {
 
 
-    @OneToOne
+    @ManyToOne
     private PropertySale propertySale;
 
     public PropertySale getPropertySale() {

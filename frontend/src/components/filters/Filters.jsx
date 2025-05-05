@@ -6,7 +6,7 @@ import Category from "./Category.jsx";
 import Features from "./Features";
 import Building from "./Building";
 import {useForm, FormProvider, useFormContext} from "react-hook-form"
-import SearchBar from "../SearchBar.jsx";
+import SearchBar from "../searchBar/SearchBar.jsx";
 import {Link, useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
