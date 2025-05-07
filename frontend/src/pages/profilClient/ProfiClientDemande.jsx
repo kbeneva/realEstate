@@ -4,7 +4,7 @@ import ProfileCard from "../../components/profile/ProfileCard.jsx";
 import '../../components/profile/ProfileCard.css';
 import '../profilAdmin/ProfilAdmin.css';
 import './CustomerProfile.css';
-import ClientRequestList from "../../components/ClientRequestList.jsx";
+import ClientRequestList from "../../components/requestList/ClientRequestList.jsx";
 
 function ProfilClientDemande() {
     const [activeTab, setActiveTab] = useState("requests");
@@ -45,6 +45,7 @@ function ProfilClientDemande() {
             <div className={"profileBodyBorder"}>
 
                 <ClientRequestList/>
+                {/*<p className="defaultMessage">No requests found.</p>*/}
 
             </div>
         </div>

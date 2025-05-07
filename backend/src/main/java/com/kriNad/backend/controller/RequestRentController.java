@@ -40,4 +40,19 @@ public class RequestRentController {
         return requestRentService.isApplied(customerId,propertyRentId);
 
     }
+
+    @DeleteMapping("/deleteRequest/{IdDemande}")
+    public void deleteRequest(@PathVariable Long IdDemande){
+        requestRentService.deleteRequestWithId(IdDemande);
+    }
+
+    @PutMapping("/accept/{idDemande}")
+    public void acceptRequest(@PathVariable Long idDemande){
+        requestRentService.acceptRequest(idDemande);
+    }
+
+    @PutMapping("/refuse/{idDemande}")
+    public void rejectRequest(@PathVariable Long idDemande){
+        requestRentService.rejectRequest(idDemande);
+    }
 }

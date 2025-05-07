@@ -6,7 +6,7 @@ import '../profilAdmin/ProfilAdmin.css';
 import '../profilClient/CustomerProfile.css';
 
 function ProfilAgentPropriete() {
-    const [activeTab, setActiveTab] = useState("requests");
+    const [activeTab, setActiveTab] = useState("properties");
     const navigate = useNavigate();
 
     const handleTabClick = (tab) => {
@@ -35,7 +35,8 @@ function ProfilAgentPropriete() {
                     Client requests
                 </p>
             </div>
-            <div className={"profileBodyBorder"}></div>
+            <div className={"profileBodyBorder"}>
+            </div>
         </div>
     );
 }

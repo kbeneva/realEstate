@@ -82,7 +82,7 @@ function ContactAgentForm() {
     const submitRequest = async () => {
         try {
             axios.post(`http://localhost:9696/Request${typeProperty}/createRequest`, formRequest);
-            navigate("/customerProfileRequests");
+            navigate("/customerProfileFavorites");
 
 
         } catch (error) {

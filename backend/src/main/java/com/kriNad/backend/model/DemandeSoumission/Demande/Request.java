@@ -12,12 +12,11 @@ import java.util.Date;
 
 
 @MappedSuperclass
-
 public class Request {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "unique_seq")
     private long IdDemande;
     private String typeDemande;
     private String description;

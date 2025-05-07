@@ -1,26 +1,39 @@
 package com.kriNad.backend.service;
 
+import com.kriNad.backend.exception.CustomerNotFoundException;
 import com.kriNad.backend.exception.RequestAppliedSaleException;
+import com.kriNad.backend.exception.RequestNotFoundException;
 import com.kriNad.backend.model.DemandeSoumission.Demande.RequestSale;
+import com.kriNad.backend.model.personne.Customer;
+import com.kriNad.backend.model.property.PropertySale;
+import com.kriNad.backend.repositories.CustomerRepository;
+import com.kriNad.backend.repositories.PropertySaleRepository;
 import com.kriNad.backend.repositories.RequestSaleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class RequestSaleService {
 
+    List<String> requestStatus = Arrays.asList("accepted", "rejected", "pending");
 
     private final RequestSaleRepository requestSaleRepository;
+    private final PropertySaleRepository propertySaleRepository;
+    private final CustomerRepository customerRepository;
 
-    public RequestSaleService(RequestSaleRepository requestSaleRepository) {
+    public RequestSaleService(RequestSaleRepository requestSaleRepository, PropertySaleService propertySaleService, PropertySaleRepository propertySaleRepository, CustomerRepository customerRepository) {
         this.requestSaleRepository = requestSaleRepository;
+        this.propertySaleRepository = propertySaleRepository;
+        this.customerRepository = customerRepository;
     }
 
 
-    public boolean isApplied(Long customerId, Long propertySaleId) {
-        return requestSaleRepository.existsByCustomer_IdAndPropertySale_IdProperty(customerId, propertySaleId);
-
+    ///////////////Get////////////////////////////////////////
+    public RequestSale getRequestSaleById(Long IdDemande) {
+       return requestSaleRepository.findById(IdDemande).orElseThrow(() -> new RequestNotFoundException());
     }
 
 
@@ -32,7 +45,19 @@ public class RequestSaleService {
         return requestSaleRepository.getRequestSaleByAgent_Id(agentId);
     }
 
+    public Customer getCustomerById(Long idUser) {
+        return customerRepository.findById(idUser).orElseThrow(() -> new CustomerNotFoundException(idUser));
+    }
 
+
+    ////////// Verifiy///////////////////////////////
+    public boolean isApplied(Long customerId, Long propertySaleId) {
+        return requestSaleRepository.existsByCustomer_IdAndPropertySale_IdProperty(customerId, propertySaleId);
+
+    }
+
+
+    //////////////Create//////////////////////////////////////
     public RequestSale createRequest(RequestSale requestSale) {
         if (isApplied(requestSale.getCustomer().getId(), requestSale.getPropertySale().getIdProperty())) {
             throw new RequestAppliedSaleException(requestSale);
@@ -41,23 +66,60 @@ public class RequestSaleService {
     }
 
 
-    public RequestSale findRequestByIdProperty(Long idProperty) {
+    ////////////////update////////////////////////////////////
+    public RequestSale updateRequest(Long IdDemande, String status) {
 
-        return requestSaleRepository.getRequestSaleByPropertySale(idProperty);
+        return requestSaleRepository.findById(IdDemande).map(requestSale -> {
+            requestSale.setStatusDemande(status);
+            return requestSaleRepository.save(requestSale);
 
-
+        }).orElseThrow(() -> new RequestNotFoundException());
     }
 
-//    public void deleteRequestWithIdProperty(Long idProperty) {
-//
-//
-//
-//        if (requestSale.getStatusDemande().equals("accepted")) {
-//            throw new RuntimeException("Cannot delete a request that has been accepted");
-//        } else {
-//            requestSaleRepository.deleteRequestSaleByPropertySale_IdProperty(idProperty);
-//        }
-//
-//    }
+    public RequestSale acceptRequest(Long IdDemande) {
+        return updateRequest(IdDemande, requestStatus.get(0));
+    }
+
+    public RequestSale rejectRequest(Long IdDemande) {
+        return updateRequest(IdDemande, requestStatus.get(1));
+    }
+
+    public PropertySale updatePropertyOwner(Long IdDemande, Long idUser){
+        Customer customer = getCustomerById(idUser);
+
+        return propertySaleRepository.findById(IdDemande).map(propertySale -> {
+            propertySale.setCustomer(customer);
+            propertySale.setIsAccepted(true);
+            return propertySaleRepository.save(propertySale);
+        }).orElseThrow(() -> new RequestNotFoundException());
+    }
+
+    public PropertySale acceptPropertyOwner(Long IdDemande, Long idUser){
+        RequestSale requestSale = getRequestSaleById(IdDemande);
+
+        if (!requestSale.getStatusDemande().equals(requestStatus.get(0))){
+            throw new RuntimeException("Cannot change the owner of a request that has been not accepted");
+
+        }
+
+        PropertySale propertySale = updatePropertyOwner(IdDemande, idUser);
+        return propertySale;
+    }
+
+
+
+
+    /////////////////Delete//////////////////////////////////////
+    public void deleteRequestWithId(Long IdDemande) {
+
+        RequestSale requestSale = getRequestSaleById(IdDemande);
+
+        if (requestSale.getStatusDemande().equals(requestStatus.get(0))) {
+            throw new RuntimeException("Cannot delete a request that has been accepted");
+        } else {
+            requestSaleRepository.deleteById(IdDemande);
+        }
+
+    }
 
 }

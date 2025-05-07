@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 
 public class RequestSale extends Request {
 
+    @SequenceGenerator(sequenceName = "sale_id_seq", allocationSize = 1, name="unique_seq")
 
     @ManyToOne
     private PropertySale propertySale;

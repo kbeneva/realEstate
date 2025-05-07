@@ -84,9 +84,30 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .requestContent .carouselRequest {
         width: 250px;
+
+
+
+    }
+
+    .cardRequests, .requestContent{
+        overflow: hidden;
+
+    }
+
+    .requestContent{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .clientContainer{
+        margin-top: 20px;
+
+    }
+    .agentContainer{
+        flex-direction: column;
 
     }
 
@@ -100,9 +121,34 @@
     }
 }
 
+.acceptRequest{
+    background: #6abd71;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
 
 
+}
+.rejectRequest{
+    background: #FF6F61;
+    color: #1a1a1a;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+.statusButtons{
+   display: flex;
+    gap: 15px;
+
+}
 
 
+.cardRequests .agentContainer{
+    background: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
 
 
+.descRequest{
+    padding-top: 20px;
+    background: white;
+
+
+}

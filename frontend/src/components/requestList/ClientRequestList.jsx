@@ -1,25 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import Card from "react-bootstrap/Card";
-import {v4 as uuidv4} from 'uuid';
 import "./clientRequestList.css"
 import {MdDelete} from "react-icons/md";
-import ImagePropertyList from "./propertiesDisplay/ImagePropertyList.jsx";
+import ImagePropertyList from "../propertiesDisplay/ImagePropertyList.jsx";
 import {Link} from "react-router-dom";
 import {forEach} from "react-bootstrap/ElementChildren";
+import propertyType from "../filters/PropertyType.jsx";
+import {tab} from "@material-tailwind/react";
 
 
 function ClientRequestList() {
 
     const [tabRequests, setRequests] = useState([]);
     const user = JSON.parse(localStorage.getItem("user"));
-
     const data = [
         `http://localhost:9696/RequestRent/customer/${user.idUser}`,
         `http://localhost:9696/RequestSale/customer/${user.idUser}`,
     ];
-
-
 
 
 
@@ -35,27 +33,47 @@ function ClientRequestList() {
 
 
     }
+
+    const deleteRequest = async (id, propertyType) => {
+        await axios.delete(`http://localhost:9696/Request${propertyType}/deleteRequest/${id}`);
+        await loadRequests();
+
+    };
+
     useEffect(() => {
         loadRequests();
     }, []);
 
 
 
-    const deleteRequest = async (id) => {
-        await axios.delete(`http://localhost:9696/RequestSale/deleteRequest/${id}`);
-        loadRequests();
-    };
-
-    const handleDelete = (id) => {
 
 
-        if (tabRequests.statusDemande === "pending"){
-            deleteRequest(id)
-        }else if (tabRequests.statusDemande === 'accepted'){
-            alert("Cannot delete accepted request")
-        }else {
-            alert("There was a problem with your request")
-        }
+
+
+    const handleDelete = async (id, propertyType) => {
+
+        tabRequests.forEach(requests => {
+            try {
+                if (tabRequests.length > 0){
+                    if (requests.statusDemande === "pending" || requests.statusDemande === "refused"){
+                        if(confirm("Are you sure you want to permanently delete this request ? It will no longer be accessible to you or the agent") === true){
+                            deleteRequest(id, propertyType)
+                        }else {
+                            alert("The request was canceled")
+                        }
+
+                    }else {
+                        alert("You cannot delete this request")
+                    }
+                }
+
+            }catch (error){
+                alert("An error has occured with your request " + error)
+            }
+
+        })
+
+
 
 
     };
@@ -76,12 +94,12 @@ function ClientRequestList() {
 
                 {tabRequests.map((data) => (
 
-                    <Card className={"cardRequests"} key={uuidv4()}>
+                    <Card className={"cardRequests"} key={data.idDemande}>
 
                         <Card.Body className={"requestContent"}>
 
                             <div className={"statusRequest"}>
-                                <button className={"deleteRequest"}  onClick={() => handleDelete(data.idDemande)}>
+                                <button className={"deleteRequest"}  onClick={() => handleDelete(data.idDemande, data.typeDemande)}>
                                     <MdDelete size={25}/>
                                 </button>
 

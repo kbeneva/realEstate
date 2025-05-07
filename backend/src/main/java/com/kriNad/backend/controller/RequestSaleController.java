@@ -34,19 +34,32 @@ public class RequestSaleController {
     public List<RequestSale> getAllRequestsByCustomerId(@PathVariable Long id){
         return requestSaleService.getAllRequestByCustomerId(id);
     }
+
     @GetMapping("verifyRequest/{customerId}/{propertySaleId}")
     public boolean verifyRequest(@PathVariable Long customerId,@PathVariable Long propertySaleId){
         return requestSaleService.isApplied(customerId,propertySaleId);
 
     }
 
-    @GetMapping("/deleteRequest/{idProperty}")
-    public void deleteRequest(@PathVariable Long idProperty){
-        requestSaleService.findRequestByIdProperty(idProperty);
+    @DeleteMapping("/deleteRequest/{IdDemande}")
+    public void deleteRequest(@PathVariable Long IdDemande){
+        requestSaleService.deleteRequestWithId(IdDemande);
     }
 
-//    @DeleteMapping("/deleteRequest/{idProperty}")
-//    public void deleteRequest(@PathVariable Long idProperty){
-//        requestSaleService.deleteRequestWithIdProperty(idProperty);
-//    }
+    @PutMapping("/accept/{idDemande}")
+    public void acceptRequest(@PathVariable Long idDemande){
+        requestSaleService.acceptRequest(idDemande);
+    }
+
+    @PutMapping("/refuse/{idDemande}")
+    public void rejectRequest(@PathVariable Long idDemande){
+        requestSaleService.rejectRequest(idDemande);
+    }
+
+    @PutMapping("/updateOwner{idDemande}")
+    public void updateOwner(@PathVariable Long idDemande, Long idUser){
+        requestSaleService.acceptPropertyOwner(idDemande, idUser);
+    }
+
+
 }

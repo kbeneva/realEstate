@@ -4,6 +4,7 @@ import ProfileCard from "../../components/profile/ProfileCard.jsx";
 import '../../components/profile/ProfileCard.css';
 import '../profilAdmin/ProfilAdmin.css';
 import '../profilClient/CustomerProfile.css';
+import AgentRequestList from "../../components/requestList/AgentRequestList.jsx";
 
 function ProfilAgentDemande() {
     const [activeTab, setActiveTab] = useState("requests");
@@ -13,7 +14,7 @@ function ProfilAgentDemande() {
         if (tab !== activeTab) {
             setActiveTab(tab);
             if (tab === "properties") {
-                navigate("/agentProfileCustomerRequests");
+                navigate("/agentProfileProperties");
             }
         }
     };
@@ -35,7 +36,9 @@ function ProfilAgentDemande() {
                     Client requests
                 </p>
             </div>
-            <div className={"profileBodyBorder"}></div>
+            <div className={"profileBodyBorder"}>
+                <AgentRequestList />
+            </div>
         </div>
     );
 }
