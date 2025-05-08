@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/Auth")
 @CrossOrigin(origins = "*")
 public class AuthController {
 
@@ -34,7 +34,6 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
         }
     }
-
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest request) {
@@ -58,5 +57,4 @@ public class AuthController {
 
         return ResponseEntity.ok(response);
     }
-
 }

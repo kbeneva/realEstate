@@ -2,9 +2,9 @@ import {useEffect, useState} from 'react';
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "./clientRequestList.css"
-import {IoClose} from "react-icons/io5";
 import {FaCheck} from "react-icons/fa";
 import {RiCloseLargeFill} from "react-icons/ri";
+import "../../pages/profilClient/CustomerProfile.css"
 
 
 function AgentRequestList() {
@@ -83,69 +83,52 @@ function AgentRequestList() {
 
     return (
         <div>
-
-            <div className={"cardContainer"}>
-
-                {tabRequests.map((data) => (
-
-                    <Card className={"cardRequests"} key={data.idDemande}>
-
-                        <Card.Body className={"requestContent"}>
-
-
-                            <div className={"statusRequest"}>
-
-                                <span className={"statusButtons"}>
-                                     <button className={"acceptRequest"} onClick={(e) => handleAccept(e, data.idDemande, data.typeDemande)}>
-                                    <FaCheck size={25}/>
-                                </button>
-
-                                <button className={"rejectRequest"} onClick={(e) => handleDecline(e, data.idDemande, data.typeDemande)}>
-                                    <RiCloseLargeFill size={25} style={{stroke: "white", strokeWidth: "2"}}/>
-                                </button>
-                                </span>
-
-
-                                <div className={"statusTime"}>
-
-                                    <div> {data.creationDate}</div>
-
-                                </div>
-                            </div>
-
-                            <div className={"clientContainer"}>
-                                <div className={"agentContainer"}>
-                                    <div className={"pfp"}>
-                                        <img src={"/pfp.jpg"} alt={"agent pfp"}/>
+            {tabRequests.length === 0 ? (
+                <div className="defaultMessage">
+                    No requests or submissions from clients found
+                </div>
+            ) : (
+                <div className="cardContainer">
+                    {tabRequests.map((data) => (
+                        <Card className="cardRequests" key={data.idDemande}>
+                            <Card.Body className="requestContent">
+                                <div className="statusRequest">
+                                    <span className="statusButtons">
+                                        <button className="acceptRequest" onClick={(e) => handleAccept(e, data.idDemande, data.typeDemande)}>
+                                            <FaCheck size={25} />
+                                        </button>
+                                        <button className="rejectRequest" onClick={(e) => handleDecline(e, data.idDemande, data.typeDemande)}>
+                                            <RiCloseLargeFill size={25} style={{ stroke: "white", strokeWidth: "2" }} />
+                                        </button>
+                                    </span>
+                                    <div className="statusTime">
+                                        <div>{data.creationDate}</div>
                                     </div>
-                                    <div className={"agentDetails"}>
-                                        <div className={"nameAgent"}><p> {data.customer.fname}</p>
-                                            <p>{data.customer.lname}</p></div>
+                                </div>
 
-                                        <p> {data.customer.email}</p>
-                                        <p> {data.customer.phone}</p>
-
-
+                                <div className="clientContainer">
+                                    <div className="agentContainer">
+                                        <div className="pfp">
+                                            <img src="/pfp.jpg" alt="agent pfp" />
+                                        </div>
+                                        <div className="agentDetails">
+                                            <div className="nameAgent">
+                                                <p>{data.customer.fname}</p>
+                                                <p>{data.customer.lname}</p>
+                                            </div>
+                                            <p>{data.customer.email}</p>
+                                            <p>{data.customer.phone}</p>
+                                        </div>
                                     </div>
-
-
+                                    <div className="descRequest">
+                                        {data.description}
+                                    </div>
                                 </div>
-                                <div className={"descRequest"}>
-                                    {data.description}
-                                </div>
-
-                            </div>
-
-
-                        </Card.Body>
-
-
-                    </Card>
-
-                ))}
-
-            </div>
-
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

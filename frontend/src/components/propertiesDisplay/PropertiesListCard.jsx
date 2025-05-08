@@ -40,7 +40,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
 
     const loadAllProperty = async () => {
         try {
-            const result = await axios.get(`http://localhost:9696/property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
+            const result = await axios.get(`http://localhost:9696/Property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
                 setProperty(result.data)
 
         } catch (error) {
@@ -52,7 +52,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     const loadFavorites = async () => {
         if (!user) return;
         try {
-            const res = await axios.get(`http://localhost:9696/api/favorites/${user.idUser}`);
+            const res = await axios.get(`http://localhost:9696/Favorites/${user.idUser}`);
             const map = {};
             res.data.forEach(fav => {
                 const property = fav.propertySale || fav.propertyRent;
@@ -90,7 +90,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
             try {
                 const favId = favoritesMap[propertyId];
                 if (favId) {
-                    await axios.delete(`http://localhost:9696/api/favorites/${favId}`);
+                    await axios.delete(`http://localhost:9696/Favorites/${favId}`);
                     setHeartStates(prev => ({ ...prev, [propertyId]: false }));
                     const updatedMap = { ...favoritesMap };
                     delete updatedMap[propertyId];
@@ -101,7 +101,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
             }
         } else {
             try {
-                const res = await axios.post(`http://localhost:9696/api/favorites/add`, null, {
+                const res = await axios.post(`http://localhost:9696/Favorites/add`, null, {
                     params: {
                         customerId: user.idUser,
                         propertyId: propertyId,

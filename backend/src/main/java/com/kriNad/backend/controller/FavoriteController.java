@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/favorites")
+@RequestMapping("/Favorites")
 @CrossOrigin(origins = "http://localhost:9292")
 public class FavoriteController {
 
@@ -27,7 +27,7 @@ public class FavoriteController {
     @Autowired
     private PropertyRentRepository propertyRentRepository;
 
-    @PostMapping("/add")
+    @PostMapping("/addFavorite")
     public Favorite addFavorite(@RequestParam Long customerId, @RequestParam Long propertyId, @RequestParam String type) {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new RuntimeException("Customer not found"));

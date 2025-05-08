@@ -12,7 +12,8 @@ import ProfilClientSoumission from "./pages/profilClient/ProfilClientSoumission.
 import ProfilAgentDemande from "./pages/profilAgent/ProfilAgentDemande.jsx";
 import FilterPage from "./pages/PropertyView/FilterPage.jsx";
 import PropertyView from "./pages/PropertyView/PropertyView.jsx";
-import ContactAgentPage from "./pages/forms/contactAgentPage.jsx";
+import ContactAgentPage from "./pages/forms/ContactAgentPage.jsx";
+import ProfilAgentSoumission from "./pages/profilAgent/ProfilAgentSoumission.jsx";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/customerProfileSubmissions" element={<ProfilClientSoumission/>}/>
                     <Route path="/agentProfileCustomerRequests" element={<ProfilAgentDemande/>}/>
                     <Route path="/agentProfileProperties" element={<ProfilAgentPropriete/>}/>
+                    <Route path="/agentProfileCustomerSubmissions" element={<ProfilAgentSoumission/>}/>
                     <Route path="/adminProfile" element={<ProfilAdmin/>}/>
                     <Route path="/search" element={<FilterPage/>}/>
                     <Route path="/property/:typeProperty/:id" element={<PropertyView/>}/>

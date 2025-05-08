@@ -1,13 +1,11 @@
 package com.kriNad.backend.service;
 
-
+import com.kriNad.backend.model.personne.Agent;
 import com.kriNad.backend.model.property.PropertyRent;
+import com.kriNad.backend.repositories.AgentRepository;
 import com.kriNad.backend.repositories.PropertyRentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,50 +13,52 @@ import java.util.Optional;
 @Service
 public class PropertyRentService {
 
+    @Autowired
+    private PropertyRentRepository propertyRentRepository;
 
+    @Autowired
+    private AgentRepository agentRepository;
 
-    private final PropertyRentRepository propertyRentRepository;
-
-    public PropertyRentService(PropertyRentRepository propertyRentRepository) {
-        this.propertyRentRepository = propertyRentRepository;
-    }
-
-
-
-    //////////////////////
-
-    public List<PropertyRent> getAll(){
+    public List<PropertyRent> getAll() {
         return propertyRentRepository.findAll();
     }
 
-    public Optional<PropertyRent> getById(Long id){
+    public Optional<PropertyRent> getById(Long id) {
         return propertyRentRepository.findById(id);
     }
 
-
-    public List<PropertyRent> getPropertyByCustomer(long idUser) {
-        return propertyRentRepository.getPropertyByCustomer(idUser);
-    }
-
-    /////////////////////Post////////////////////////////
-    public List<PropertyRent> getPropertyByAgent(long idUser){
+    public List<PropertyRent> getPropertyByAgent(Long idUser) {
         return propertyRentRepository.getPropertyByAgent(idUser);
     }
 
-
-    public PropertyRent save(PropertyRent rent) {
-        return propertyRentRepository.save(rent);
+    public List<PropertyRent> findByFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city) {
+        return propertyRentRepository.findPropertyFilters(categorie, minPrice, maxPrice, nbRooms, nbBathrooms, nbParking, nbGarages, minArea, maxArea, minYear, maxYear, city);
     }
 
+    public PropertyRent save(PropertyRent propertyRent) {
+        return propertyRentRepository.save(propertyRent);
+    }
 
+    public void acceptSubmission(Long id) {
+        PropertyRent property = propertyRentRepository.findById(id).orElseThrow();
+        property.setIsAccepted(true);
+        propertyRentRepository.save(property);
+    }
 
-    ////////////////////////////Filtres//////////////////////////////
-    public List<PropertyRent> findByFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear,Long maxYear, String city) {
+    public void refuseSubmission(Long id) {
+        PropertyRent property = propertyRentRepository.findById(id).orElseThrow();
+        property.setIsAccepted(false);
+        propertyRentRepository.save(property);
+    }
 
-        return propertyRentRepository.findPropertyFilters(categorie, minPrice, maxPrice, nbRooms, nbBathrooms, nbParking, nbGarages, minArea, maxArea, minYear, maxYear, city);
+    public void assignAgent(Long propertyId, Long agentId) {
+        PropertyRent property = propertyRentRepository.findById(propertyId).orElseThrow();
+        Agent agent = agentRepository.findById(agentId).orElseThrow();
+        property.setAgent(agent);
+        propertyRentRepository.save(property);
+    }
 
-    };
-
-
-
+    public List<PropertyRent> getPendingRentals() {
+        return propertyRentRepository.findUnassignedPendingRents();
+    }
 }

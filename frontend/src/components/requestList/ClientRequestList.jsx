@@ -1,14 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "./clientRequestList.css"
 import {MdDelete} from "react-icons/md";
 import ImagePropertyList from "../propertiesDisplay/ImagePropertyList.jsx";
 import {Link} from "react-router-dom";
-import {forEach} from "react-bootstrap/ElementChildren";
-import propertyType from "../filters/PropertyType.jsx";
-import {tab} from "@material-tailwind/react";
-
+import "../../pages/profilClient/CustomerProfile.css"
 
 function ClientRequestList() {
 
@@ -89,46 +86,37 @@ function ClientRequestList() {
 
     return (
         <div>
-
-            <div className={"cardContainer"}>
-
-                {tabRequests.map((data) => (
-
-                    <Card className={"cardRequests"} key={data.idDemande}>
-
-                        <Card.Body className={"requestContent"}>
-
-                            <div className={"statusRequest"}>
-                                <button className={"deleteRequest"}  onClick={() => handleDelete(data.idDemande, data.typeDemande)}>
-                                    <MdDelete size={25}/>
-                                </button>
-
-
-                                <div className={"statusTime"}>
-
-                                    <div> {data.creationDate}</div>
-                                    <div className={"statusSection"}> {data.statusDemande}</div>
+            {tabRequests.length === 0 ? (
+                <div className="defaultMessage">
+                    No requests found.
+                </div>
+            ) : (
+                <div className="cardContainer">
+                    {tabRequests.map((data) => (
+                        <Card className="cardRequests" key={data.idDemande}>
+                            <Card.Body className="requestContent">
+                                <div className="statusRequest">
+                                    <button className="deleteRequest" onClick={() => handleDelete(data.idDemande, data.typeDemande)}>
+                                        <MdDelete size={25} />
+                                    </button>
+                                    <div className="statusTime">
+                                        <div>{data.creationDate}</div>
+                                        <div className="statusSection">{data.statusDemande}</div>
+                                    </div>
                                 </div>
-                            </div>
-
-
-                            <div className={"carouselRequest"}>
-                                <Link to={`/property/${CapitalizedText(data[`property${data.typeDemande}`]?.typeProperty)}/${data[`property${data.typeDemande}`]?.idProperty}`}>
-                                <ImagePropertyList idPropriete={data[`property${data.typeDemande}`]?.idProperty}
-                                                   typeProprety={data.typeDemande}/>
-                                </Link>
-                            </div>
-
-
-                        </Card.Body>
-
-
-                    </Card>
-
-                ))}
-
-            </div>
-
+                                <div className="carouselRequest">
+                                    <Link to={`/property/${CapitalizedText(data[`property${data.typeDemande}`]?.typeProperty)}/${data[`property${data.typeDemande}`]?.idProperty}`}>
+                                        <ImagePropertyList
+                                            idPropriete={data[`property${data.typeDemande}`]?.idProperty}
+                                            typeProprety={data.typeDemande}
+                                        />
+                                    </Link>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

@@ -7,7 +7,7 @@ function AdminCustomerList() {
     useEffect(() => {
         const fetchCustomers = async () => {
             try {
-                const res = await fetch("http://localhost:9696/api/customers");
+                const res = await fetch("http://localhost:9696/Customer/listCustomers");
                 if (res.ok) {
                     const data = await res.json();
                     setCustomers(data);

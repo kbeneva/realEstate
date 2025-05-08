@@ -1,5 +1,6 @@
 package com.kriNad.backend.model.property;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
@@ -17,5 +18,6 @@ public class ImagePropertyRent extends ImageProperty{
     }
 
     @ManyToOne
+    @JsonIgnore
     private PropertyRent propertyRent;
 }

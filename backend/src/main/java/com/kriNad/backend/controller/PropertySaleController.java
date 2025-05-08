@@ -1,5 +1,5 @@
 package com.kriNad.backend.controller;
-import com.kriNad.backend.exception.PropertySaleNotFoundException;
+
 import com.kriNad.backend.DTO.PropertySaleRequest;
 import com.kriNad.backend.model.personne.Customer;
 import com.kriNad.backend.model.property.ImagePropertySale;
@@ -9,18 +9,14 @@ import com.kriNad.backend.repositories.ImagePropertySaleRepositories;
 import com.kriNad.backend.repositories.PropertySaleRepository;
 import com.kriNad.backend.service.PropertySaleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
-@RequestMapping("/propertySale")
-@CrossOrigin
+@RequestMapping("/PropertySale")
+@CrossOrigin(origins = "http://localhost:9292")
 public class PropertySaleController {
 
     @Autowired
@@ -50,12 +46,10 @@ public class PropertySaleController {
         return propertySaleRepository.getPropertyByCustomer(customerId);
     }
 
-
     @GetMapping("/agent/{id}")
     public List<PropertySale> getPropertyByAgent(@PathVariable Long id) {
         return propertySaleService.getPropertyByAgent(id);
     }
-
 
     @GetMapping("/filtre")
     public List<PropertySale> findPropertyFilters(
@@ -95,8 +89,9 @@ public class PropertySaleController {
         property.setArea(request.getArea());
         property.setConstructionYear(request.getConstructionYear());
         property.setCity(request.getCity());
-        property.setIsAccepted(false);
+        property.setIsAccepted(null);
         property.setSold(false);
+        property.setTypeProperty("sale");
         property.setCustomer(customer);
 
         PropertySale savedProperty = propertySaleService.save(property);
@@ -109,5 +104,28 @@ public class PropertySaleController {
         }
 
         return savedProperty;
+    }
+
+    @PutMapping("/accept/{id}")
+    public ResponseEntity<?> acceptSubmission(@PathVariable Long id) {
+        propertySaleService.acceptSubmission(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/refuse/{id}")
+    public ResponseEntity<?> refuseSubmission(@PathVariable Long id) {
+        propertySaleService.refuseSubmission(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/updateOwner{id}")
+    public ResponseEntity<?> assignAgent(@PathVariable Long id, @RequestParam Long idUser) {
+        propertySaleService.assignAgent(id, idUser);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/pending")
+    public List<PropertySale> getPendingSales() {
+        return propertySaleRepository.findUnassignedPendingSales();
     }
 }

@@ -26,7 +26,7 @@ function PropertyView() {
 
     const loadProperty = async () => {
         try {
-            const result = await axios.get(`http://localhost:9696/property${typeProperty}/${id}`);
+            const result = await axios.get(`http://localhost:9696/Property${typeProperty}/${id}`);
             setProperty(result.data);
 
         } catch (error) {

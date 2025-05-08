@@ -12,7 +12,6 @@ import java.util.List;
 @CrossOrigin
 public class ImagePropertyRentController {
 
-
     @Autowired
     ImagePropertyRentService imagePropertyRentService;
 
@@ -21,12 +20,8 @@ public class ImagePropertyRentController {
         return imagePropertyRentService.getAll();
     }
 
-
     @GetMapping("/getAllImagesByPropertyId")
     public List<String> getAllImagesByPropertyId(@RequestParam Long propertyIdProperty){
         return imagePropertyRentService.getAllImagesByPropertyId(propertyIdProperty);
     }
-
-
-
 }
