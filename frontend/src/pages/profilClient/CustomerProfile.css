@@ -62,18 +62,38 @@
 }
 
 .submissionStatus {
-    background: #FFB02E;
-    color: black;
+    /*background: #FFB02E;
+    color: black;*/
     font-weight: bold;
     padding: 10px;
-    width: 65px;
-    margin-bottom: 0;
+    width: 70px;
+    margin-bottom: 10px;
     border-radius: 10px;
+    text-align: center;
 }
 
-.submissionContainer {
+.statusAccepted {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
+.statusRefused {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
+.statusPending {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .submissionCard{

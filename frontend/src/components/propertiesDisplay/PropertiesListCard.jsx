@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {data, Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import ImagePropertyList from "./ImagePropertyList.jsx";
 import {FaLocationDot} from "react-icons/fa6";
@@ -12,7 +12,7 @@ import './PropertiesListCard.css';
 
 
 
-function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix, la categorie, area and year)
+function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix et la categorie)
 
     const {
         minPrice = '0',
@@ -21,10 +21,10 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
         nbBathrooms = '',
         nbParking = '',
         nbGarages = '',
-        minArea = '0',
-        maxArea = '3000',
-        minYear = '0',
-        maxYear = '3000',
+        minArea = '',
+        maxArea = '',
+        minYear = '',
+        maxYear = '',
         categorie = '',
         city = '',
         propertyType = 'Rent'
@@ -38,18 +38,10 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
 
-
     const loadAllProperty = async () => {
         try {
-            const result = await axios.get(`http://localhost:9696/property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
-
-            if (user){
-                setProperty(result.data.filter(property => property.customer?.id !== user.idUser && property.occupant?.id !== user.idUser))  /// /ne pas montrer les propriétés ou le client serait déjà proprio ou colocataire
-            }else {
+            const result = await axios.get(`http://localhost:9696/Property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
                 setProperty(result.data)
-
-            }
-
 
         } catch (error) {
             console.error("Error fetching properties:", error);
@@ -60,7 +52,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     const loadFavorites = async () => {
         if (!user) return;
         try {
-            const res = await axios.get(`http://localhost:9696/api/favorites/${user.idUser}`);
+            const res = await axios.get(`http://localhost:9696/Favorites/${user.idUser}`);
             const map = {};
             res.data.forEach(fav => {
                 const property = fav.propertySale || fav.propertyRent;
@@ -98,7 +90,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
             try {
                 const favId = favoritesMap[propertyId];
                 if (favId) {
-                    await axios.delete(`http://localhost:9696/api/favorites/${favId}`);
+                    await axios.delete(`http://localhost:9696/Favorites/${favId}`);
                     setHeartStates(prev => ({ ...prev, [propertyId]: false }));
                     const updatedMap = { ...favoritesMap };
                     delete updatedMap[propertyId];
@@ -109,7 +101,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
             }
         } else {
             try {
-                const res = await axios.post(`http://localhost:9696/api/favorites/add`, null, {
+                const res = await axios.post(`http://localhost:9696/Favorites/add`, null, {
                     params: {
                         customerId: user.idUser,
                         propertyId: propertyId,

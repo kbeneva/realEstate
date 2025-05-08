@@ -1,6 +1,6 @@
 package com.kriNad.backend.controller;
+
 import com.kriNad.backend.DTO.PropertyRentRequest;
-import com.kriNad.backend.exception.PropertyRentNotFoundException;
 import com.kriNad.backend.model.personne.Customer;
 import com.kriNad.backend.model.property.ImagePropertyRent;
 import com.kriNad.backend.model.property.PropertyRent;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/propertyRent")
+@RequestMapping("/PropertyRent")
 @CrossOrigin
 public class PropertyRentController {
 
@@ -25,9 +25,7 @@ public class PropertyRentController {
     private CustomerRepository customerRepository;
 
     @Autowired
-    private ImagePropertyRentRepositories imageRentRepo;
-
-
+    private ImagePropertyRentRepositories imagePropertyRentRepositories;
 
     @Autowired
     private PropertyRentRepository propertyRentRepository;
@@ -37,20 +35,15 @@ public class PropertyRentController {
         return propertyRentService.getAll();
     }
 
-
-
     @GetMapping("/{id}")
     public PropertyRent getById(@PathVariable Long id) {
-        return propertyRentService.getById(id).orElseThrow(() -> new PropertyRentNotFoundException(id));
+        return propertyRentService.getById(id).orElseThrow();
     }
 
     @GetMapping("/agent/{id}")
     public List<PropertyRent> getPropertyByAgent(@PathVariable Long id){
         return propertyRentService.getPropertyByAgent(id);
     }
-
-
-
 
     @GetMapping("/filtre")
     public List<PropertyRent> findPropertyFilters(
@@ -75,9 +68,7 @@ public class PropertyRentController {
             throw new RuntimeException("Customer ID is required!");
         }
 
-        Customer customer = customerRepository.findById(request.getCustomerId())
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
-
+        Customer customer = customerRepository.findById(request.getCustomerId()).orElseThrow();
         PropertyRent property = new PropertyRent();
         property.setDescription(request.getDescription());
         property.setCategorie(request.getCategorie());
@@ -90,25 +81,46 @@ public class PropertyRentController {
         property.setArea(request.getArea());
         property.setConstructionYear(request.getConstructionYear());
         property.setCity(request.getCity());
-        property.setIsAccepted(false);
+        property.setIsAccepted(null);
         property.setCustomer(customer);
         property.setRent(true);
+        property.setTypeProperty("rent");
         property.setMaxOccupants(request.getMaxOccupants());
 
-        PropertyRent saved = propertyRentService.save(property);
+        PropertyRent savedProperty = propertyRentService.save(property);
 
         for (String imageLink : request.getImages()) {
             ImagePropertyRent image = new ImagePropertyRent();
             image.setImageLink(imageLink);
-            image.setPropertyRent(saved);
-            imageRentRepo.save(image);
+            image.setPropertyRent(savedProperty);
+            imagePropertyRentRepositories.save(image);
         }
 
-        return saved;
+        return savedProperty;
     }
 
     @GetMapping("/customer/{customerId}")
     public List<PropertyRent> getPropertyRentsByCustomer(@PathVariable Long customerId) {
         return propertyRentRepository.getPropertyByCustomer(customerId);
+    }
+
+    @GetMapping("/pending")
+    public List<PropertyRent> getPendingRentals() {
+        return propertyRentService.getPendingRentals();
+    }
+
+    @PutMapping("/accept/{id}")
+    public void accept(@PathVariable Long id) {
+        propertyRentService.acceptSubmission(id);
+    }
+
+    @PutMapping("/refuse/{id}")
+    public void refuse(@PathVariable Long id) {
+        propertyRentService.refuseSubmission(id);
+    }
+
+    @PutMapping("/updateOwner{id}")
+    public void assignAgent(@PathVariable Long id, @RequestParam Long idUser) {
+        propertyRentService.assignAgent(id, idUser);
     }
 }

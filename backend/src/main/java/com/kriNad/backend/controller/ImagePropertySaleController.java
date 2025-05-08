@@ -1,9 +1,6 @@
 package com.kriNad.backend.controller;
 
-import com.kriNad.backend.model.property.ImagePropertyRent;
 import com.kriNad.backend.model.property.ImagePropertySale;
-import com.kriNad.backend.model.property.PropertyRent;
-import com.kriNad.backend.repositories.ImagePropertySaleRepositories;
 import com.kriNad.backend.service.ImagePropertySaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,23 +13,16 @@ import java.util.List;
 
 public class ImagePropertySaleController {
 
-
     @Autowired
     ImagePropertySaleService imagePropertySaleService;
-
-
 
     @GetMapping("/getAllImageSaleProperty")
     public List<ImagePropertySale> getAll(){
         return imagePropertySaleService.getAll();
 
-
-
-
     } @GetMapping("/getAllImagesByPropertyId")
     public List<String> getAllImagesByPropertyId(Long propertyIdProperty){
         return imagePropertySaleService.getAllImagesByPropertyId(propertyIdProperty);
     }
-
 }
 

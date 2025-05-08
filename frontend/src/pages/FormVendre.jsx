@@ -86,7 +86,7 @@ function FormVendre() {
         };
 
         try {
-            const res = await fetch("http://localhost:9696/propertySale", {
+            const res = await fetch("http://localhost:9696/PropertySale", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -228,11 +228,22 @@ function FormVendre() {
                                 name="categorie"
                                 type="radio"
                                 className="radio"
-                                value="Farm / Chalet"
+                                value="Farm"
                                 onChange={handleChange}
                                 required
                             />
-                            Farm / Chalet
+                            Farm
+                        </label>
+                        <label className="radioText">
+                            <input
+                                name="categorie"
+                                type="radio"
+                                className="radio"
+                                value="Chalet"
+                                onChange={handleChange}
+                                required
+                            />
+                            Chalet
                         </label>
                     </div>
                     <h3>Description</h3>
@@ -246,7 +257,7 @@ function FormVendre() {
                     />
                     <h3>Features</h3>
                     <div>
-                        <input
+                    <input
                             name="nbRooms"
                             type="number"
                             className="featuresInput inputColor"

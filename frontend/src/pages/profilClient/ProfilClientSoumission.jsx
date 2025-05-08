@@ -5,8 +5,11 @@ import "../profilAdmin/ProfilAdmin.css";
 import "./CustomerProfile.css";
 import axios from "axios";
 import { FaLocationDot } from "react-icons/fa6";
+import ImagePropertyList from "../../components/propertiesDisplay/ImagePropertyList.jsx";
+import Card from "react-bootstrap/Card";
+import "../../components/requestList/clientRequestList.css";
 
-function ProfilClientLocation() {
+function ProfilClientSoumission() {
     const [activeTab, setActiveTab] = useState("submissions");
     const [submissions, setSubmissions] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -14,23 +17,20 @@ function ProfilClientLocation() {
     const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
 
     const data = [
-        `http://localhost:9696/propertyRent/customer/${storedUser.idUser}`,
-        `http://localhost:9696/propertySale/customer/${storedUser.idUser}`,
+        `http://localhost:9696/PropertyRent/customer/${storedUser.idUser}`,
+        `http://localhost:9696/PropertySale/customer/${storedUser.idUser}`,
     ];
 
     useEffect(() => {
         const fetchSubmissions = async () => {
-
             if (!storedUser?.idUser) {
                 setLoading(false);
                 return;
             }
             try {
                 const response = await Promise.all(data.map(url => axios.get(url)));
-                const allRequests = [...response[1].data, ...response[0].data]
+                const allRequests = [...response[1].data, ...response[0].data];
                 setSubmissions(allRequests);
-
-
             } catch (error) {
                 console.error("Error fetching rental submissions:", error);
                 setSubmissions([]);
@@ -53,8 +53,6 @@ function ProfilClientLocation() {
         }
     };
 
-    console.log(submissions)
-
     return (
         <div>
             <ProfileCard />
@@ -69,18 +67,46 @@ function ProfilClientLocation() {
                 ) : (
                     <>
                         {submissions.length > 0 ? (
-                            <div className="submissionContainer">
-                                {submissions.map((submission) => (
-                                    <div key={submission.idProperty} className="submissionCard">
-                                        <h2 className="submissionTitle">{submission.categorie || "No category"}</h2>
-                                        <p className="submissionPrice">{submission.price ? `${submission.price}$` : "N/A"}</p>
-                                        <p className="submissionAddress">
-                                            <FaLocationDot />
-                                            {submission.address || "No address"}, {submission.city || "Unknown"}
-                                        </p>
-                                        <p className="submissionStatus">{submission.isAccepted ? "Accepted" : "Pending"}</p>
-                                    </div>
-                                ))}
+                            <div className="cardContainer">
+                                {submissions.map((submission) => {
+                                    const type = submission.typeProperty === "rent" ? "Rent" : "Sale";
+                                    return (
+                                        <Card className="cardRequests" key={submission.idProperty}>
+                                            <Card.Body className="requestContent">
+                                                <div className="submissionDetails">
+                                                    <h2 className="submissionTitle">{submission.categorie || "No category"} for {submission.typeProperty}</h2>
+                                                    <p className="submissionPrice">
+                                                        {submission.price ? `${submission.price}$${submission.typeProperty === "rent" ? "/month" : ""}` : "N/A"}
+                                                    </p>
+                                                    <p className="submissionAddress">
+                                                        <FaLocationDot/> {submission.address || "No address"}, {submission.city || "Unknown"}
+                                                    </p>
+                                                    <p
+                                                        className={`submissionStatus ${
+                                                            submission.isAccepted === true
+                                                                ? "statusAccepted"
+                                                                : submission.isAccepted === false
+                                                                    ? "statusRefused"
+                                                                    : "statusPending"
+                                                        }`}
+                                                    >
+                                                        {submission.isAccepted === true
+                                                            ? "Accepted"
+                                                            : submission.isAccepted === false
+                                                                ? "Refused"
+                                                                : "Pending"}
+                                                    </p>
+                                                </div>
+                                                <div className="carouselRequest">
+                                                    <ImagePropertyList
+                                                        idPropriete={submission.idProperty}
+                                                        typeProprety={type}
+                                                    />
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
+                                    );
+                                })}
                             </div>
                         ) : (
                             <p className="defaultMessage">No submissions found.</p>
@@ -92,4 +118,4 @@ function ProfilClientLocation() {
     );
 }
 
-export default ProfilClientLocation;
+export default ProfilClientSoumission;

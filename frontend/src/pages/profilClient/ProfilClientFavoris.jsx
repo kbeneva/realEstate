@@ -29,7 +29,7 @@ function ProfilClientFavoris() {
     const loadFavorites = async () => {
         if (!user) return;
         try {
-            const res = await axios.get(`http://localhost:9696/api/favorites/${user.idUser}`);
+            const res = await axios.get(`http://localhost:9696/Favorites/${user.idUser}`);
             setFavorites(res.data);
             const initialHearts = {};
             res.data.forEach(fav => {
@@ -51,7 +51,7 @@ function ProfilClientFavoris() {
     const toggleHeart = async (favId, propertyId) => {
         if (window.confirm("Remove from favorites?")) {
             try {
-                await axios.delete(`http://localhost:9696/api/favorites/${favId}`);
+                await axios.delete(`http://localhost:9696/Favorites/${favId}`);
                 setFavorites(favorites.filter(fav => {
                     const prop = fav.propertySale || fav.propertyRent;
                     return prop?.idProperty !== propertyId;
@@ -83,7 +83,7 @@ function ProfilClientFavoris() {
             </div>
             <div className="profileBodyBorder">
                 {favorites.length === 0 ? (
-                    <div style={{ textAlign: "center", padding: "40px", fontSize: "20px", color: "gray" }}>
+                    <div className={"defaultMessage"}>
                         You have not saved any properties yet
                     </div>
                 ) : (

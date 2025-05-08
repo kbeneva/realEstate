@@ -21,6 +21,7 @@ function FormLouer() {
         city: "",
         maxOccupants: "",
         images: [""],
+        customerId: localStorage.getItem("userId") ? parseInt(localStorage.getItem("userId")) : null
     });
 
     const navigate = useNavigate();
@@ -51,7 +52,7 @@ function FormLouer() {
             updatedImages[index] = value;
             setFormData(prev => ({
                 ...prev,
-                images: updatedImages,
+                images: updatedImages
             }));
         } else {
             setFormData(prev => ({
@@ -79,7 +80,7 @@ function FormLouer() {
         e.preventDefault();
         try {
             const user = JSON.parse(localStorage.getItem("user"));
-            const res = await fetch("http://localhost:9696/propertyRent", {
+            const res = await fetch("http://localhost:9696/PropertyRent", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -222,11 +223,22 @@ function FormLouer() {
                                 name="categorie"
                                 type="radio"
                                 className={"radio"}
-                                value="Farm / Chalet"
+                                value="Farm"
                                 onChange={handleChange}
                                 required
                             />
-                            Farm / Chalet
+                            Farm
+                        </label>
+                        <label className={"radioText"}>
+                            <input
+                                name="categorie"
+                                type="radio"
+                                className={"radio"}
+                                value="Chalet"
+                                onChange={handleChange}
+                                required
+                            />
+                            Chalet
                         </label>
                     </div>
                     <h3>Description</h3>
@@ -240,7 +252,7 @@ function FormLouer() {
                     />
                     <h3>Features</h3>
                     <div>
-                        <input
+                    <input
                             name="nbRooms"
                             type="number"
                             className={"featuresInput inputColor"}

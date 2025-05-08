@@ -1,14 +1,12 @@
 package com.kriNad.backend.repositories;
 
 import com.kriNad.backend.model.property.PropertySale;
-import com.kriNad.backend.model.property.PropertySale;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
 public interface PropertySaleRepository extends JpaRepository<PropertySale, Long> {
-
 
     @Query("select ps from PropertySale ps" +
             " where ps.isAccepted = true" +
@@ -23,11 +21,12 @@ public interface PropertySaleRepository extends JpaRepository<PropertySale, Long
             " and (?12 is null or ?12 = '' or ps.city = ?12)")
     List<PropertySale> findPropertyFilters(String categorie, Long minPrice, Long maxPrice, Long nbRooms, Long nbBathrooms, Long nbParking, Long nbGarages, Long minArea, Long maxArea, Long minYear, Long maxYear, String city);
 
-
     @Query("select ps from PropertySale ps where ps.agent.idUser =?1")
     List<PropertySale> getPropertyByAgent(Long idUser);
 
-    @Query("select ps from PropertySale ps where ps.customer.idUser = ?1 and ps.isAccepted = false")
+    @Query("select ps from PropertySale ps where ps.customer.idUser = ?1")
     List<PropertySale> getPropertyByCustomer(Long customerId);
 
+    @Query("SELECT ps FROM PropertySale ps WHERE ps.agent IS NULL")
+    List<PropertySale> findUnassignedPendingSales();
 }

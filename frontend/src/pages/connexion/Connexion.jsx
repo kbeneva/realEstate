@@ -23,7 +23,7 @@ function Connexion() {
         const password = e.target[1].value;
 
         try {
-            const res = await fetch("http://localhost:9696/api/auth/login", {
+            const res = await fetch("http://localhost:9696/Auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
@@ -55,14 +55,14 @@ function Connexion() {
         const password = e.target[4].value;
 
         try {
-            const res = await fetch("http://localhost:9696/api/auth/register", {
+            const res = await fetch("http://localhost:9696/Auth/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ fname, lname, email, phone, password }),
             });
 
             if (res.ok) {
-                const loginRes = await fetch("http://localhost:9696/api/auth/login", {
+                const loginRes = await fetch("http://localhost:9696/Auth/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, password }),
@@ -130,7 +130,7 @@ function Connexion() {
                     <div className="toggleBox">
                         <div className="togglePanel toggleLeft">
                             <h1 className="toggleTitle">Hello, Welcome</h1>
-                            <p className="toggleText">Don't have an account?</p>
+                            <p className="toggleText">Don&#39;t have an account?</p>
                             <button className="registerToggleButton" onClick={handleRegisterClick}>Register</button>
                         </div>
                         <div className="togglePanel toggleRight">
