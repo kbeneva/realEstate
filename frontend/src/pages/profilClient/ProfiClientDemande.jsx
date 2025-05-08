@@ -44,8 +44,9 @@ function ProfilClientDemande() {
             </div>
             <div className={"profileBodyBorder"}>
 
+
                 <ClientRequestList/>
-                {/*<p className="defaultMessage">No requests found.</p>*/}
+
 
             </div>
         </div>

@@ -1,6 +1,7 @@
 package com.kriNad.backend.service;
 
 import com.kriNad.backend.exception.CustomerNotFoundException;
+import com.kriNad.backend.exception.PropertySaleNotFoundException;
 import com.kriNad.backend.exception.RequestAppliedSaleException;
 import com.kriNad.backend.exception.RequestNotFoundException;
 import com.kriNad.backend.model.DemandeSoumission.Demande.RequestSale;
@@ -86,12 +87,14 @@ public class RequestSaleService {
 
     public PropertySale updatePropertyOwner(Long IdDemande, Long idUser){
         Customer customer = getCustomerById(idUser);
+        RequestSale requestSale = requestSaleRepository.findById(IdDemande).orElseThrow(()-> new RequestNotFoundException());
+        Long idProperty = requestSale.getPropertySale().getIdProperty();
 
-        return propertySaleRepository.findById(IdDemande).map(propertySale -> {
+        return propertySaleRepository.findById(idProperty).map(propertySale -> {
             propertySale.setCustomer(customer);
-            propertySale.setIsAccepted(true);
+            propertySale.setIsAccepted(false); //// retirer de l'affichage client
             return propertySaleRepository.save(propertySale);
-        }).orElseThrow(() -> new RequestNotFoundException());
+        }).orElseThrow(() -> new PropertySaleNotFoundException(idProperty));
     }
 
     public PropertySale acceptPropertyOwner(Long IdDemande, Long idUser){

@@ -10,16 +10,16 @@ function Building() {
         <div className={"buildingFilters"}>
             <p className={"buildingText"}>Living area</p>
             <div className={"buildingContainer"}>
-                <input className={"inputBuilding"} type={"number"} min="0" placeholder={"Min"} {...register("minArea")}/>
+                <input className={"inputBuilding"} type={"number"} defaultValue={0}  placeholder={"Min"} {...register("minArea")}/>
                 <p className={"buildingText"}>to</p>
-                <input className={"inputBuilding"} type={"number"} min="0" placeholder={"Max"}  {...register("maxArea")}/>
+                <input className={"inputBuilding"} type={"number"}  defaultValue={3000}  placeholder={"Max"}  {...register("maxArea")}/>
                 <p className={"buildingText"}>sqft</p>
             </div>
             <p className={"buildingText"}>Built between</p>
             <div className={"buildingContainer"}>
-                <input className={"inputBuilding"} type={"number"}  min="1999" max="2020"  placeholder={"Min"} {...register("minYear")}/>
+                <input className={"inputBuilding"}  type={"number"} defaultValue={0} placeholder={"Min"} {...register("minYear")}/>
                 <p className={"buildingText"}>to</p>
-                <input className={"inputBuilding"} type={"number"}  min="1999" max="2020" placeholder={"Max"} {...register("maxYear")}/>
+                <input className={"inputBuilding"} type={"number"} defaultValue={3000} placeholder={"Max"} {...register("maxYear")}/>
             </div>
         </div>
 

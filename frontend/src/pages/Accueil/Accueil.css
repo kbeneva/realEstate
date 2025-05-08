@@ -25,6 +25,7 @@
 @media (min-width: 1100px) {
     .sloganText {
         width: 800px;
+        padding-right: 200px;
     }
 
     .searchContainer form {

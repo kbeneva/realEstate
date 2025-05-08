@@ -56,8 +56,8 @@ public class RequestSaleController {
         requestSaleService.rejectRequest(idDemande);
     }
 
-    @PutMapping("/updateOwner{idDemande}")
-    public void updateOwner(@PathVariable Long idDemande, Long idUser){
+    @PutMapping("/updatePerson/{idDemande}/{idUser}")
+    public void updateOwner(@PathVariable Long idDemande, @PathVariable Long idUser){
         requestSaleService.acceptPropertyOwner(idDemande, idUser);
     }
 

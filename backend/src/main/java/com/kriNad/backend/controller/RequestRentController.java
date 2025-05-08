@@ -55,4 +55,10 @@ public class RequestRentController {
     public void rejectRequest(@PathVariable Long idDemande){
         requestRentService.rejectRequest(idDemande);
     }
+
+
+    @PutMapping("/updatePerson/{idDemande}/{idUser}")
+    public void updateOwner(@PathVariable Long idDemande, @PathVariable Long idUser){
+        requestRentService.updateMaxOccupant(idDemande, idUser);
+    }
 }

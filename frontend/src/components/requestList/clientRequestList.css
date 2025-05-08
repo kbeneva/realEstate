@@ -2,10 +2,7 @@
     margin: 0 auto;
     max-width: 1000px;
 
-
-
 }
-
 
 .requestContent {
     margin: 10px;
@@ -16,18 +13,18 @@
 
 }
 
-.requestContent div{
-  color: #3134C8;
+.requestContent div {
+    color: #3134C8;
 
 }
 
-.statusRequest{
+.statusRequest {
     justify-content: space-between;
     flex-direction: column;
     display: flex;
 }
 
-.statusTime{
+.statusTime {
     flex-direction: column;
     align-items: flex-start;
     display: flex;
@@ -35,10 +32,7 @@
 }
 
 
-
-
 .statusSection {
-    background: #FFB02E;
     color: black;
     font-weight: bold;
     padding: 10px;
@@ -49,8 +43,7 @@
 }
 
 
-
-.deleteRequest{
+.deleteRequest {
     background: #3f46ce;
     color: #ffffff;
     font-weight: bold;
@@ -88,27 +81,36 @@
     .requestContent .carouselRequest {
         width: 250px;
 
-
-
     }
 
-    .cardRequests, .requestContent{
+
+    .cardRequests, .requestContent {
         overflow: hidden;
 
     }
 
-    .requestContent{
+    .requestContent {
         flex-direction: column;
         align-items: center;
     }
 
-    .clientContainer{
+    .clientContainer {
         margin-top: 20px;
 
     }
-    .agentContainer{
+
+    .agentContainer {
         flex-direction: column;
 
+    }
+
+    .statusRequest {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+        padding-bottom: 20px;
     }
 
 
@@ -121,32 +123,33 @@
     }
 }
 
-.acceptRequest{
+.acceptRequest {
     background: #6abd71;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
 
 
 }
-.rejectRequest{
+
+.rejectRequest {
     background: #FF6F61;
     color: #1a1a1a;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
 }
 
-.statusButtons{
-   display: flex;
+.statusButtons {
+    display: flex;
     gap: 15px;
 
 }
 
 
-.cardRequests .agentContainer{
+.cardRequests .agentContainer {
     background: transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
 }
 
 
-.descRequest{
+.descRequest {
     padding-top: 20px;
     background: white;
 

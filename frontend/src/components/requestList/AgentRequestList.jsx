@@ -2,9 +2,10 @@ import {useEffect, useState} from 'react';
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "./clientRequestList.css"
-import {IoClose} from "react-icons/io5";
 import {FaCheck} from "react-icons/fa";
 import {RiCloseLargeFill} from "react-icons/ri";
+import {Link} from "react-router-dom";
+import ImagePropertyList from "../propertiesDisplay/ImagePropertyList.jsx";
 
 
 function AgentRequestList() {
@@ -21,7 +22,7 @@ function AgentRequestList() {
         try {
             const results = await Promise.all(data.map(url => axios.get(url)));
             const allRequests = [...results[1].data, ...results[0].data]
-            setRequests(allRequests)
+            setRequests(allRequests.filter(request => request.statusDemande === "pending" && request[`property${request.typeDemande}`]?.isAccepted === true)); // only showing what hasn't been treated and only properties that are still in the store
 
         } catch (error) {
             console.error(error)
@@ -40,10 +41,20 @@ function AgentRequestList() {
 
     const declineRequest = async (id, typeDemande) => {
         try {
-            await axios.put(`http://localhost:9696/Request${typeDemande}/accept/${id}`)
+            await axios.put(`http://localhost:9696/Request${typeDemande}/refuse/${id}`)
 
         }catch (error){
             console.log("Request put failed: " + error)
+        }
+    }
+
+    const updateOwner = async (id, typeDemande, idUser) => {
+        try {
+
+            await axios.put(`http://localhost:9696/Request${typeDemande}/updatePerson/${id}/${idUser}`)
+
+        }catch (error){
+            console.log(("Updating owner failed because of: " + error))
         }
     }
 
@@ -55,10 +66,14 @@ function AgentRequestList() {
     }, []);
 
 
-    const handleAccept = async (e, id, typeDemande) => {
+    const handleAccept = async (e, data) => {
         try {
             e.preventDefault()
-            acceptRequest(id, typeDemande)
+
+            const userId  = data.customer.id
+            await acceptRequest(data.idDemande, data.typeDemande)
+            await updateOwner(data.idDemande, data.typeDemande, userId)
+            await loadRequests()
 
         }catch (error){
             alert("There was a problem with your request: " + error)
@@ -66,10 +81,11 @@ function AgentRequestList() {
 
     };
 
-    const handleDecline = async (e, id, typeDemande) => {
+    const handleDecline = async (e, data) => {
         try {
             e.preventDefault()
-            declineRequest(id, typeDemande)
+            await declineRequest(data.idDemande, data.typeDemande)
+            await loadRequests()
 
         }catch (error){
             alert("There was a problem with your request: " + error)
@@ -78,17 +94,25 @@ function AgentRequestList() {
     };
 
 
-    console.log(tabRequests)
+    const CapitalizedText = (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1)
+    };
 
 
     return (
         <div>
 
+            {tabRequests.length === 0 ? (
+                <div style={{ textAlign: "center", padding: "40px", fontSize: "20px", color: "gray" }}>
+                    You have no requests
+                </div>
+            ) : (
+
             <div className={"cardContainer"}>
 
                 {tabRequests.map((data) => (
 
-                    <Card className={"cardRequests"} key={data.idDemande}>
+                    <Card  className={"cardRequests"} key={data.idDemande}>
 
                         <Card.Body className={"requestContent"}>
 
@@ -96,21 +120,16 @@ function AgentRequestList() {
                             <div className={"statusRequest"}>
 
                                 <span className={"statusButtons"}>
-                                     <button className={"acceptRequest"} onClick={(e) => handleAccept(e, data.idDemande, data.typeDemande)}>
+                                     <button className={"acceptRequest"} onClick={(e) => handleAccept(e, data)}>
                                     <FaCheck size={25}/>
                                 </button>
 
-                                <button className={"rejectRequest"} onClick={(e) => handleDecline(e, data.idDemande, data.typeDemande)}>
+                                <button className={"rejectRequest"} onClick={(e) => handleDecline(e, data)}>
                                     <RiCloseLargeFill size={25} style={{stroke: "white", strokeWidth: "2"}}/>
                                 </button>
                                 </span>
 
 
-                                <div className={"statusTime"}>
-
-                                    <div> {data.creationDate}</div>
-
-                                </div>
                             </div>
 
                             <div className={"clientContainer"}>
@@ -125,11 +144,22 @@ function AgentRequestList() {
                                         <p> {data.customer.email}</p>
                                         <p> {data.customer.phone}</p>
 
+                                        <div className={"carouselRequest"} style={{paddingTop: "20px"}}>
+                                            <Link
+                                                to={`/property/${CapitalizedText(data[`property${data.typeDemande}`]?.typeProperty)}/${data[`property${data.typeDemande}`]?.idProperty}`}>
+                                                <ImagePropertyList
+                                                    idPropriete={data[`property${data.typeDemande}`]?.idProperty}
+                                                    typeProprety={data.typeDemande}/>
+                                            </Link>
+                                        </div>
+
 
                                     </div>
 
 
                                 </div>
+
+
                                 <div className={"descRequest"}>
                                     {data.description}
                                 </div>
@@ -145,6 +175,8 @@ function AgentRequestList() {
                 ))}
 
             </div>
+
+            )}
 
         </div>
     );

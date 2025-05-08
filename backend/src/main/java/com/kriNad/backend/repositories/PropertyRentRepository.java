@@ -1,5 +1,6 @@
 package com.kriNad.backend.repositories;
 
+import com.kriNad.backend.model.property.Occupant;
 import com.kriNad.backend.model.property.PropertyRent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -33,6 +34,7 @@ public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long
 
     @Query("select pr from PropertyRent pr where pr.agent.idUser =?1")
     List<PropertyRent> getPropertyByAgent(Long idUser);
+
 
 
 

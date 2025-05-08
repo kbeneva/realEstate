@@ -79,7 +79,9 @@ body {
 
 .agentContainer {
     background: #aed5e1;
-    display: inline-flex;
+    display: flex;
+    align-self: flex-start;
+    position: sticky;
     padding: 20px;
     gap: 3rem;
 

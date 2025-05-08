@@ -5,6 +5,10 @@
     max-width: 1500px;
 }
 
+.titleAndProperties{
+    max-width: 1500px;
+    justify-self: center;
+}
 
 
 #cardProperties .card{

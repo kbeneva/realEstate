@@ -6,10 +6,10 @@ import com.kriNad.backend.exception.RequestNotFoundException;
 import com.kriNad.backend.model.DemandeSoumission.Demande.RequestRent;
 import com.kriNad.backend.model.DemandeSoumission.Demande.RequestSale;
 import com.kriNad.backend.model.personne.Customer;
+import com.kriNad.backend.model.property.Occupant;
+import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.model.property.PropertySale;
-import com.kriNad.backend.repositories.CustomerRepository;
-import com.kriNad.backend.repositories.PropertySaleRepository;
-import com.kriNad.backend.repositories.RequestRentRepository;
+import com.kriNad.backend.repositories.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -18,16 +18,20 @@ import java.util.List;
 @Service
 public class RequestRentService {
 
+    private final PropertyRentService propertyRentService;
     List<String> requestStatus = Arrays.asList("accepted", "rejected", "pending");
 
+    private final PropertyRentRepository propertyRentRepository;
     private final RequestRentRepository requestRentRepository;
-    private final PropertySaleRepository propertySaleRepository;
     private final CustomerRepository customerRepository;
+    private final OccupantRepository occupantRepository;
 
-    public RequestRentService(RequestRentRepository requestRentRepository, PropertySaleRepository propertySaleRepository, CustomerRepository customerRepository) {
+    public RequestRentService(RequestRentRepository requestRentRepository, PropertySaleRepository propertySaleRepository, CustomerRepository customerRepository, PropertyRentRepository propertyRentRepository, OccupantRepository occupantRepository, PropertyRentService propertyRentService) {
         this.requestRentRepository = requestRentRepository;
-        this.propertySaleRepository = propertySaleRepository;
         this.customerRepository = customerRepository;
+        this.propertyRentRepository = propertyRentRepository;
+        this.occupantRepository = occupantRepository;
+        this.propertyRentService = propertyRentService;
     }
 
 
@@ -46,6 +50,10 @@ public class RequestRentService {
     }
     public Customer getCustomerById(Long idUser) {
         return customerRepository.findById(idUser).orElseThrow(() -> new CustomerNotFoundException(idUser));
+    }
+
+    public Occupant getOccupantById(Long id) {
+        return occupantRepository.findById(id).orElseThrow(() -> new RuntimeException("Occupant id " + id + " not found"));
     }
 
     ////Verify
@@ -81,29 +89,45 @@ public class RequestRentService {
     public RequestRent rejectRequest(Long IdDemande) {
         return updateRequest(IdDemande, requestStatus.get(1));
     }
+    //////////////////////////////////////////////////////////////
 
-    public PropertySale updatePropertyOwner(Long IdDemande, Long idUser){
+    public PropertyRent updateOccupant(Long IdDemande, Long idUser){
         Customer customer = getCustomerById(idUser);
+        RequestRent requestRent = requestRentRepository.findById(IdDemande).orElseThrow(() -> new RequestNotFoundException());
 
-        return propertySaleRepository.findById(IdDemande).map(propertySale -> {
-            propertySale.setCustomer(customer);
-            propertySale.setIsAccepted(true);
-            return propertySaleRepository.save(propertySale);
-        }).orElseThrow(() -> new RequestNotFoundException());
+        PropertyRent propertyRent = requestRent.getPropertyRent();
+
+        Occupant occupant = propertyRent.getOccupant();
+        if (occupant == null){
+            occupant = new Occupant();
+            occupantRepository.save(occupant);
+            propertyRent.setOccupant(occupant);
+            propertyRentRepository.save(propertyRent);
+        }
+
+
+        customer.setOccupant(occupant);
+        customerRepository.save(customer);
+
+         return propertyRentRepository.save(propertyRent);
     }
 
-//    public PropertySale acceptPropertyOwner(Long IdDemande, Long idUser){
-//        RequestRent requestRent = getRequestRentById(IdDemande);
-//
-//        if (!requestRent.getStatusDemande().equals(requestStatus.get(0))){
-//            throw new RuntimeException("Cannot change the owner of a request that has been not accepted");
-//
-//        }
-//
-//        PropertySale propertySale = updatePropertyOwner(IdDemande, idUser);
-//        return propertySale;
-//    }
 
+    public PropertyRent updateMaxOccupant(Long IdDemande, Long idUser){
+        PropertyRent propertyRent = updateOccupant(IdDemande, idUser);
+        Long countOccpants = occupantRepository.countOccupantByProperty(propertyRent.getIdProperty());
+        System.out.println( "nbr of occupant : " + countOccpants);
+
+        if (propertyRent.getMaxOccupants() != null && propertyRent.getMaxOccupants().equals(countOccpants)){
+            propertyRent.setIsAccepted(false);
+            propertyRentRepository.save(propertyRent);
+
+        }
+
+        return propertyRent;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
 
 
 

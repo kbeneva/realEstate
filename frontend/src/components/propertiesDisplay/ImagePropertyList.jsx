@@ -42,7 +42,7 @@ function ImagePropertyList(props) {
         >
             {tabImages.map((data, i) => (
                 <SwiperSlide className={"swiperSlideImage"}  key={i}>
-                    <img src={data.split(",")[1]}/>
+                    <img src={data.split(",")[1]} alt={"propertyCover"}/>
                 </SwiperSlide>
             ))}
         </Swiper>

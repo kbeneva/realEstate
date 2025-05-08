@@ -21,6 +21,9 @@
     opacity: 0;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
 }
+.buildingFilters{
+    margin-left: 40px;
+}
 
 .listFiltersCollapse.collapse {
     opacity: 1;
@@ -178,7 +181,7 @@
     }
 
     .buildingFilters{
-        margin-left: 174px;
+        margin-left: 250px;
     }
 
     .FeaturesFilters{

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Link, useNavigate} from "react-router-dom";
+import {data, Link, useNavigate} from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import ImagePropertyList from "./ImagePropertyList.jsx";
 import {FaLocationDot} from "react-icons/fa6";
@@ -12,7 +12,7 @@ import './PropertiesListCard.css';
 
 
 
-function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix et la categorie)
+function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix, la categorie, area and year)
 
     const {
         minPrice = '0',
@@ -21,10 +21,10 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
         nbBathrooms = '',
         nbParking = '',
         nbGarages = '',
-        minArea = '',
-        maxArea = '',
-        minYear = '',
-        maxYear = '',
+        minArea = '0',
+        maxArea = '3000',
+        minYear = '0',
+        maxYear = '3000',
         categorie = '',
         city = '',
         propertyType = 'Rent'
@@ -38,10 +38,18 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
 
+
     const loadAllProperty = async () => {
         try {
             const result = await axios.get(`http://localhost:9696/property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
+
+            if (user){
+                setProperty(result.data.filter(property => property.customer?.id !== user.idUser && property.occupant?.id !== user.idUser))  /// /ne pas montrer les propriétés ou le client serait déjà proprio ou colocataire
+            }else {
                 setProperty(result.data)
+
+            }
+
 
         } catch (error) {
             console.error("Error fetching properties:", error);

@@ -24,6 +24,11 @@ function Filters( {setFilters}) {
         setIsCollapsed(!isCollapsed);
     };
 
+    const restFilters = () => {
+        window.location.href = "/search"
+
+    }
+
     const toggleButton = (filter) => {
         setToggleStates(prevState => {
             const newState = {
@@ -133,7 +138,7 @@ function Filters( {setFilters}) {
                                 <div className={`component ${toggleStates.building ? 'show' : ''}`}><Building/>
                                 </div>
                             </div>
-                            <button className={"filterButton"} type={"button"}>Reset</button>
+                            <button className={"filterButton"}  onClick={restFilters} type={"button"}>Reset</button>
                             <button className={"filterButton"} onClick={toggleFilters} type={"button"}>Close</button>
                         </div>
                     </div>
