@@ -176,7 +176,7 @@ function PropertyView() {
 
                     <div className={"agentContainer"}>
                         <div className={"pfp"}>
-                            <img src={"/pfp.jpg"} alt={"agent pfp"}/>
+                            <img src={"/user.png"}  style={{background:"#086788", borderRadius:"100%", padding:"20px"}} alt={"agent pfp"}/>
                         </div>
                         <div className={"agentDetails"}>
                             <div className={"nameAgent"}><p> {property.agent.fname}</p>
@@ -185,7 +185,7 @@ function PropertyView() {
                             <p> {property.agent.email}</p>
                             <p> {property.agent.phone}</p>
 
-                                <button style={{background: "#2831e5"}} onClick={handleContact} >contact</button>
+                                <button style={{background: "#2831e5", color:"white"}} onClick={handleContact} >Contact</button>
 
                         </div>
 

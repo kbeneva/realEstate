@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import Card from "react-bootstrap/Card";
-import "./clientRequestList.css"
+import "./ClientRequestList.css"
 import {FaCheck} from "react-icons/fa";
 import {RiCloseLargeFill} from "react-icons/ri";
 import {Link} from "react-router-dom";
@@ -132,11 +132,9 @@ function AgentRequestList() {
 
                                 <div className={"clientContainer"}>
                                     <div className={"agentContainer"}>
-                                        <div className={"pfp"}>
-                                            <img src={"/pfp.jpg"} alt={"agent pfp"}/>
-                                        </div>
+
                                         <div className={"agentDetails"}>
-                                            <div className={"nameAgent"}><p> {data.customer.fname}</p>
+                                        <div className={"nameAgent"}><p> {data.customer.fname}</p>
                                                 <p>{data.customer.lname}</p></div>
 
                                             <p> {data.customer.email}</p>

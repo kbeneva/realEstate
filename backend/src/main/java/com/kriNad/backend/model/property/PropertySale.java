@@ -1,6 +1,5 @@
 package com.kriNad.backend.model.property;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kriNad.backend.model.personne.Agent;
 import com.kriNad.backend.model.personne.Customer;
 import jakarta.persistence.*;
@@ -27,20 +26,11 @@ public class PropertySale extends Property {
     private Agent agent;
 
 
-
     @OneToMany(mappedBy = "propertySale", cascade = CascadeType.ALL)
     private List<ImagePropertySale> images;
 
     public Long getIdProperty() {
         return idProperty;
-    }
-
-    public void setIdProperty(Long idProperty) {
-        this.idProperty = idProperty;
-    }
-
-    public Boolean getSold() {
-        return sold;
     }
 
     public void setSold(Boolean sold) {
@@ -61,18 +51,6 @@ public class PropertySale extends Property {
 
     public void setAgent(Agent agent) {
         this.agent = agent;
-    }
-
-    public List<ImagePropertySale> getImages() {
-        return images;
-    }
-
-    public void setImages(List<ImagePropertySale> images) {
-        this.images = images;
-    }
-
-    public String getTypeProperty() {
-        return typeProperty;
     }
 
     public void setTypeProperty(String typeProperty) {

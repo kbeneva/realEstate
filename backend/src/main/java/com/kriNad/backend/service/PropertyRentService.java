@@ -19,10 +19,6 @@ public class PropertyRentService {
     @Autowired
     private AgentRepository agentRepository;
 
-    public List<PropertyRent> getAll() {
-        return propertyRentRepository.findAll();
-    }
-
     public Optional<PropertyRent> getById(Long id) {
         return propertyRentRepository.findById(id);
     }

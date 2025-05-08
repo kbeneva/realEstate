@@ -5,7 +5,7 @@ import com.kriNad.backend.model.personne.Customer;
 import com.kriNad.backend.model.property.ImagePropertySale;
 import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.CustomerRepository;
-import com.kriNad.backend.repositories.ImagePropertySaleRepositories;
+import com.kriNad.backend.repositories.ImagePropertySaleRepository;
 import com.kriNad.backend.repositories.PropertySaleRepository;
 import com.kriNad.backend.service.PropertySaleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +26,12 @@ public class PropertySaleController {
     private PropertySaleRepository propertySaleRepository;
 
     @Autowired
-    private ImagePropertySaleRepositories imagePropertySaleRepositories;
+    private ImagePropertySaleRepository imagePropertySaleRepository;
 
     @Autowired
     private CustomerRepository customerRepository;
 
+    //????????????????????
     @GetMapping("/getAllProperty")
     public List<PropertySale> getAll() {
         return propertySaleService.getAll();
@@ -100,7 +101,7 @@ public class PropertySaleController {
             ImagePropertySale image = new ImagePropertySale();
             image.setImageLink(imageLink);
             image.setPropertySale(savedProperty);
-            imagePropertySaleRepositories.save(image);
+            imagePropertySaleRepository.save(image);
         }
 
         return savedProperty;

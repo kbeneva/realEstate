@@ -223,17 +223,7 @@ function FormVendre() {
                             />
                             Terrain
                         </label>
-                        <label className="radioText">
-                            <input
-                                name="categorie"
-                                type="radio"
-                                className="radio"
-                                value="Farm"
-                                onChange={handleChange}
-                                required
-                            />
-                            Farm
-                        </label>
+
                         <label className="radioText">
                             <input
                                 name="categorie"

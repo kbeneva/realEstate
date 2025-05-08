@@ -5,7 +5,7 @@ import com.kriNad.backend.model.personne.Customer;
 import com.kriNad.backend.model.property.ImagePropertyRent;
 import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.repositories.CustomerRepository;
-import com.kriNad.backend.repositories.ImagePropertyRentRepositories;
+import com.kriNad.backend.repositories.ImagePropertyRentRepository;
 import com.kriNad.backend.repositories.PropertyRentRepository;
 import com.kriNad.backend.service.PropertyRentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +25,12 @@ public class PropertyRentController {
     private CustomerRepository customerRepository;
 
     @Autowired
-    private ImagePropertyRentRepositories imagePropertyRentRepositories;
+    private ImagePropertyRentRepository imagePropertyRentRepository;
 
     @Autowired
     private PropertyRentRepository propertyRentRepository;
 
-    @GetMapping("/getAllProperty")
-    public List<PropertyRent> getAll() {
-        return propertyRentService.getAll();
-    }
-
+    //?????????????
     @GetMapping("/{id}")
     public PropertyRent getById(@PathVariable Long id) {
         return propertyRentService.getById(id).orElseThrow();
@@ -93,7 +89,7 @@ public class PropertyRentController {
             ImagePropertyRent image = new ImagePropertyRent();
             image.setImageLink(imageLink);
             image.setPropertyRent(savedProperty);
-            imagePropertyRentRepositories.save(image);
+            imagePropertyRentRepository.save(image);
         }
 
         return savedProperty;

@@ -16,11 +16,7 @@ public class ImagePropertySaleController {
     @Autowired
     ImagePropertySaleService imagePropertySaleService;
 
-    @GetMapping("/getAllImageSaleProperty")
-    public List<ImagePropertySale> getAll(){
-        return imagePropertySaleService.getAll();
-
-    } @GetMapping("/getAllImagesByPropertyId")
+    @GetMapping("/getAllImagesByPropertyId")
     public List<String> getAllImagesByPropertyId(Long propertyIdProperty){
         return imagePropertySaleService.getAllImagesByPropertyId(propertyIdProperty);
     }

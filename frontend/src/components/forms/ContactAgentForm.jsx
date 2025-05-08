@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import "./contactAgent.css"
+import "./ContactAgent.css"
 import Box from "@mui/material/Box";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
@@ -126,7 +126,7 @@ function ContactAgentForm() {
 
                         </div>
 
-                        <button type={"submit"} value={"Submit"}>submit</button>
+                        <button type={"submit"} value={"Submit"}>Submit</button>
 
                     </form>
 
@@ -136,7 +136,9 @@ function ContactAgentForm() {
 
                     <div className={"agentContainer"}>
                         <div className={"pfp"}>
-                            <img src={"/pfp.jpg"} alt={"agent pfp"}/>
+                            <img src={"/user.png"}
+                                 style={{background: "#086788", borderRadius: "100%", padding: "20px"}}
+                                 alt={"agent pfp"}/>
                         </div>
 
 

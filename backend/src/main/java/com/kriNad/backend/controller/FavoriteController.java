@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Favorites")
-@CrossOrigin(origins = "http://localhost:9292")
+@CrossOrigin(origins = "*")
 public class FavoriteController {
 
     @Autowired

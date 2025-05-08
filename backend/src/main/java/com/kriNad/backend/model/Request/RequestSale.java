@@ -1,4 +1,4 @@
-package com.kriNad.backend.model.DemandeSoumission.Demande;
+package com.kriNad.backend.model.Request;
 
 import com.kriNad.backend.model.property.PropertySale;
 import jakarta.persistence.*;
@@ -14,9 +14,5 @@ public class RequestSale extends Request {
 
     public PropertySale getPropertySale() {
         return propertySale;
-    }
-
-    public void setPropertySale(PropertySale propertySale) {
-        this.propertySale = propertySale;
     }
 }

@@ -6,9 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface OccupantRepository extends JpaRepository<Occupant, Long> {
 
-
     @Query("select count(c) from Customer c where c.occupant.id = (select pr.occupant.id from PropertyRent pr where pr.idProperty = ?1)")
     Long countOccupantByProperty(Long propertyId);
-
-
 }

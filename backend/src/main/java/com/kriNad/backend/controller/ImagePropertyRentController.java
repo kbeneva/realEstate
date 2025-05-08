@@ -15,11 +15,6 @@ public class ImagePropertyRentController {
     @Autowired
     ImagePropertyRentService imagePropertyRentService;
 
-    @GetMapping("/getAllImageRent")
-    public List<ImagePropertyRent> getAll(){
-        return imagePropertyRentService.getAll();
-    }
-
     @GetMapping("/getAllImagesByPropertyId")
     public List<String> getAllImagesByPropertyId(@RequestParam Long propertyIdProperty){
         return imagePropertyRentService.getAllImagesByPropertyId(propertyIdProperty);

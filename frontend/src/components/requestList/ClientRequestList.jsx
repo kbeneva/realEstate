@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import Card from "react-bootstrap/Card";
-import "./clientRequestList.css"
+import "./ClientRequestList.css"
 import {MdDelete} from "react-icons/md";
 import ImagePropertyList from "../propertiesDisplay/ImagePropertyList.jsx";
 import {Link} from "react-router-dom";
@@ -99,9 +99,10 @@ function ClientRequestList() {
 
                                         <div> {data.creationDate}</div>
                                         <div className={"statusSection"} style={{
-                                            background: data.statusDemande === "accepted" ? "#6abd71"
-                                                : data.statusDemande === "rejected" ? "#FF6F61" : "#FFB02E"
-                                        }}> {data.statusDemande}</div>
+                                            background: data.statusDemande === "accepted" ? "#d4edda"
+                                                : data.statusDemande === "rejected" ? "#f8d7da" : "#fff3cd",   color: data.statusDemande === "accepted" ? "#155724"
+                                                : data.statusDemande === "rejected" ? "#721c24" : "#856404"
+                                        }}> {CapitalizedText(data.statusDemande)}</div>
                                     </div>
                                 </div>
 

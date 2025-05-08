@@ -4,7 +4,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.util.Date;
 
-
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class Property {
@@ -27,22 +26,9 @@ public class Property {
     private Date creationDate;
 
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public String getCategorie() {
         return categorie;
@@ -52,64 +38,32 @@ public class Property {
         this.categorie = categorie;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public String getAddress() {
-        return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public Long getNbRooms() {
-        return nbRooms;
-    }
-
     public void setNbRooms(Long nbChambre) {
         this.nbRooms = nbChambre;
-    }
-
-    public Long getNbBathrooms() {
-        return nbBathrooms;
     }
 
     public void setNbBathrooms(Long nbSalleBain) {
         this.nbBathrooms = nbSalleBain;
     }
 
-    public Long getNbParkingSpace() {
-        return nbParkingSpace;
-    }
-
     public void setNbParkingSpace(Long nbstationnement) {
         this.nbParkingSpace = nbstationnement;
-    }
-
-    public Long getNbGarages() {
-        return nbGarages;
     }
 
     public void setNbGarages(Long nbGarage) {
         this.nbGarages = nbGarage;
     }
 
-    public Double getArea() {
-        return area;
-    }
-
     public void setArea(Double superficie) {
         this.area = superficie;
-    }
-
-    public Long getConstructionYear() {
-        return ConstructionYear;
     }
 
     public void setConstructionYear(Long anneeConstruction) {
@@ -124,9 +78,6 @@ public class Property {
         this.city = city;
     }
 
-    public Boolean getIsAccepted() {
-        return isAccepted;
-    }
     public void setIsAccepted(Boolean isAccepted) {
         this.isAccepted = isAccepted;
     }

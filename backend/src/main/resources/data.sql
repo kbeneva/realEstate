@@ -26,8 +26,6 @@ values (11, 'Yehudi', 'Vittery', 'yvitterya@nsw.gov.au', '969-600-0719',
        (15, 'Carmella', 'le Keux', 'clekeuxe@twitpic.com', '752-880-7347',
         '$2y$10$7cjgKmhcGnUBmtIda9yAj.TeG1kpokld9fDYmrCeWVYaNhkssltQq');
 
-
-
 insert into property_rent (id_property, city, description, categorie, price, address, nb_rooms, nb_bathrooms,
                            nb_parking_space, nb_garages, area, construction_year, rent, max_occupants, agent_id_user,
                            customer_id_user, is_accepted)
@@ -67,7 +65,6 @@ VALUES (9292038, 'Montreal',
 insert into property_sale (id_property, city, description, categorie, price, address, nb_rooms, nb_bathrooms,
                            nb_parking_space, nb_garages, area, construction_year, sold, agent_id_user, customer_id_user,
                            is_accepted)
-
 
 VALUES (9028802, 'Laval',
         'This semi-detached house renovated in 2022-2023 offers 4 bedrooms, a modern kitchen, a finished basement, a large fenced garden, and is ideally located in a family neighborhood in Fabreville.',
@@ -147,8 +144,6 @@ VALUES (9028802, 'Laval',
         'Intergenerational house on Île Verte in Laval, with 4 bedrooms and waterfront view, near REM.', 'House',
         700000, '1604 Rue Boisvert', 5, 4, 0, 3, 2300, 2005, false, 10, 15, true);
 
-
-
 insert into image_property_rent (property_rent_id_property, image_link)
 
 values (9292038, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC86C02EDDB37FDAD10&t=pi&f=I'),
@@ -196,7 +191,6 @@ values (9292038, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC86C02EDD
        (9641462, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC7C0CCDDDF2136A1E1&t=pi&f=I'),
        (9641462, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC7C0C48DDF2136A1A0&t=pi&f=I'),
        (9641462, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC7C0C24DDF2136A10C&t=pi&f=I'),
-
        (10211985, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC311977DDF934F1D1C&t=pi&f=I'),
        (10211985, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC311938DDF934F1D4C&t=pi&f=I'),
        (10211985, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC311979DDF934F1D2E&t=pi&f=I'),
@@ -233,8 +227,6 @@ values (9292038, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC86C02EDD
        (10419184, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC89F1A8DDF5696D19E&t=pi&f=I'),
        (10419184, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC89F1A9DDF5696D170&t=pi&f=I'),
        (10419184, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC70451FDDF5696D13B&t=pi&f=I'),
-
-
        (10733100, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC23CEDCDD827A47D1F&t=pi&f=I'),
        (10733100, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC23CEDEDD827A47D41&t=pi&f=I'),
        (10733100, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC23CED2DD827A47D2D&t=pi&f=I'),
@@ -257,7 +249,6 @@ values (9292038, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC86C02EDD
        (10733100, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC0A4937DD8ADF8E1D2&t=pi&f=I'),
        (10733100, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC0A4933DD8ADF8E11E&t=pi&f=I'),
        (10733100, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC0A4935DD8ADF8E140&t=pi&f=I'),
-
        (11066572, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC70EA4ADD8B3777D1C&t=pi&f=I'),
        (11066572, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC709BD8DD8B3777D4F&t=pi&f=I'),
        (11066572, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC70EA47DD8B3777D2F&t=pi&f=I'),
@@ -273,7 +264,6 @@ values (9292038, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC86C02EDD
        (11066572, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC70EA2EDD8B3777D32&t=pi&f=I'),
        (11066572, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC70EA22DD8B3777D54&t=pi&f=I'),
        (11066572, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC70EA2CDD8B3777D6C&t=pi&f=I'),
-
        (11221916, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC8E2FFBDD8929F7D42&t=pi&f=I'),
        (11221916, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC8E2FFFDD8929F7D2E&t=pi&f=I'),
        (11221916, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC8A71A0DD8929F7DCD&t=pi&f=I'),
@@ -400,10 +390,7 @@ values (9292038, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC86C02EDD
        (13450135, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC32206EDD7329F0191&t=pi&f=I'),
        (11221916, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC8E2FF0DD8929F7D11&t=pi&f=I');
 
-
-
 insert into image_property_sale (property_sale_id_property, image_link)
-
 
 values (11201518, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC3D980DDD885955D1C&t=pi&f=I'),
        (11201518, 'https://mediaserver.centris.ca/media.ashx?id=ADDED26DC3D980CDD885955D4F&t=pi&f=I'),

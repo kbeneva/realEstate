@@ -14,7 +14,7 @@ public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long
     @Query("SELECT pr FROM PropertyRent pr WHERE pr.customer.idUser = ?1")
     List<PropertyRent> getPropertyByCustomer(Long customerId);
 
-    @Query("SELECT pr FROM PropertyRent pr WHERE pr.agent IS NULL")
+    @Query("SELECT pr FROM PropertyRent pr WHERE pr.agent IS NULL and pr.isAccepted is NULL")
     List<PropertyRent> findUnassignedPendingRents();
 
     @Query("SELECT pr FROM PropertyRent pr WHERE pr.isAccepted = true AND " +

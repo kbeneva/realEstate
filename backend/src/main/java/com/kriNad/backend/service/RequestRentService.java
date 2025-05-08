@@ -3,12 +3,10 @@ package com.kriNad.backend.service;
 import com.kriNad.backend.exception.CustomerNotFoundException;
 import com.kriNad.backend.exception.RequestAppliedRentException;
 import com.kriNad.backend.exception.RequestNotFoundException;
-import com.kriNad.backend.model.DemandeSoumission.Demande.RequestRent;
-import com.kriNad.backend.model.DemandeSoumission.Demande.RequestSale;
+import com.kriNad.backend.model.Request.RequestRent;
 import com.kriNad.backend.model.personne.Customer;
 import com.kriNad.backend.model.property.Occupant;
 import com.kriNad.backend.model.property.PropertyRent;
-import com.kriNad.backend.model.property.PropertySale;
 import com.kriNad.backend.repositories.*;
 import org.springframework.stereotype.Service;
 
@@ -34,9 +32,7 @@ public class RequestRentService {
         this.propertyRentService = propertyRentService;
     }
 
-
     //////Get
-
     public RequestRent getRequestRentById(Long IdDemande) {
         return requestRentRepository.findById(IdDemande).orElseThrow(() -> new RequestNotFoundException());
     }
@@ -52,19 +48,13 @@ public class RequestRentService {
         return customerRepository.findById(idUser).orElseThrow(() -> new CustomerNotFoundException(idUser));
     }
 
-    public Occupant getOccupantById(Long id) {
-        return occupantRepository.findById(id).orElseThrow(() -> new RuntimeException("Occupant id " + id + " not found"));
-    }
-
     ////Verify
     public boolean isApplied(Long customerId, Long propertyRentId) {
         return requestRentRepository.existsByCustomer_IdAndPropertyRent_IdProperty(customerId, propertyRentId);
 
     }
 
-
     /////Create
-
     public RequestRent createRequest(RequestRent requestRent){
         if (isApplied(requestRent.getCustomer().getId(), requestRent.getPropertyRent().getIdProperty())){
             throw new RequestAppliedRentException(requestRent);
@@ -72,7 +62,7 @@ public class RequestRentService {
         return requestRentRepository.save(requestRent);
     }
 
-    ////////////////update////////////////////////////////////
+    ////////////////Update | Delete, Accept////////////////////////////////////
     public RequestRent updateRequest(Long IdDemande, String status) {
 
         return requestRentRepository.findById(IdDemande).map(requestRent -> {
@@ -89,8 +79,8 @@ public class RequestRentService {
     public RequestRent rejectRequest(Long IdDemande) {
         return updateRequest(IdDemande, requestStatus.get(1));
     }
-    //////////////////////////////////////////////////////////////
 
+    /////////////////////////Update Occupants/////////////////////////////////////
     public PropertyRent updateOccupant(Long IdDemande, Long idUser){
         Customer customer = getCustomerById(idUser);
         RequestRent requestRent = requestRentRepository.findById(IdDemande).orElseThrow(() -> new RequestNotFoundException());
@@ -105,14 +95,13 @@ public class RequestRentService {
             propertyRentRepository.save(propertyRent);
         }
 
-
         customer.setOccupant(occupant);
         customerRepository.save(customer);
 
-         return propertyRentRepository.save(propertyRent);
+        return propertyRentRepository.save(propertyRent);
     }
 
-
+    /////////////////////////Remove property from market/////////////////////////////////////
     public PropertyRent updateMaxOccupant(Long IdDemande, Long idUser){
         PropertyRent propertyRent = updateOccupant(IdDemande, idUser);
         Long countOccpants = occupantRepository.countOccupantByProperty(propertyRent.getIdProperty());
@@ -127,10 +116,6 @@ public class RequestRentService {
         return propertyRent;
     }
 
-    ///////////////////////////////////////////////////////////////////////////
-
-
-
     /////////////////Delete//////////////////////////////////////
     public void deleteRequestWithId(Long IdDemande) {
 
@@ -141,8 +126,5 @@ public class RequestRentService {
         } else {
             requestRentRepository.deleteById(IdDemande);
         }
-
     }
-
-
 }

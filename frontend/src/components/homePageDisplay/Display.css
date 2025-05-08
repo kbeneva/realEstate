@@ -11,11 +11,15 @@
     box-sizing: border-box;
 }
 
+
+
 .blue1 {
     background-color: white;
     color: #086788;
     .displayButton {
         background-color: #086788;
+        color: white;
+
     }
 }
 
@@ -24,6 +28,9 @@
     color: #3134C8;
     .displayButton {
         background-color: #3134C8;
+        color: white;
+
+
     }
 }
 
@@ -114,5 +121,6 @@
 
     .buttonContainer {
         gap: 20px;
+        justify-content: center;
     }
 }

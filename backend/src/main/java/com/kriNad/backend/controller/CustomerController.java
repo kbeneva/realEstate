@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Customer")
-@CrossOrigin(origins = "http://localhost:9292")
+@CrossOrigin(origins = "*")
 public class CustomerController {
 
     @Autowired
@@ -19,14 +19,5 @@ public class CustomerController {
     @GetMapping("/listCustomers")
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
-    }
-
-    @DeleteMapping("/findCustomer/{id}")
-    String deleteCustomer(@PathVariable Long id){
-        if(!customerRepository.existsById(id)){
-            throw new CustomerNotFoundException(id);
-        }
-        customerRepository.deleteById(id);
-        return  "Customer with id "+id+" has been deleted success.";
     }
 }

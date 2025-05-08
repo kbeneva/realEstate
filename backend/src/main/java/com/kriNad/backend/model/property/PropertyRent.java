@@ -4,8 +4,6 @@ import com.kriNad.backend.model.personne.Customer;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.util.List;
-
 @Entity
 public class PropertyRent extends Property {
 
@@ -16,20 +14,11 @@ public class PropertyRent extends Property {
     private boolean rent;
     private Long maxOccupants;
 
-
     @ColumnDefault("'rent'")
     private String typeProperty;
 
     public Long getIdProperty() {
         return idProperty;
-    }
-
-    public void setIdProperty(Long idProperty) {
-        this.idProperty = idProperty;
-    }
-
-    public boolean isRent() {
-        return rent;
     }
 
     public void setRent(boolean rent) {
@@ -42,10 +31,6 @@ public class PropertyRent extends Property {
 
     public void setMaxOccupants(Long maxOccupants) {
         this.maxOccupants = maxOccupants;
-    }
-
-    public String getTypeProperty() {
-        return typeProperty;
     }
 
     public void setTypeProperty(String typeProperty) {
@@ -84,7 +69,4 @@ public class PropertyRent extends Property {
 
     @ManyToOne
     private Occupant occupant;
-
-
-
 }

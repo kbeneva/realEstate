@@ -19,6 +19,7 @@
 }
 
 .statusRequest {
+
     justify-content: space-between;
     flex-direction: column;
     display: flex;
@@ -33,6 +34,7 @@
 
 
 .statusSection {
+    margin-top: 20px;
     color: black;
     font-weight: bold;
     padding: 10px;
@@ -125,6 +127,7 @@
 
 .acceptRequest {
     background: #6abd71;
+    color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
 
 
@@ -132,7 +135,7 @@
 
 .rejectRequest {
     background: #FF6F61;
-    color: #1a1a1a;
+    color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
 }
 

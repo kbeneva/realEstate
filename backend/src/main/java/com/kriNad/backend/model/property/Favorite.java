@@ -19,13 +19,6 @@ public class Favorite {
     @ManyToOne
     private PropertyRent propertyRent;
 
-    public Long getIdFavorite() {
-        return idFavorite;
-    }
-
-    public void setIdFavorite(Long idFavorite) {
-        this.idFavorite = idFavorite;
-    }
 
     public Customer getCustomer() {
         return customer;
@@ -35,16 +28,8 @@ public class Favorite {
         this.customer = customer;
     }
 
-    public PropertySale getPropertySale() {
-        return propertySale;
-    }
-
     public void setPropertySale(PropertySale propertySale) {
         this.propertySale = propertySale;
-    }
-
-    public PropertyRent getPropertyRent() {
-        return propertyRent;
     }
 
     public void setPropertyRent(PropertyRent propertyRent) {

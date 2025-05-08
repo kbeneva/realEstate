@@ -1,5 +1,4 @@
-package com.kriNad.backend.model.DemandeSoumission.Demande;
-
+package com.kriNad.backend.model.Request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kriNad.backend.model.personne.Agent;
@@ -10,14 +9,12 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
-
 @MappedSuperclass
 public class Request {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "unique_seq")
-    private long IdDemande;
+    private long idDemande;
     private String typeDemande;
     private String description;
 
@@ -28,7 +25,6 @@ public class Request {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date creationDate;
 
-
     @ManyToOne
     private Agent agent;
 
@@ -36,46 +32,12 @@ public class Request {
     private Customer customer;
 
 
-    public Long getIdDemande() {
-        return IdDemande;
-    }
-
-    public void setIdDemande(long idDemande) {
-        IdDemande = idDemande;
-    }
-
-    public String getTypeDemande() {
-        return typeDemande;
-    }
-
-    public void setTypeDemande(String typeDemande) {
-        this.typeDemande = typeDemande;
-    }
-
     public String getStatusDemande() {
         return statusDemande;
     }
 
     public void setStatusDemande(String statusDemande) {
         this.statusDemande = statusDemande;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Agent getAgent() {

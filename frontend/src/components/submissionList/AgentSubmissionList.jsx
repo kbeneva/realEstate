@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "../../pages/profilClient/CustomerProfile.css";
-import "../requestList/clientRequestList.css";
+import "../requestList/ClientRequestList.css";
 import { FaCheck } from "react-icons/fa";
 import { RiCloseLargeFill } from "react-icons/ri";
 import "./AgentSubmissionList.css";
@@ -92,8 +92,8 @@ function AgentSubmissionList() {
 
                                     <div className="clientCard">
                                         <div className="agentContainer">
-                                            <div className="pfp">
-                                                <img src="/pfp.jpg" alt="client pfp" />
+                                            <div className="pfp" style={{background:"#086788", borderRadius:"100%", padding:"20px"}}>
+                                                <img src="/user.png" alt="client pfp"  style={{borderRadius:"100%"}}/>
                                             </div>
                                             <div className="agentDetails">
                                                 <div className="nameAgent">

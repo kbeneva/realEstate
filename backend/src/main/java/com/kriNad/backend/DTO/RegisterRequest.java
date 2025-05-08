@@ -11,16 +11,8 @@ public class RegisterRequest {
         return fname;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
-
     public String getLname() {
         return lname;
-    }
-
-    public void setLname(String lname) {
-        this.lname = lname;
     }
 
     public String getEmail() {
@@ -35,15 +27,7 @@ public class RegisterRequest {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

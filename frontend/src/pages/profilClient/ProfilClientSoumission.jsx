@@ -7,7 +7,7 @@ import axios from "axios";
 import { FaLocationDot } from "react-icons/fa6";
 import ImagePropertyList from "../../components/propertiesDisplay/ImagePropertyList.jsx";
 import Card from "react-bootstrap/Card";
-import "../../components/requestList/clientRequestList.css";
+import "../../components/requestList/ClientRequestList.css";
 
 function ProfilClientSoumission() {
     const [activeTab, setActiveTab] = useState("submissions");
