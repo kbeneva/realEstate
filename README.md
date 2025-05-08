@@ -37,7 +37,7 @@ HomeBreeze offre la possibilité de gérer des offres immobilières, aussi bien 
 - [x] Faire une demande pour acheter
 - [x] supprimer ses demandes
 - [x] Accepter les demandes
-- [ ] Accepter les soumissions
+- [x] Accepter les soumissions
       
    À venir ...
 ---
