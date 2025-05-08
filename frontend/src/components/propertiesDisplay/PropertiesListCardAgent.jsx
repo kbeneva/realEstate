@@ -17,8 +17,8 @@ function PropertiesListCardAgent() {
 
 
     const data = [
-        `http://www.localhost:9696/propertyRent/agent/${idAgent}`,
-        `http://www.localhost:9696/propertySale/agent/${idAgent}`,
+        `http://localhost:9696/PropertySale/agent/${idAgent}`,
+        `http://localhost:9696/PropertyRent/agent/${idAgent}`,
     ];
 
 

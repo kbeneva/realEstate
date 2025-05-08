@@ -80,16 +80,15 @@ body {
 .agentContainer {
     background: #aed5e1;
     display: flex;
-    align-self: flex-start;
-    position: sticky;
     padding: 20px;
-    gap: 3rem;
-
+    gap: 2rem;
+    align-items: center;
 
 }
 
 .agentDetails {
     text-align: start;
+
 }
 
 .nameAgent {
@@ -117,7 +116,9 @@ body {
 }
 
 .descAgent {
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding-top: 50px;
     gap: 7rem;
 

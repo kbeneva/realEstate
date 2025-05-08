@@ -41,7 +41,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     const loadAllProperty = async () => {
         try {
             const result = await axios.get(`http://localhost:9696/Property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
-                setProperty(result.data)
+            setProperty(result.data.filter(property => property.customer?.id !== user.idUser && property.occupant?.id !== user.idUser));
 
         } catch (error) {
             console.error("Error fetching properties:", error);

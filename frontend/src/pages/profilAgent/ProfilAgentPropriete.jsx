@@ -46,6 +46,7 @@ function ProfilAgentPropriete() {
     };
 
 
+
     useEffect(() => {
         loadAgentProperties();
     }, []);
@@ -88,6 +89,7 @@ function ProfilAgentPropriete() {
                             const type = property.typeProperty === "rent" ? "Rent" : "Sale";
                             return (
                                 <Card key={property.idProperty}>
+
                                     <Link to={`/property/${CapitalizedText(type)}/${property.idProperty}`}>
                                         <div className="carouselHolder">
                                             <ImagePropertyList idPropriete={property.idProperty} typeProprety={type} />
