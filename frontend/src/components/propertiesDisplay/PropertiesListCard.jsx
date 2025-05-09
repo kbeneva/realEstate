@@ -143,7 +143,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
         <div id="cardProperties">
 
             {tabProperty.length === 0 ? (
-                <div style={{ textAlign: "center", padding: "40px", fontSize: "20px", color: "gray" }}>
+                <div style={{textAlign: "center", padding: "40px", fontSize: "20px", color: "gray"}}>
                     No properties found
                 </div>
             ) : (
