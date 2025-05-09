@@ -79,7 +79,7 @@ public class PropertyRentController {
         property.setCity(request.getCity());
         property.setIsAccepted(null);
         property.setCustomer(customer);
-        property.setRent(true);
+        property.setIsAvailable(true);
         property.setTypeProperty("rent");
         property.setMaxOccupants(request.getMaxOccupants());
 

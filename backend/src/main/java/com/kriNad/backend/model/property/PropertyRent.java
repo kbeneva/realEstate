@@ -11,7 +11,6 @@ public class PropertyRent extends Property {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProperty;
 
-    private boolean rent;
     private Long maxOccupants;
 
     @ColumnDefault("'rent'")
@@ -22,9 +21,6 @@ public class PropertyRent extends Property {
         this.idProperty = idProperty;
     }
 
-    public boolean isRent() {
-        return rent;
-    }
 
     public String getTypeProperty() {
         return typeProperty;
@@ -34,9 +30,6 @@ public class PropertyRent extends Property {
         return idProperty;
     }
 
-    public void setRent(boolean rent) {
-        this.rent = rent;
-    }
 
 
 

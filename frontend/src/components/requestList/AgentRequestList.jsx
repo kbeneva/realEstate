@@ -22,7 +22,7 @@ function AgentRequestList() {
         try {
             const results = await Promise.all(data.map(url => axios.get(url)));
             const allRequests = [...results[1].data, ...results[0].data]
-            setRequests(allRequests.filter(request => request.statusDemande === "pending" && request[`property${request.typeDemande}`].isAccepted === true)); // only showing what hasn't been treated and only properties that are still in the store
+            setRequests(allRequests.filter(request => request.statusDemande === "pending" && request[`property${request.typeDemande}`].isAvailable === true)); // only showing what hasn't been treated and only properties that are still in the store
 
         } catch (error) {
             console.error(error)

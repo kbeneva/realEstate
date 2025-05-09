@@ -91,7 +91,7 @@ public class PropertySaleController {
         property.setConstructionYear(request.getConstructionYear());
         property.setCity(request.getCity());
         property.setIsAccepted(null);
-        property.setSold(false);
+        property.setIsAvailable(true);
         property.setTypeProperty("sale");
         property.setCustomer(customer);
 

@@ -43,9 +43,9 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
             const result = await axios.get(`http://localhost:9696/Property${propertyType}/filtre?minPrice=${minPrice}&maxPrice=${maxPrice}&nbRooms=${nbRooms}&nbBathrooms=${nbBathrooms}&nbParking=${nbParking}&nbGarages=${nbGarages}&minArea=${minArea}&maxArea=${maxArea}&minYear=${minYear}&maxYear=${maxYear}&categorie=${categorie}&city=${city}`);
 
             if(user){
-                setProperty(result.data.filter(property => property.customer?.id !== user.idUser && property.occupant?.id !== user.idUser));
+                setProperty(result.data.filter(property => property.customer?.id !== user.idUser && property.occupant?.id !== user.idUser && property.isAvailable === true));
             }else{
-                setProperty(result.data);
+                setProperty(result.data.filter(property =>  property.isAvailable === true));
             }
 
 

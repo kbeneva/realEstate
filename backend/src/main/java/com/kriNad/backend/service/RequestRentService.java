@@ -9,6 +9,7 @@ import com.kriNad.backend.model.property.Occupant;
 import com.kriNad.backend.model.property.PropertyRent;
 import com.kriNad.backend.repositories.*;
 import org.springframework.stereotype.Service;
+import com.kriNad.backend.model.property.Property;
 
 import java.util.Arrays;
 import java.util.List;
@@ -108,7 +109,7 @@ public class RequestRentService {
         System.out.println( "nbr of occupant : " + countOccpants);
 
         if (propertyRent.getMaxOccupants() != null && propertyRent.getMaxOccupants().equals(countOccpants)){
-            propertyRent.setIsAccepted(false);
+            propertyRent.setIsAvailable(false);
             propertyRentRepository.save(propertyRent);
 
         }

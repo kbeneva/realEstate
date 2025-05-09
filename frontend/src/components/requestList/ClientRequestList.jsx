@@ -103,7 +103,7 @@ function ClientRequestList() {
                                                 : data.statusDemande === "rejected" ? "#721c24" : "#856404"
                                         }}> {CapitalizedText(data.statusDemande)}</div>
 
-                                        {data[`property${data.typeDemande}`].isAccepted !== true && (
+                                        {data[`property${data.typeDemande}`].isAvailable !== true && (
                                             <div>This property is not in the market anymore</div>
 
                                         )}

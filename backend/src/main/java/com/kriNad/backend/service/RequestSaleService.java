@@ -88,7 +88,7 @@ public class RequestSaleService {
 
         return propertySaleRepository.findById(idProperty).map(propertySale -> {
             propertySale.setCustomer(customer);
-            propertySale.setIsAccepted(false); //// retirer de l'affichage client
+            propertySale.setIsAvailable(false); //// retirer de l'affichage client
             return propertySaleRepository.save(propertySale);
         }).orElseThrow(() -> new PropertySaleNotFoundException(idProperty));
     }

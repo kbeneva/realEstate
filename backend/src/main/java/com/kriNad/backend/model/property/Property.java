@@ -21,10 +21,19 @@ public class Property {
     private Long ConstructionYear;
     private String city;
     private Boolean isAccepted;
+    private Boolean isAvailable;
 
 
 
 
+
+    public Boolean getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
 
     public String getDescription() {
         return description;

@@ -14,7 +14,6 @@ public class PropertySale extends Property {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProperty;
 
-    private Boolean sold;
 
     @ColumnDefault("'sale'")
     private String typeProperty;
@@ -33,17 +32,11 @@ public class PropertySale extends Property {
         return idProperty;
     }
 
-    public void setSold(Boolean sold) {
-        this.sold = sold;
-    }
 
     public void setIdProperty(Long idProperty) {
         this.idProperty = idProperty;
     }
 
-    public Boolean getSold() {
-        return sold;
-    }
 
     public String getTypeProperty() {
         return typeProperty;
