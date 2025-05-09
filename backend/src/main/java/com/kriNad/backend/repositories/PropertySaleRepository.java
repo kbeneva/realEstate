@@ -27,6 +27,6 @@ public interface PropertySaleRepository extends JpaRepository<PropertySale, Long
     @Query("select ps from PropertySale ps where ps.customer.idUser = ?1")
     List<PropertySale> getPropertyByCustomer(Long customerId);
 
-    @Query("SELECT ps FROM PropertySale ps WHERE ps.agent IS NULL")
+    @Query("SELECT ps FROM PropertySale ps WHERE ps.agent IS NULL AND ps.isAccepted IS NULL")
     List<PropertySale> findUnassignedPendingSales();
 }
