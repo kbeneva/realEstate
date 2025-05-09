@@ -62,13 +62,10 @@ public class Property {
         return ConstructionYear;
     }
 
-    public Boolean getAccepted() {
+    public Boolean getIsAccepted() {
         return isAccepted;
     }
 
-    public void setAccepted(Boolean accepted) {
-        isAccepted = accepted;
-    }
 
     public void setDescription(String description) {
         this.description = description;
