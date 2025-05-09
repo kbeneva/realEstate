@@ -31,6 +31,37 @@ public class Request {
     @ManyToOne
     private Customer customer;
 
+    public long getIdDemande() {
+        return idDemande;
+    }
+
+    public void setIdDemande(long idDemande) {
+        this.idDemande = idDemande;
+    }
+
+    public String getTypeDemande() {
+        return typeDemande;
+    }
+
+    public void setTypeDemande(String typeDemande) {
+        this.typeDemande = typeDemande;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 
     public String getStatusDemande() {
         return statusDemande;

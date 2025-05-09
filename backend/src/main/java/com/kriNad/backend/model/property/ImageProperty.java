@@ -13,6 +13,20 @@ public class ImageProperty {
     private String imageLink;
 
 
+
+
+    public Long getIdImage() {
+        return idImage;
+    }
+
+    public void setIdImage(Long idImage) {
+        this.idImage = idImage;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
     }

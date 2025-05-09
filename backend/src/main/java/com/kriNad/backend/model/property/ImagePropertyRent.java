@@ -12,4 +12,8 @@ public class ImagePropertyRent extends ImageProperty{
 
     @ManyToOne
     private PropertyRent propertyRent;
+
+    public PropertyRent getPropertyRent() {
+        return propertyRent;
+    }
 }

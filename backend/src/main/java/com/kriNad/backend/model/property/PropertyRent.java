@@ -17,6 +17,19 @@ public class PropertyRent extends Property {
     @ColumnDefault("'rent'")
     private String typeProperty;
 
+
+    public void setIdProperty(Long idProperty) {
+        this.idProperty = idProperty;
+    }
+
+    public boolean isRent() {
+        return rent;
+    }
+
+    public String getTypeProperty() {
+        return typeProperty;
+    }
+
     public Long getIdProperty() {
         return idProperty;
     }
@@ -24,6 +37,8 @@ public class PropertyRent extends Property {
     public void setRent(boolean rent) {
         this.rent = rent;
     }
+
+
 
     public Long getMaxOccupants() {
         return maxOccupants;

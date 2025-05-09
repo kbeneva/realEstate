@@ -20,6 +20,23 @@ public class Favorite {
     private PropertyRent propertyRent;
 
 
+
+    public Long getIdFavorite() {
+        return idFavorite;
+    }
+
+    public void setIdFavorite(Long idFavorite) {
+        this.idFavorite = idFavorite;
+    }
+
+    public PropertySale getPropertySale() {
+        return propertySale;
+    }
+
+    public PropertyRent getPropertyRent() {
+        return propertyRent;
+    }
+
     public Customer getCustomer() {
         return customer;
     }

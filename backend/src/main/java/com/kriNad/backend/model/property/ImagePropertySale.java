@@ -9,6 +9,9 @@ public class ImagePropertySale extends ImageProperty{
     @ManyToOne
     private PropertySale propertySale;
 
+    public PropertySale getPropertySale() {
+        return propertySale;
+    }
 
     public void setPropertySale(PropertySale propertySale) {
         this.propertySale = propertySale;

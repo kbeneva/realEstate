@@ -55,6 +55,9 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     };
 
 
+    console.log(tabProperty)
+
+
     const loadFavorites = async () => {
         if (!user) return;
         try {
@@ -138,7 +141,14 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
     return (
 
         <div id="cardProperties">
-            {tabProperty.map((data) => (
+
+            {tabProperty.length === 0 ? (
+                <div style={{ textAlign: "center", padding: "40px", fontSize: "20px", color: "gray" }}>
+                    No properties found
+                </div>
+            ) : (
+
+            tabProperty.map((data) => (
                 <Card key={data.idProperty}>
                     <Link to={`/property/${CapitalizedText(propertyType)}/${data.idProperty}`}>
                         <div className="carouselHolder">
@@ -148,7 +158,7 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
                             <div className="cardHeader" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                                 <div className="cardPrice" style={{ display: "flex", alignItems: "flex-end" }}>
                                     <Card.Title className="priceText" style={{ marginRight: "5px" }}>
-                                        {data.price.toLocaleString("fr-ca", { style: "currency", currency: "CAD" })}
+                                        {data.price ? data.price.toLocaleString("fr-ca", { style: "currency", currency: "CAD" })  : ""}
                                     </Card.Title>
                                     <span className="priceUnit"  style={{ fontSize: "15px", color: "#555" }}>
 
@@ -177,7 +187,9 @@ function PropertiesListCard(propsFilters) { // par défaut, les filtres seront n
                         </Card.Body>
                     </Link>
                 </Card>
-            ))}
+            ))
+
+            )}
 
 
             {showLoginPopup && (

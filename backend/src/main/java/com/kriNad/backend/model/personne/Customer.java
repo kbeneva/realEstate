@@ -9,6 +9,11 @@ public class Customer extends Personne {
     @ManyToOne
     private Occupant occupant;
 
+    public Occupant getOccupant() {
+        return occupant;
+    }
+
+
 
     public void setOccupant(Occupant occupant) {
         this.occupant = occupant;

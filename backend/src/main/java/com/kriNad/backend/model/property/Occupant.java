@@ -11,6 +11,7 @@ public class Occupant {
     private Long id;
 
 
+
     public void setId(Long id) {
         this.id = id;
     }

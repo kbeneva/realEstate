@@ -37,6 +37,26 @@ public class PropertySale extends Property {
         this.sold = sold;
     }
 
+    public void setIdProperty(Long idProperty) {
+        this.idProperty = idProperty;
+    }
+
+    public Boolean getSold() {
+        return sold;
+    }
+
+    public String getTypeProperty() {
+        return typeProperty;
+    }
+
+    public List<ImagePropertySale> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImagePropertySale> images) {
+        this.images = images;
+    }
+
     public Customer getCustomer() {
         return customer;
     }

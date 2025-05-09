@@ -22,9 +22,53 @@ public class Property {
     private String city;
     private Boolean isAccepted;
 
-    @CreatedDate
-    private Date creationDate;
 
+
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Long getNbRooms() {
+        return nbRooms;
+    }
+
+    public Long getNbBathrooms() {
+        return nbBathrooms;
+    }
+
+    public Long getNbParkingSpace() {
+        return nbParkingSpace;
+    }
+
+    public Long getNbGarages() {
+        return nbGarages;
+    }
+
+    public Double getArea() {
+        return area;
+    }
+
+    public Long getConstructionYear() {
+        return ConstructionYear;
+    }
+
+    public Boolean getAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(Boolean accepted) {
+        isAccepted = accepted;
+    }
 
     public void setDescription(String description) {
         this.description = description;

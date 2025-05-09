@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 public class Agent extends Personne {
     private Boolean agentAcces = true;
 
+
     @Override
     public Boolean getAgentAcces() {
         return agentAcces;

@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 public class Admin extends Personne {
     private Boolean adminAcces = true;
 
+
+
+
     @Override
     public Boolean getAdminAcces() {
         return adminAcces;

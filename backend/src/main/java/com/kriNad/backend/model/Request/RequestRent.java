@@ -13,6 +13,10 @@ public class RequestRent extends Request {
     @ManyToOne
     private PropertyRent propertyRent;
 
+    public void setPropertyRent(PropertyRent propertyRent) {
+        this.propertyRent = propertyRent;
+    }
+
     public PropertyRent getPropertyRent() {
         return propertyRent;
     }

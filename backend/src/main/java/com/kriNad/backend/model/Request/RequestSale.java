@@ -12,6 +12,10 @@ public class RequestSale extends Request {
     @ManyToOne
     private PropertySale propertySale;
 
+    public void setPropertySale(PropertySale propertySale) {
+        this.propertySale = propertySale;
+    }
+
     public PropertySale getPropertySale() {
         return propertySale;
     }

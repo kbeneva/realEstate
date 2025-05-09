@@ -7,7 +7,6 @@ import ImagePropertyList from "../propertiesDisplay/ImagePropertyList.jsx";
 import {Link} from "react-router-dom";
 
 
-
 function ClientRequestList() {
 
     const [tabRequests, setRequests] = useState([]);
@@ -71,12 +70,11 @@ function ClientRequestList() {
     console.log(tabRequests)
 
 
-
     return (
         <div>
 
             {tabRequests.length === 0 ? (
-                <div style={{ textAlign: "center", padding: "40px", fontSize: "20px", color: "gray" }}>
+                <div style={{textAlign: "center", padding: "40px", fontSize: "20px", color: "gray"}}>
                     You have no requests
                 </div>
             ) : (
@@ -100,9 +98,16 @@ function ClientRequestList() {
                                         <div> {data.creationDate}</div>
                                         <div className={"statusSection"} style={{
                                             background: data.statusDemande === "accepted" ? "#d4edda"
-                                                : data.statusDemande === "rejected" ? "#f8d7da" : "#fff3cd",   color: data.statusDemande === "accepted" ? "#155724"
+                                                : data.statusDemande === "rejected" ? "#f8d7da" : "#fff3cd",
+                                            color: data.statusDemande === "accepted" ? "#155724"
                                                 : data.statusDemande === "rejected" ? "#721c24" : "#856404"
                                         }}> {CapitalizedText(data.statusDemande)}</div>
+
+                                        {data[`property${data.typeDemande}`].accepted !== true && (
+                                            <div>This property is not in the market anymore</div>
+
+                                        )}
+
                                     </div>
                                 </div>
 
