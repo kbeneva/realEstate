@@ -9,6 +9,15 @@ public class Customer extends Personne {
     @ManyToOne
     private Occupant occupant;
 
+    public Customer() {
+    }
+
+
+    public Customer(Long idUser, String fname, String lname, String email) {
+        super(idUser, fname, lname, email);
+    }
+
+
     public Occupant getOccupant() {
         return occupant;
     }

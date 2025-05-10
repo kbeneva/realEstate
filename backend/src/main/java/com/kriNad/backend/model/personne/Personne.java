@@ -20,6 +20,19 @@ public class Personne {
     private Boolean adminAcces;
 
 
+    public Personne() {
+
+    }
+
+    public Personne(Long idUser, String fname, String lname, String email) {
+        this.idUser = idUser;
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+    }
+
+
+
     public Long getIdUser() {
         return idUser;
     }

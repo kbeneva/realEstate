@@ -1,5 +1,6 @@
 package com.kriNad.backend.model.Request;
 
+import com.kriNad.backend.model.personne.Agent;
 import com.kriNad.backend.model.property.PropertySale;
 import jakarta.persistence.*;
 
@@ -14,9 +15,14 @@ public class RequestSale extends Request {
     @ManyToOne
     private PropertySale propertySale;
 
-    public RequestSale(String description, String statusDemande, String typeDemande) {
-        super(description, statusDemande, typeDemande);
+    public RequestSale() {
+
     }
+
+    public RequestSale(String description, String statusDemande, String typeDemande, Agent agent) {
+        super(description, statusDemande, typeDemande, agent);
+    }
+
 
 
     public void setPropertySale(PropertySale propertySale) {

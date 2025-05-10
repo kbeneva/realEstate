@@ -6,6 +6,15 @@ import jakarta.persistence.*;
 public class Agent extends Personne {
     private Boolean agentAcces = true;
 
+    public Agent() {
+
+    }
+
+    public Agent(Long idUser, String fname, String lname, String email) {
+        super(idUser, fname, lname, email);
+    }
+
+
 
     @Override
     public Boolean getAgentAcces() {

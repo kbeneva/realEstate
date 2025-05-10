@@ -31,11 +31,16 @@ public class Request {
     @ManyToOne
     private Customer customer;
 
-    public Request(String description, String statusDemande, String typeDemande) {
+    public Request() {}
+
+    public Request(String description, String statusDemande, String typeDemande, Agent agent) {
         this.description = description;
         this.statusDemande = statusDemande;
         this.typeDemande = typeDemande;
+        this.agent = agent;
     }
+
+
 
     public long getIdDemande() {
         return idDemande;

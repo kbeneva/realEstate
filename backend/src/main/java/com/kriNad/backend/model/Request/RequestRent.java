@@ -1,5 +1,6 @@
 package com.kriNad.backend.model.Request;
 
+import com.kriNad.backend.model.personne.Agent;
 import com.kriNad.backend.model.property.PropertyRent;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -15,9 +16,15 @@ public class RequestRent extends Request {
     @ManyToOne
     private PropertyRent propertyRent;
 
-    public RequestRent(String description, String statusDemande, String typeDemande) {
-        super(description, statusDemande, typeDemande);
+    public RequestRent() {
+
     }
+
+    public RequestRent(String description, String statusDemande, String typeDemande, Agent agent) {
+        super(description, statusDemande, typeDemande, agent);
+    }
+
+
 
 
     public void setPropertyRent(PropertyRent propertyRent) {
