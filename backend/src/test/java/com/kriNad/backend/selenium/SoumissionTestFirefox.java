@@ -34,7 +34,7 @@ public class SoumissionTestFirefox {
 
                 WebElement submitConnexion = driver.findElement(By.id("submit-register"));
 
-//                / animation prend du temps pour selenium
+                // animation prend du temps pour selenium, alors il faut attendre que le bouton submitConnexion est là
                 Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
                 wait.until(d -> submitConnexion.isDisplayed());
 
@@ -71,9 +71,7 @@ public class SoumissionTestFirefox {
 
 
 
-//                String redirectUrl = "http://localhost:9292/customerProfileFavorites";
-//
-//                assertEquals(redirectUrl, driver.getCurrentUrl());
+
         }
 
 
