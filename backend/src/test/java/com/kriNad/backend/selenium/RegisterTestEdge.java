@@ -11,7 +11,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SoumissionTestEdge {
+public class RegisterTestEdge {
 
         private  WebDriver driver = new EdgeDriver();
 

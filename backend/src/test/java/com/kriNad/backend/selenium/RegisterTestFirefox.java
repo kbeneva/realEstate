@@ -3,30 +3,28 @@ package com.kriNad.backend.selenium;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SoumissionTestChrome {
+public class RegisterTestFirefox {
 
-        private WebDriver driver = new ChromeDriver();
+        private WebDriver driver = new FirefoxDriver();
 
         @BeforeEach
         public void setUp(){
-                System.setProperty("webdriver.chrome.driver", "data/chromedriver.exe");
+                System.setProperty("webdriver.gecko.driver", "data/geckodriver.exe");
 
         }
 
 
         @Test
-        public void testChrome(){
-
-
+        public void testFirefox(){
                 driver.get("http://localhost:9292/login");
 
                 WebElement toggleRegister = driver.findElement(By.id("register-toggle"));
@@ -35,7 +33,7 @@ public class SoumissionTestChrome {
 
                 WebElement submitConnexion = driver.findElement(By.id("submit-register"));
 
-               // animation prend du temps pour selenium, alors il faut attendre que le bouton submitConnexion est là
+                // animation prend du temps pour selenium, alors il faut attendre que le bouton submitConnexion est là
                 Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
                 wait.until(d -> submitConnexion.isDisplayed());
 
@@ -48,15 +46,13 @@ public class SoumissionTestChrome {
                 WebElement password = driver.findElement(By.name("password"));
 
 
-                fnameinput.sendKeys("chrome");
+                fnameinput.sendKeys("firefox");
                 lnameInput.sendKeys("selenium");
-                emailInput.sendKeys("333@gmail.com");
+                emailInput.sendKeys("sMiaw@gmail.com");
                 phoneInput.sendKeys("123456798");
                 password.sendKeys("123");
 
 
-
-                ///  toggleBox : L'animation pour switcher de conenxion à register empêche Selenium de cliquer sur le submit
                 try {
                         WebElement overlay = driver.findElement(By.className("toggleBox"));
                         if (overlay.isDisplayed()) {
@@ -67,12 +63,16 @@ public class SoumissionTestChrome {
                 }
 
 
-
+                /// un element (d'animtion) bloque le submit
                 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitConnexion);
 
 
 
+
+
+
         }
+
 
 
 
