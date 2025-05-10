@@ -31,6 +31,12 @@ public class Request {
     @ManyToOne
     private Customer customer;
 
+    public Request(String description, String statusDemande, String typeDemande) {
+        this.description = description;
+        this.statusDemande = statusDemande;
+        this.typeDemande = typeDemande;
+    }
+
     public long getIdDemande() {
         return idDemande;
     }
