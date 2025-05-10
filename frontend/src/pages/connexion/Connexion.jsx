@@ -101,7 +101,7 @@ function Connexion() {
                             <div className="connectionInputBox">
                                 <input type="password" placeholder="Password" className="connectionInput" />
                             </div>
-                            <button type="submit" className="connectionSubmitButton">Login</button>
+                            <button type="submit"  className="connectionSubmitButton">Login</button>
                         </form>
                     </div>
 
@@ -109,21 +109,21 @@ function Connexion() {
                         <form className="formWidth" onSubmit={handleRegister}>
                             <h1 className="connectionTitle">Register</h1>
                             <div className="connectionInputBox">
-                                <input type="text" placeholder="First name" className="connectionInput" required />
+                                <input type="text" placeholder="First name"  name="fname" className="connectionInput" required />
                             </div>
                             <div className="connectionInputBox">
-                                <input type="text" placeholder="Last name" className="connectionInput" required />
+                                <input type="text" placeholder="Last name" name="lname"  className="connectionInput" required />
                             </div>
                             <div className="connectionInputBox">
-                                <input type="email" placeholder="Email" className="connectionInput" required />
+                                <input type="email" placeholder="Email"   name="email" className="connectionInput" required />
                             </div>
                             <div className="connectionInputBox">
-                                <input type="text" placeholder="Phone" className="connectionInput" required />
+                                <input type="text" placeholder="Phone"  name="phone" className="connectionInput" required />
                             </div>
                             <div className="connectionInputBox">
-                                <input type="password" placeholder="Password" className="connectionInput" required />
+                                <input type="password" placeholder="Password"  name="password"  className="connectionInput" required />
                             </div>
-                            <button type="submit" className="connectionSubmitButton">Register</button>
+                            <button type="submit"  id="submit-register" className="connectionSubmitButton">Register</button>
                         </form>
                     </div>
 
@@ -131,7 +131,7 @@ function Connexion() {
                         <div className="togglePanel toggleLeft">
                             <h1 className="toggleTitle">Hello, Welcome</h1>
                             <p className="toggleText">Don&#39;t have an account?</p>
-                            <button className="registerToggleButton" onClick={handleRegisterClick}>Register</button>
+                            <button className="registerToggleButton" id="register-toggle" onClick={handleRegisterClick}>Register</button>
                         </div>
                         <div className="togglePanel toggleRight">
                             <h1 className="toggleTitle">Welcome back</h1>

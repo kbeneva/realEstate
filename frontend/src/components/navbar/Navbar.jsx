@@ -76,7 +76,7 @@ function Navbar() {
                     <button className="link formLink">Sell</button>
                 </Link>
                 <Link to="/rent">
-                    <button className="link formLink">Rent</button>
+                    <button  id="rent-button" className="link formLink">Rent</button>
                 </Link>
                 {user ? (
                     <div onClick={handleProfileClick} className="customerCardUserCircle" style={{ cursor: 'pointer' }}>

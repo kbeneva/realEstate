@@ -54,6 +54,26 @@
             <artifactId>spring-security-crypto</artifactId>
             <version>6.4.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.25.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.4.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v86 -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v86</artifactId>
+            <version>4.0.0-alpha-7</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

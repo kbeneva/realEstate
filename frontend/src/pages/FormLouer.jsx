@@ -109,7 +109,7 @@ function FormLouer() {
             {!started && (
                 <div className="startPage">
                     <h1>Rent your property with HomeBreeze</h1>
-                    <button className="startButton" onClick={handleStart}>Start</button>
+                    <button className="startButton" id="start-button" onClick={handleStart}>Start</button>
                 </div>
             )}
             {showLoginPopup && (
@@ -332,6 +332,7 @@ function FormLouer() {
                                 />
                                 {index > 0 && (
                                     <button
+                                        id="submit-rent"
                                         type="button"
                                         className={"removeImageButton"}
                                         onClick={() => handleRemoveImageInput(index)}
