@@ -6,6 +6,7 @@ import com.kriNad.backend.repositories.ImagePropertyRentRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+// nadine
 @Service
 public class ImagePropertyRentService {
 

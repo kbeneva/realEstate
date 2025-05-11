@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import "../profile/AdminCustomerCard.css";
 
+// kristina
 function Navbar() {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [user, setUser] = useState(null);

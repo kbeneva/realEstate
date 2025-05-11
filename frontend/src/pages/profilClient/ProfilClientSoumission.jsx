@@ -9,6 +9,8 @@ import ImagePropertyList from "../../components/propertiesDisplay/ImagePropertyL
 import Card from "react-bootstrap/Card";
 import "../../components/requestList/ClientRequestList.css";
 
+
+// kristina
 function ProfilClientSoumission() {
     const [activeTab, setActiveTab] = useState("submissions");
     const [submissions, setSubmissions] = useState([]);

@@ -8,6 +8,8 @@ import { RiCloseLargeFill } from "react-icons/ri";
 import "./AgentSubmissionList.css";
 import { FaLocationDot } from "react-icons/fa6";
 
+
+/// kristina
 function AgentSubmissionList() {
     const [submissions, setSubmissions] = useState([]);
     const user = JSON.parse(localStorage.getItem("user"));

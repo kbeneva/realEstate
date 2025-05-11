@@ -6,7 +6,7 @@ import {MdDelete} from "react-icons/md";
 import ImagePropertyList from "../propertiesDisplay/ImagePropertyList.jsx";
 import {Link} from "react-router-dom";
 
-
+// nadine
 function ClientRequestList() {
 
     const [tabRequests, setRequests] = useState([]);

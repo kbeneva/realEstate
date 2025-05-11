@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+
+//nadine
 public interface ImagePropertySaleRepository extends JpaRepository<ImagePropertySale, Long> {
 
     @Query("select im.propertySale.idProperty, im.imageLink from ImagePropertySale im where im.propertySale.idProperty=?1")

@@ -2,6 +2,8 @@ import React from 'react';
 import './Category.css';
 import {useFormContext} from "react-hook-form";
 
+// kristina
+// form filter : nadine
 function PropertyType() {
 
     const { register } = useFormContext();

@@ -10,7 +10,7 @@ import './PropertiesListCard.css';
 
 
 
-
+// nadine et kristina
 
 function PropertiesListCard(propsFilters) { // par défaut, les filtres seront null, (sauf le prix et la categorie)
 

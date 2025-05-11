@@ -8,6 +8,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import "./propertiesDisplay.css"
 
+
+// nadine
 function ImagePropertyList(props) {
 
 

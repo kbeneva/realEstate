@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './AdminCustomerCard.css';
 
+// kristina
 function AdminCustomerList() {
     const [customers, setCustomers] = useState([]);
 

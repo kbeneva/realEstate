@@ -10,6 +10,8 @@ import { FaBed, FaBath } from "react-icons/fa";
 import axios from "axios";
 import ImagePropertyList from "../../components/propertiesDisplay/ImagePropertyList.jsx";
 
+
+// kristina
 function ProfilClientFavoris() {
     const [activeTab, setActiveTab] = useState("favorites");
     const [favorites, setFavorites] = useState([]);

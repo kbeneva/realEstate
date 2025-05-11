@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+
+// nadine et kristina
 public interface PropertyRentRepository extends JpaRepository<PropertyRent, Long> {
 
     @Query("SELECT pr FROM PropertyRent pr WHERE pr.agent.idUser = ?1")

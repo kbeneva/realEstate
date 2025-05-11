@@ -1,6 +1,9 @@
 import './Features.css';
 import {useFormContext} from "react-hook-form";
 
+
+// kristina
+// form filter : nadine
 function Features() {
 
     const { register } = useFormContext();

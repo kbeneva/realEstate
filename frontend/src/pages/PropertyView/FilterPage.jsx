@@ -4,7 +4,7 @@ import  {useState} from 'react'
 import Filters from "../../components/filters/Filters.jsx";
 import "./filterPage.css"
 
-
+/// nadine
 function FilterPage() {
 
     const [filters, setFilters] = useState({})

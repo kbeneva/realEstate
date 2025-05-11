@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// nadine
 @Service
 public class ImagePropertySaleService {
 

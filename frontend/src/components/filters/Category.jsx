@@ -1,6 +1,8 @@
 import './Category.css';
 import {useFormContext} from "react-hook-form";
 
+// kristina
+// form filter : nadine
 function Category() {
 
     const {register} = useFormContext();

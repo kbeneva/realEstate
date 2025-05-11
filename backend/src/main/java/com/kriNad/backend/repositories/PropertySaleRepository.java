@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+
+//nadine et kristina
 public interface PropertySaleRepository extends JpaRepository<PropertySale, Long> {
 
     @Query("select ps from PropertySale ps" +

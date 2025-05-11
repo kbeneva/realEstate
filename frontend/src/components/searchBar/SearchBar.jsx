@@ -1,6 +1,7 @@
 import './SearchBar.css';
 import {useFormContext} from "react-hook-form";
 
+// kristina
 function SearchBar() {
 
     const { register } = useFormContext();

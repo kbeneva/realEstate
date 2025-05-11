@@ -4,6 +4,9 @@ import Slider from '@mui/material/Slider';
 import './Price.css';
 import {useFormContext} from "react-hook-form";
 
+
+// kristina
+// form filter : nadine
 function Price() {
 
     const { register, setValue } = useFormContext();

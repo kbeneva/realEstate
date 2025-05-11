@@ -9,7 +9,7 @@ import {FaLocationDot} from "react-icons/fa6";
 import {LuCircleParking} from "react-icons/lu";
 import {BiSolidCarGarage} from "react-icons/bi";
 
-
+// nadine
 function PropertyView() {
 
 

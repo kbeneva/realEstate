@@ -14,6 +14,8 @@ import com.kriNad.backend.model.property.Property;
 import java.util.Arrays;
 import java.util.List;
 
+
+// nadine
 @Service
 public class RequestRentService {
 

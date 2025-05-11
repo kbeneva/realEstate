@@ -9,6 +9,10 @@ import {useForm, FormProvider, useFormContext} from "react-hook-form"
 import SearchBar from "../searchBar/SearchBar.jsx";
 import {Link, useNavigate} from "react-router-dom";
 
+
+// kristina
+// form filter : nadine
+
 // eslint-disable-next-line react/prop-types
 function Filters( {setFilters}) {
     const [isCollapsed, setIsCollapsed] = useState(false);

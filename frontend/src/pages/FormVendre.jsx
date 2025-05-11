@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar.jsx";
 import "./Form.css";
 
+// kristina
 function FormVendre() {
     const [started, setStarted] = useState(false);
     const [showLoginPopup, setShowLoginPopup] = useState(false);

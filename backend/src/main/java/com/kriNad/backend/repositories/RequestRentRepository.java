@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+
+// nadine
 public interface RequestRentRepository extends JpaRepository<RequestRent, Long> {
 
     public boolean existsByCustomer_IdAndPropertyRent_IdProperty(Long customerId, Long propertyRentId);

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+// Kristina et Nadine
 @RestController
 @RequestMapping("/PropertySale")
 @CrossOrigin("*")

@@ -10,6 +10,8 @@ import { FaBed, FaBath } from "react-icons/fa";
 import axios from "axios";
 import ImagePropertyList from "../../components/propertiesDisplay/ImagePropertyList.jsx";
 
+
+// kristina
 function ProfilAgentPropriete() {
     const [activeTab, setActiveTab] = useState("properties");
     const [properties, setProperties] = useState([]);

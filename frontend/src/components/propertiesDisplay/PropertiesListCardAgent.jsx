@@ -9,6 +9,7 @@ import "./propertiesDisplay.css"
 import axios from "axios";
 
 
+// nadine
 function PropertiesListCardAgent() {
 
     const {idAgent} = useParams();

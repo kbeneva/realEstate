@@ -2,6 +2,8 @@ import React from 'react';
 import './Display.css';
 import {Link} from "react-router-dom";
 
+
+// kristina
 function Display(props) {
     return (
         <div>

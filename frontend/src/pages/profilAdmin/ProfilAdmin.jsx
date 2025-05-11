@@ -3,6 +3,8 @@ import '../../components/profile/ProfileCard.css';
 import AdminCustomerCard from "../../components/profile/AdminCustomerCard.jsx";
 import './ProfilAdmin.css';
 
+
+// kristina
 function ProfilAdmin() {
     return (
         <div>
