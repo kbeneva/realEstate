@@ -180,7 +180,8 @@ function FormVendre() {
                             <h3>Price</h3>
                             <input
                                 name="price"
-                                type="text"
+                                type="number"
+                                min={0}
                                 className="inputColor"
                                 placeholder="Price"
                                 value={formData.price}
@@ -251,6 +252,7 @@ function FormVendre() {
                     <input
                             name="nbRooms"
                             type="number"
+                            min={0}
                             className="featuresInput inputColor"
                             placeholder="Number of Rooms"
                             value={formData.nbRooms}
@@ -260,6 +262,7 @@ function FormVendre() {
                         <input
                             name="nbBathrooms"
                             type="number"
+                            min={0}
                             className="featuresInput inputColor"
                             placeholder="Number of Bathrooms"
                             value={formData.nbBathrooms}
@@ -269,6 +272,7 @@ function FormVendre() {
                         <input
                             name="nbParkingSpace"
                             type="number"
+                            min={0}
                             className="featuresInput inputColor"
                             placeholder="Number of Parking"
                             value={formData.nbParkingSpace}
@@ -278,6 +282,7 @@ function FormVendre() {
                         <input
                             name="nbGarages"
                             type="number"
+                            min={0}
                             className="featuresInput inputColor"
                             placeholder="Number of Garages"
                             value={formData.nbGarages}
@@ -290,7 +295,8 @@ function FormVendre() {
                             <h3>Area</h3>
                             <input
                                 name="area"
-                                type="text"
+                                type="number"
+                                min={0}
                                 className="inputColor"
                                 placeholder="Area (sqft)"
                                 value={formData.area}
@@ -302,7 +308,8 @@ function FormVendre() {
                             <h3>Construction Year</h3>
                             <input
                                 name="constructionYear"
-                                type="text"
+                                type="number"
+                                min={0}
                                 className="inputColor"
                                 placeholder="Construction Year"
                                 value={formData.constructionYear}

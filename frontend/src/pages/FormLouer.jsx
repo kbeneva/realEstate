@@ -176,7 +176,8 @@ function FormLouer() {
                             <h3>Price</h3>
                             <input
                                 name="price"
-                                type="text"
+                                type="number"
+                                min={0}
                                 className={"inputColor"}
                                 placeholder="Price"
                                 value={formData.price}
@@ -247,6 +248,7 @@ function FormLouer() {
                     <input
                             name="nbRooms"
                             type="number"
+                            min={0}
                             className={"featuresInput inputColor"}
                             placeholder="Number of Rooms"
                             value={formData.nbRooms}
@@ -256,6 +258,7 @@ function FormLouer() {
                         <input
                             name="nbBathrooms"
                             type="number"
+                            min={0}
                             className={"featuresInput inputColor"}
                             placeholder="Number of Bathrooms"
                             value={formData.nbBathrooms}
@@ -265,6 +268,7 @@ function FormLouer() {
                         <input
                             name="nbParkingSpace"
                             type="number"
+                            min={0}
                             className={"featuresInput inputColor"}
                             placeholder="Number of Parking"
                             value={formData.nbParkingSpace}
@@ -274,6 +278,7 @@ function FormLouer() {
                         <input
                             name="nbGarages"
                             type="number"
+                            min={0}
                             className={"featuresInput inputColor"}
                             placeholder="Number of Garages"
                             value={formData.nbGarages}
@@ -286,7 +291,8 @@ function FormLouer() {
                             <h3>Area</h3>
                             <input
                                 name="area"
-                                type="text"
+                                type="number"
+                                min={0}
                                 className={"inputColor"}
                                 placeholder="Area (sqft)"
                                 value={formData.area}
@@ -298,7 +304,8 @@ function FormLouer() {
                             <h3>Construction Year</h3>
                             <input
                                 name="constructionYear"
-                                type="text"
+                                type="number"
+                                min={0}
                                 className={"inputColor"}
                                 placeholder="Construction Year"
                                 value={formData.constructionYear}
@@ -312,6 +319,7 @@ function FormLouer() {
                         <input
                             name="maxOccupants"
                             type="number"
+                            min={0}
                             className={"inputColor"}
                             placeholder="Number of occupants"
                             value={formData.maxOccupants}
